@@ -14,7 +14,7 @@ templateEngineOverride: njk,md
         1130 Wien<br>
         contact@thomassemmler.com
     </p>
-    <small>This website will not track you. A cookie is being set when you change the accent color of the website.</small>
+    <small>This website will not track you. Changing the accent color the website will save it to the session storage which will be cleared once you close the browser.</small>
 </div>
 
 <div class="aside">
