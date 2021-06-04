@@ -1,0 +1,60 @@
+/* Call2Actions */
+.c2a {
+    --int-text-theme: var(--color, var(--color-accent-300));
+    /* set --theme in hue & saturation to change the color */
+    --int-hs-theme: var(--theme, var(--color-hs-primary));
+    /* set --darker to make the background darker */
+    --int-theme-darker: var(--darker, 0%);
+    /* allow darkening based on the default 300 lightness */
+    --int-l-theme: calc(25% - var(--int-theme-darker));
+    /* build the entire theme color */
+    --int-theme: hsl(var(--int-hs-theme) var(--int-l-theme));
+    --int-size: var(--size, .8em);
+    --int-spacing: .85em;
+    font-size: var(--int-size);
+    padding: var(--int-spacing) calc(var(--int-size) * 2);
+    border-radius: calc(1em + (var(--int-spacing) * 2));
+    font-family: var(--typeface-paragraphs);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 720px) {
+    .c2a {
+        --size: .925em;
+    }
+}
+
+@media screen and (min-width: 980px){
+    .c2a {
+        --size: 1em;
+    }
+}
+
+.c2a.vers--bold {
+    color: var(--int-text-theme);
+    background-color: var(--int-theme);
+    box-shadow: 0 6px 10px rgba(0,0,0,.25);
+}
+
+.c2a.vers--ghost {
+    color: var(--int-theme);
+    box-shadow: inset 0px 0px 0px 2px var(--int-theme);
+}
+
+.c2a:hover {
+    --darker: 5%;
+}
+
+.c2a:focus,
+.c2a:active {
+    --darker: 10%;
+}
+
+@media screen and (min-width: 1200px) {
+    :where(.welcome__actions) .c2a {
+        --size: 1.375em;
+    }
+}

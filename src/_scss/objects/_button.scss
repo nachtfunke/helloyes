@@ -1,0 +1,59 @@
+@use '../tools/mixins/media' as media;
+
+/* Buttons */
+.button {
+    /* set --theme in hue & saturation to change the color */
+    --int-hs-theme: var(--theme, var(--color-hs-accent));
+    /* set --darker to make the background darker */
+    --int-theme-darker: var(--darker, 0%);
+    /* allow darkening based on the default 300 lightness */
+    --int-l-theme: calc(var(--color-weight-300) - var(--int-theme-darker));
+    /* build the entire theme color */
+    --int-theme: hsl(var(--int-hs-theme) var(--int-l-theme));
+    --int-spacing: .416em;
+    --int-size: var(--size, .9em);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--int-spacing);
+    font-size: var(--int-size);
+    transition: background-color var(--base-animation-duration) var(--base-easing);
+    padding: var(--int-spacing) calc(var(--int-spacing) * 2);
+    border-radius: calc(1em + (var(--int-spacing) * 2));
+    color: hsl(var(--color-hs-primary) var(--int-l-text));
+    background-color: var(--int-theme);
+
+    @include media.widerThan(honey) {
+        --int-size: 1em;
+    }
+}
+
+.button__text {
+    --int-l-text: var(--lightness, 25%);
+    font-family: var(--typeface-headings);
+    font-feature-settings: "c2sc", "smcp";
+    font-weight: 525;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+}
+
+.button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button__icon > svg {
+    height: 100%;
+    width: auto;
+}
+
+.button:hover {
+    --darker: 5%;
+}
+
+.button:focus,
+.button:active {
+    --darker: 10%;
+}

@@ -1,0 +1,91 @@
+@use "../tools/mixins/media" as media;
+
+/* Footer */
+.site-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    @at-root :where(.site-layout.vers--page) #{&} {
+        background-color: #fff;
+
+        @include media.widerThan(caramel) {
+            background-color: transparent;
+        }
+    }
+
+    @include media.narrowerThan(caramel) {
+        @media screen and (orientation: landscape) {
+            justify-content: center;
+        }
+    }
+
+    @include media.widerThan(caramel) {
+        justify-content: space-between;
+    }
+
+    &::before {
+        @include media.narrowerThan(caramel) {
+            content: '';
+            height: 2px;
+            width: calc(100% - (var(--site-padding) * 2));
+            border-radius: 2px;
+            background-color: var(--color-dark);
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: var(--site-padding);
+
+            @at-root :where(.site-layout.vers--page) #{&} {
+                opacity: .25;
+            }
+
+            @supports not (inset-block-start: 0) {
+                top: 0;
+                left: var(--site-padding);
+            }
+        }
+    }
+
+    &__copy {
+        line-height: 1;
+        font-family: var(--typeface-paragraphs);
+        color: var(--color-dark);
+        font-weight: 400;
+        font-size: .65em;
+        
+        @include media.narrowerThan(caramel) {
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        @include media.widerThan(caramel) {
+            grid-row: 1;
+
+            & + .button {
+                grid-column: 6 / -1;
+                justify-self: end;
+                grid-row: 1;
+            }
+        }
+
+        @include media.widerThan(honey) {
+            font-size: .875em;
+        }
+    }
+
+    &__settings {
+        display: none;
+        position: relative;
+
+        @include media.widerThan(caramel) {
+            display: flex;
+            flex-wrap: wrap;
+            grid-column: span 2;
+            grid-gap: 1em;
+        }
+
+        &-toggle {
+            display: none; // will be made visible, if javascript is enabled
+        }
+    }
+}

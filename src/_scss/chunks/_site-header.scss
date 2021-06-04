@@ -1,0 +1,47 @@
+@use '../tools/mixins/media' as media;
+
+/* Header */
+.site-header {
+    position: relative;
+    z-index: 2;
+
+    &::after {
+        @include media.narrowerThan(caramel) {
+            content: '';
+            height: 2px;
+            width: calc(100% - (var(--site-padding) * 2));
+            border-radius: 2px;
+            background-color: var(--color-primary);
+            position: absolute;
+            inset-block-end: 0;
+            inset-inline-start: var(--site-padding);
+
+            @supports not (inset-block-start: 0) {
+                bottom: 0;
+                left: var(--site-padding);
+            }
+        }
+    }
+
+    &__title, .site-menu__header-title {
+        line-height: 1;
+        font-size: 1em;
+        font-weight: 500;
+        
+        @include media.widerThan(syrup) {
+            font-size: 1.5em;
+        }
+    }
+
+    &__title > a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* That's the button that opens the flyout menu on mobile */
+    &__open-menu {
+        @include media.widerThan(caramel) {
+            display: none;
+        }
+    }
+}

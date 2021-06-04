@@ -1,0 +1,35 @@
+{
+    "blog" : {
+        "name": "Blog",
+        "url": "blog",
+        "hidden": true
+    },
+    "contracting": {
+        "name": "Contracting",
+        "url": "contracting",
+        "hidden": true
+    },
+    "work": {
+        "name": "Work",
+        "url": "work",
+        "hidden": true
+    },
+    "hiring": {
+        "name": "Hire me",
+        "url": "hire"
+    },
+    "about": {
+        "name": "Who this?",
+        "url": "about"
+    },
+    "log": {
+        "name": "log",
+        "url": "log",
+        "small": true
+    },
+    "imprint": {
+        "name": "Imprint",
+        "url": "legal",
+        "small": true
+    }
+}

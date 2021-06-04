@@ -1,0 +1,79 @@
+@use '../tools/mixins/media' as media;
+
+/* Navigational Menu */
+.menu {
+    margin-block-start: calc(var(--site-padding)/1.75);
+    margin-block-end: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    &__item {
+        --icon-color: var(--color-accent-300);
+        color: var(--color-primary);
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 475;
+
+        @at-root :where(.site-menu__navigation) #{&} {
+            @include media.widerThan(caramel) {
+                --icon-color: var(--color-dark);
+
+                > a {
+                    gap: .25em;
+                }
+            }
+
+            @include media.widerThan(honey) {
+                > a {
+                    gap: 1em;
+                }
+            }
+        }
+
+        &.ctx--small {
+            font-size: .85em;
+            color: var(--color-dark);
+        }
+
+        > a {
+            color: inherit;
+            display: inherit;
+            justify-content: inherit;
+            align-items: inherit;
+            width: 100%;
+            
+            &[aria-current] {
+                color: var(--color-accent-500);
+                text-decoration-color: var(--color-accent-500);
+                --icon-color: var(--color-accent-500);
+            }
+        }
+    }
+
+    &.site-menu__navigation {
+        @include media.narrowerThan(caramel) {
+            @media screen and (orientation: landscape) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                font-size: .85em;
+            }
+        }
+        
+        @include media.widerThan(caramel) {
+            flex-direction: row;
+            gap: 1em;
+            justify-content: space-between;
+            margin-block-start: 0;
+            align-items: center;
+            font-size: .85em;
+        }
+
+        @include media.widerThan(honey) {
+            gap: 2em;
+            font-size: 1em;
+        }
+    }
+}

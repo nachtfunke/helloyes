@@ -1,0 +1,34 @@
+@use "../tools/mixins/media" as media;
+
+body {
+    background-color: var(--color-accent-300);
+    font-family: var(--typeface-headings);
+    color: var(--color-primary);
+    border: .5em solid #fff;
+    transition: background-color var(--base-animation-duration) var(--base-easing);
+}
+
+a {
+    color: var(--color-highlight);
+    text-decoration: underline;
+    text-decoration-skip-ink: all;
+    text-decoration-thickness: 15%;
+}
+
+@supports (text-decoration-color: hotpink) {
+    a {
+        color: inherit;
+        text-decoration-color: var(--color-highlight);
+    }
+
+}
+
+a.button,
+a.c2a {
+    text-decoration: none;
+}
+
+ul, ol {
+    margin: 0;
+    padding-inline-start: 1.25em;
+}

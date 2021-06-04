@@ -1,0 +1,19 @@
+---
+layout: base
+bodyClass: "vers--page"
+---
+
+<div class="site-illustration" aria-hidden="true">
+    {% if illustration %}
+        {{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}
+    {% endif %}
+</div>
+<main class="site-main  main  {{ mainclass }}" id="site-content">
+    <header class="main__header">
+        <h1 class="main__title">{{ title }}</h1>
+        {% if excerpt %}
+            <p class="main__excerpt">{{ excerpt | safe }}</p>
+        {% endif %}
+    </header>
+    {{ content | safe }}
+</main>

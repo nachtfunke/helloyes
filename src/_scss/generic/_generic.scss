@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    text-size-adjust: none;
+}
+
+:root {
+    /* Color weights, Lightness values */
+    --color-weight-100: 97%;
+    --color-weight-300: 82%;
+    --color-weight-500: 67%;
+    --color-weight-700: 52%;
+    --color-weight-900: 37%;
+    /* All colors, Hue & Saturation values */
+    --color-hs-illusion: 345 83%;
+    --color-hs-rose: 0 83%;
+    --color-hs-sandwisp: 58 83%;
+    --color-hs-mint: 122 83%;
+    --color-hs-perano: 219 83%;
+    --color-hs-scorpion: 343 6%;
+    --color-hs-comet: 242 14%;
+    --color-hs-woodybrown: 345 19%;
+    /* Define unweighted Colors as usable HSL Color Values */
+    --color-scorpion: hsl(var(--color-hs-scorpion) 41%);
+    --color-comet: hsl(var(--color-hs-comet) 39%);
+    --color-woodybrown: hsl(var(--color-hs-woodybrown) 25%);
+    /* font stacks */
+    --font-stack-work-sans: "Work Sans", sans-serif;
+    --font-stack-poppins: "Poppins", sans-serif;
+    --font-stack-system: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    /* functional typefaces */
+    --typeface-headings: var(--font-stack-work-sans);
+    --typeface-paragraphs: var(--font-stack-poppins);
+    /* functional Color Properties */
+    --color-hs-accent: var(--accent-color, var(--color-hs-illusion)); /* Can be changed! */
+    --color-accent-100: hsl(var(--color-hs-accent) var(--color-weight-100));
+    --color-accent-300: hsl(var(--color-hs-accent) var(--color-weight-300));
+    --color-accent-500: hsl(var(--color-hs-accent) var(--color-weight-500));
+    --color-accent-700: hsl(var(--color-hs-accent) var(--color-weight-700));
+    --color-accent-900: hsl(var(--color-hs-accent) var(--color-weight-900));
+    --color-hs-primary: var(--color-hs-woodybrown);
+    --color-hs-highlight: var(--color-hs-comet);
+    --color-hs-dark: var(--color-hs-scorpion);
+    --color-primary: var(--color-woodybrown);
+    --color-highlight: var(--color-comet);
+    --color-dark: var(--color-scorpion);
+    /* Base Settings */
+    --base-spacing: 1em;
+    --base-padding: 1em;
+    --base-easing: cubic-bezier(0.85, 0, 0.15, 1);
+    --base-animation-duration: 1ms;
+    background-color: #fff; /* the background that you can see when you pull on one of the sides of the website */
+}
+
+/* Add Animation progressively; Only make durations longer when there is no preferences */
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        --base-animation-duration: 350ms;
+    }
+}
+
+::selection {
+    background-color: var(--color-accent-700);
+    color: var(--color-accent-100);
+}

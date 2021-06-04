@@ -1,0 +1,165 @@
+@use "../tools/mixins/media" as media;
+
+@mixin _moveOut() {
+    opacity: 0;
+
+    @media screen and (orientation: portrait) {
+        inset-inline-start: -3em;
+        
+        @supports not (inset-block-start: 0) {
+            left: -3em;
+        }
+    }
+    
+    @media screen and (orientation: landscape) {
+        inset-block-start: -.5em;
+
+        @supports not (inset-block-start: 0) {
+            top: -.5em;
+        }
+    }
+}
+
+/* Flyout-Menu */
+.site-menu {
+    --site-footer-row: [footer] 1fr;
+    --site-layout-rows: var(--site-header-row) var(--site-content-rows) var(--site-footer-row);
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: var(--site-layout-rows);
+    z-index: 1;
+    opacity: 1;
+    transition-timing-function: var(--base-easing);
+    transition-duration: var(--base-animation-duration);
+    padding: .5em;
+
+    @supports not (inset-block-start: 0) {
+        top: 0;
+        left: 0;
+    }
+
+    @media screen and (orientation: portrait) {
+        height: 100vh;
+        width: 85vw;
+        transition-property: inset-inline-start, opacity;
+
+        @supports not (inset-block-start: 0) {
+            transition-property: left, opacity;
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        height: 85vh;
+        width: 100vw;
+        transition-property: inset-block-start, opacity;
+
+        @supports not (inset-block-start: 0) {
+            transition-property: top, opacity;
+        }
+    }
+
+    @include media.widerThan(caramel) {
+        position: static;
+        height: auto;
+        background-color: transparent;
+        display: flex;
+        padding: 0;
+        z-index: 0;
+        width: auto;
+    }
+
+    // Thanks, Scott O'Hara!  https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+    &:not(:focus-within):not(:target) {
+        @include media.narrowerThan(caramel) {
+            clip: rect(0 0 0 0); 
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            white-space: nowrap; 
+            width: 1px;
+            @include _moveOut();
+        }
+    }
+
+    // This class is used to animate out the element, before it becomes fully visually hidden
+    &.moveout {
+        @include _moveOut();
+    }
+
+    &__header {
+        grid-row: header;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--site-padding);
+        position: relative;
+        padding: var(--site-padding);
+
+        @include media.widerThan(caramel) {
+            display: none;
+        }
+
+        &::after {
+            content: '';
+            height: 2px;
+            width: calc(100% - (var(--site-padding) * 2));
+            border-radius: 2px;
+            background-color: var(--color-dark);
+            position: absolute;
+            inset-block-end: 0;
+            inset-inline-start: var(--site-padding);
+            opacity: .25;
+
+            @supports not (inset-block-start: 0) {
+                bottom: 0;
+                left: var(--site-padding);
+            }
+        }
+
+        &-title {
+            color: var(--color-scorpion);
+            font-weight: 450;
+        }
+    }
+
+    &__navigation {
+        grid-row: main;
+        padding: var(--site-padding);
+
+        @include media.widerThan(caramel) {
+            padding: 0;
+        }
+    }
+
+    &__footer {
+        grid-row: footer;
+        padding: var(--site-padding);
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @media screen and (orientation: landscape) {
+            @include media.narrowerThan(caramel) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        @include media.widerThan(caramel) {
+            display: none;
+        }
+
+        p {
+            font-family: var(--typeface-paragraphs);
+            font-size: .75em;
+            color: var(--color-dark);
+            font-style: italic;
+        }
+
+        .button {
+            align-self: start;
+        }
+    }
+}

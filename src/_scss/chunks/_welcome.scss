@@ -1,0 +1,134 @@
+@use '../tools/mixins/media' as media;
+
+/* Welcome-Thing on the landing page */
+.welcome {
+    padding: var(--site-padding) 0;
+    max-width: 625px;
+    margin: 0 auto;
+
+    @media screen and (orientation: landscape) {
+        text-align: center;
+    }
+
+    @include media.widerThan(caramel) {
+        text-align: center;
+    }
+
+    // if the padding is left in here, the element will stretch over 100vh
+    @media screen and (min-height: 660px) {
+        padding: 0;
+        transform: translateY(-2.5em);
+    }
+
+    &__illustration {
+        @include media.widerThan(honey) {
+            position: absolute;
+            z-index: 0;
+            opacity: .05;
+            width: 75vw;
+            inset-block-start: 50%;
+            inset-inline-start: 50%;
+            transform: translate(-50%, -50%);
+
+            @supports not (inset-block-start: 0) {
+                top: 50%;
+                left: 50%;
+            }
+        }
+
+        > svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 350px;
+
+            @media screen and (orientation: landscape) {
+                margin: 0 auto;
+            }
+
+            @include media.widerThan(caramel) {
+                margin: 0 auto;
+            }
+
+            @include media.widerThan(honey) {
+                max-width: 100%;
+            }
+        }
+
+        + * {
+            margin-block-start: var(--site-padding);
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 1.3rem;
+        line-height: 1.3;
+
+        @include media.inbetweenBreakpoints(caramel, honey) {
+            font-size: 1.6em;
+        }
+
+        @include media.inbetweenBreakpoints(honey, syrup) {
+            font-size: 1.9em;
+        }
+
+        @include media.widerThan(syrup) {
+            font-size: 2.25em;
+        }
+    }
+
+    &__desc {
+        font-family: var(--typeface-paragraphs);
+        line-height: 1.5;
+        margin-block-start: .5em;
+
+        @include media.widerThan(honey) {
+            font-size: 1.375em;
+            margin-block-start: 1rem;
+        }
+    }
+
+    &__actions {
+        margin-block-start: .75em;
+        display: flex;
+        align-items: center;
+        gap: .75em;
+
+        @media screen and (orientation: landscape) {
+            justify-content: center;
+        }
+
+        @include media.widerThan(caramel) {
+            justify-content: center;
+        }
+
+        @include media.widerThan(honey) {
+            margin-block-start: 2rem;
+        }
+    }
+
+    &__footnote {
+        display: block;
+        margin-block-start: 1em;
+        font-family: var(--typeface-paragraphs);
+        line-height: 1.5;
+        font-size: .75em;
+        
+        @media screen and (orientation: landscape) {
+            text-align: center;
+        }
+
+        @include media.widerThan(honey) {
+            font-size: .875em;
+            margin-block-start: 2rem;
+        }
+    }
+
+    > *:not(.welcome__illustration) {
+        @include media.widerThan(caramel) {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}

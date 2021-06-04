@@ -1,0 +1,48 @@
+@use '../tools/mixins/media' as media;
+@use 'meta-label' as *;
+
+// .785em;
+// 1.125em;
+
+.pull-link {
+    font-size: .785em;
+    display: flex;
+    flex-direction: column;
+    gap: .44em;
+    align-items: stretch;
+
+    @include media.widerThan(caramel) {
+        font-size: .85em;
+    }
+
+    @include media.widerThan(honey) {
+        font-size: 1em;
+    }
+
+    @include media.widerThan(syrup) {
+        font-size: 1.125em;
+    }
+
+    &__link {
+        font-family: var(--typeface-headings);
+        font-weight: 575;
+        color: var(--color-highlight);
+        text-underline-offset: .15em;
+    }
+
+    &__caption {
+        @include meta-label();
+
+        &::before {
+            content: '\2014';
+            display: inline-block;
+            margin-inline-end: .5em;
+        }
+    }
+
+    @include media.narrowerThan(honey) {
+        background-color: hsl(var(--color-hs-highlight) var(--color-weight-100));
+        padding: 1em;
+        border-radius: 5px;
+    }
+}
