@@ -61,6 +61,10 @@
         @include media.widerThan(caramel) {
             grid-row: 1;
 
+            @at-root body:where(.ctx--index) #{&} {
+                color: var(--color-primary);
+            }
+
             & + .button {
                 grid-column: 6 / -1;
                 justify-self: end;

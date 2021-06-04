@@ -36,6 +36,10 @@
         &.ctx--small {
             font-size: .85em;
             color: var(--color-dark);
+
+            @at-root body:where(.ctx--index) #{&} {
+                color: var(--color-primary);
+            }
         }
 
         > a {
