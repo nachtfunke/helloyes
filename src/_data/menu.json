@@ -1,8 +1,7 @@
 {
     "blog" : {
         "name": "Blog",
-        "url": "blog",
-        "hidden": true
+        "url": "blog"
     },
     "contracting": {
         "name": "Contracting",
