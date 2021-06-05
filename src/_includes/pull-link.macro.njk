@@ -1,8 +1,7 @@
 {%- macro pullLink(params) -%}
     <figure class="pull-link">
         <a class="pull-link__link" href="{{ params.href }}"
-           {%- if params.external -%}target="_blank" rel="noopener noreferrer"{%- endif -%}
-           {%- if params.me -%}rel="me"{%- endif -%}
+           {%- if params.external -%}target="_blank" rel="{%- if params.me -%}{{ 'me ' }}{%- endif -%} noopener noreferrer"{%- endif -%}
            {%- if params.download -%}download{%- endif -%}
         >
            {{ params.text}}

@@ -53,14 +53,19 @@
             }
         }
 
+        .site-header {
+            z-index: 3;
+        }
+
         .site-illustration {
             position: sticky;
             top: 0;
+            z-index: 0;
+            -webkit-transform: translate3d(0,0,0); // this is needed exclusively for safari. This forces a new layer, setting the z-index from the very start. Without it, the z-index only applies once the "sticky" part comes in, which on safari is being updated after the scroll was finished, not while it is happening.
 
             @include media.widerThan(caramel) {
                 align-self: stretch;
                 position: relative;
-                z-index: 0;
 
                 > svg {
                     position: absolute;
@@ -82,7 +87,7 @@
 
         .site-main {
             align-self: stretch;
-            z-index: 1;
+            z-index: 2;
 
             @include media.widerThan(caramel) {
                 grid-column: main-start / main-end;
