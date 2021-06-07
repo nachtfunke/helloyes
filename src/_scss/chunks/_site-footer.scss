@@ -52,6 +52,10 @@
         color: var(--color-dark);
         font-weight: 400;
         font-size: .65em;
+
+        @at-root body:where(.ctx--index, .vers--posts-listing) #{&} {
+            color: var(--color-primary);
+        }
         
         @include media.narrowerThan(caramel) {
             flex: 1;
@@ -60,10 +64,6 @@
 
         @include media.widerThan(caramel) {
             grid-row: 1;
-
-            @at-root body:where(.ctx--index) #{&} {
-                color: var(--color-primary);
-            }
 
             & + .button {
                 grid-column: 6 / -1;

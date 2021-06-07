@@ -3,6 +3,34 @@
 .main {
     $p: &;
 
+    &__title {
+        font-family: var(--typeface-headings);
+        font-weight: 675;
+        font-size: 1.3125em;
+        line-height: 1;
+        margin: 0;
+
+        & + * {
+            margin-block-start: 1em;
+
+            @include media.widerThan(caramel) {
+                margin-block-start: 2em;
+            }
+        }
+
+        @include media.widerThan(syrup) {
+            font-size: 3em;
+        }
+    }
+
+    &__excerpt {
+        font-size: .8125em;
+
+        @include media.widerThan(syrup) {
+            font-size: 1.5em;
+        }
+    }
+
     @at-root {
         :where(#{&}) {
             p, li {
@@ -21,7 +49,7 @@
         }
     }
 
-    @at-root :where(.site-layout.vers--page) #{$p} {
+    @at-root :where(.site-layout.vers--page) & {
         background-color: #fff;
         padding-block-start: calc(var(--site-padding) * 2);
         padding-block-end: calc(var(--site-padding) * 2);
@@ -168,12 +196,6 @@
         #{$p} {
             &__header {
                 grid-column: span 3;
-
-                & + * {
-                    @include media.widerThan(caramel) {
-                        margin-top: 2em;
-                    }
-                }
             }
 
             img, aside {
@@ -181,28 +203,41 @@
             }
 
             &__title {
-                font-family: var(--typeface-headings);
-                font-weight: 675;
-                font-size: 1.3125em;
-                line-height: 1;
-                margin: 0;
-
-                @include media.widerThan(syrup) {
-                    font-size: 3em;
-                }
         
                 + * {
                     margin-block-start: 2.5em;
                 }
             }
-        
-            &__excerpt {
-                font-size: .8125em;
+        }
+    }
 
-                @include media.widerThan(syrup) {
-                    font-size: 1.5em;
-                }
+    @at-root :where(.site-layout.vers--posts-listing) & {
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: var(--site-padding);
+        grid-template-columns: inherit;
+
+        @include media.widerThan(honey) {
+            display: grid;
+            grid-template-rows: min-content 1fr;
+
+            &__header {
+                grid-column: span 3;
+                grid-row: 1;
             }
+
+            &__post-listing {
+                grid-column: 1 / -1;
+                // padding: var(--site-padding);
+                grid-row: 2;
+                --horizontal-pull: calc( (var(--site-padding) + var(--site-border)) * -1);
+                margin: 0 var(--horizontal-pull);
+            }
+        }
+
+        @include media.widerThan(syrup) {
+            gap: 0;
         }
     }
 }

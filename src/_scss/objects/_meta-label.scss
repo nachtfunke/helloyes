@@ -2,14 +2,10 @@
 
 @mixin meta-label {
     font-family: var(--typeface-headings);
-    font-size: .8em;
+    font-size: .9em;
     line-height: 1.25;
     color: var(--color-dark);
     font-feature-settings: "c2sc", "smcp";
-    
-    @include media.widerThan(syrup) {
-        font-size: .9em;
-    }
 }
 
 .meta-label {

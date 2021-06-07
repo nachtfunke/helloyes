@@ -1,0 +1,23 @@
+---
+layout: base
+bodyClass: "vers--single-post"
+illustration: 'design-engineering-lined'
+tags: ['post']
+---
+<main class="site-main">
+    <header class="main__header">
+        <h1 class="main__title">{{ title }}</h1>
+        <time class="main__date">{{ date | dateReadable }}</time>
+    </header>
+    <div class="site-illustration" aria-hidden="true">
+        {% if illustration %}
+            {{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}
+        {% endif %}
+    </div>
+    <section class="site-main  main  {{ mainclass }}" id="site-content">
+        {% if excerpt %}
+            <p class="main__excerpt">{{ excerpt | safe }}</p>
+        {% endif %}
+        {{ content | safe }}
+    </section>
+</main>

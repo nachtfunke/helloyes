@@ -1,5 +1,6 @@
 const svgContents = require("eleventy-plugin-svg-contents"); // https://github.com/brob/eleventy-plugin-svg-contents
 const markdownItAnchor = require("markdown-it-anchor");
+const util = require('util');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -77,6 +78,15 @@ module.exports = function (eleventyConfig) {
   const markdownConfigured = markdownIt({ html: true }).use(markdownItAnchor, headlineAnchorSettings);
 
   eleventyConfig.setLibrary('md', markdownConfigured);
+
+  eleventyConfig.addFilter('console', function(value) {
+      const str = util.inspect(value);
+      return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
+  });
+ 
+  eleventyConfig.addFilter('dateReadable', date => {
+    return date.toLocaleDateString('de-de');
+  });
 
   eleventyConfig.addPlugin(svgContents);
 

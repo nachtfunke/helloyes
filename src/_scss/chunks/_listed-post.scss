@@ -1,0 +1,74 @@
+@use '../tools/mixins/media' as media;
+@use '../objects/meta-label' as *;
+
+@mixin _inPostsList() {
+    @at-root .posts-list :where(#{&}) {
+        @content;
+    }
+} 
+
+.listed-post {
+    background-color: #fff;
+    padding: 1.5em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    box-shadow: 0 15px 42px rgba(0,0,0,.06);
+
+    @include _inPostsList() {
+        @include media.widerThan(caramel) {
+            height: 100%;
+            padding: 2em;
+        }
+
+        @include media.widerThan(honey) {
+            margin: calc(var(--horizontal-pull) * -1);
+            transform: translateY(var(--horizontal-pull));
+            padding: 3em;
+            gap: 1.5em;
+        }
+
+        @include media.widerThan(syrup) {
+            margin-inline: 1em;
+        } 
+    }
+
+    &__title {
+        color: var(--color-highlight);
+        font-family: var(--typeface-headings);
+        font-size: 1.5em;
+        line-height: 1.25;
+
+        @include media.widerThan(honey) {
+            font-size: 2em;
+            font-weight: 650;
+        }
+    }
+
+    &__excerpt {
+        font-family: vafr(--typeface-paragraphs);
+        font-size: .9em;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        @include media.widerThan(honey) {
+            font-size: 1em;
+        }
+    }
+
+    &__date {
+        @include meta-label();
+        margin-block-start: 0;
+        font-size: 1em;
+        font-weight: 500;
+
+        @include _inPostsList() {
+            @include media.widerThan(caramel) {
+                margin-block-start: auto;
+            }
+        }
+    }
+}
