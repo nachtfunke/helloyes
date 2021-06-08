@@ -5,8 +5,9 @@
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 1;
     
-    @at-root :where(.site-layout.vers--page) #{&} {
+    @at-root .site-layout:where(.vers--page, .vers--single-post) #{&} {
         background-color: #fff;
 
         @include media.widerThan(caramel) {
