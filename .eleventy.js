@@ -95,6 +95,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
+  eleventyConfig.addPassthroughCopy({'src/_favicons/**/*':'/'});
 
   eleventyConfig.setBrowserSyncConfig({
     files: './dist/css/**/*.css'
