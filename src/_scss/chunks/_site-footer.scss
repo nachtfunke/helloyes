@@ -5,8 +5,9 @@
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 1;
     
-    @at-root :where(.site-layout.vers--page) #{&} {
+    @at-root .site-layout:where(.vers--page, .vers--single-post) #{&} {
         background-color: #fff;
 
         @include media.widerThan(caramel) {
@@ -52,6 +53,10 @@
         color: var(--color-dark);
         font-weight: 400;
         font-size: .65em;
+
+        @at-root body:where(.ctx--index, .vers--posts-listing) #{&} {
+            color: var(--color-primary);
+        }
         
         @include media.narrowerThan(caramel) {
             flex: 1;
@@ -60,10 +65,6 @@
 
         @include media.widerThan(caramel) {
             grid-row: 1;
-
-            @at-root body:where(.ctx--index) #{&} {
-                color: var(--color-primary);
-            }
 
             & + .button {
                 grid-column: 6 / -1;

@@ -1,27 +1,209 @@
 @use '../tools/mixins/media' as media;
+@use '../objects/meta-label' as *;
+
+@mixin _mainContentElements() {
+    > :where(p, ol, ul, blockquote, dl) {
+        grid-column: span 3;
+    }
+
+    > :where(ul, ol) {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 .main {
     $p: &;
 
-    @at-root {
-        :where(#{&}) {
-            p, li {
-                font-family: var(--typeface-paragraphs);
-                line-height: 1.75;
-                font-size: .7em;
+    &__title {
+        font-family: var(--typeface-headings);
+        font-weight: 675;
+        font-size: 1.3125em;
+        line-height: 1.25;
+        margin: 0;
 
-                @include media.widerThan(syrup) {
+        & + * {
+            margin-block-start: 1em;
+
+            @include media.widerThan(caramel) {
+                margin-block-start: 2em;
+            }
+        }
+
+        @include media.widerThan(syrup) {
+            font-size: 3em;
+        }
+    }
+
+    &__date {
+        @include meta-label();
+        color: var(--color-primary);
+        font-weight: 475;
+    }
+
+    &__excerpt {
+        font-size: 1em;
+
+        @include media.widerThan(syrup) {
+            font-size: 1.5em;
+        }
+    }
+
+    &__heading {
+        &-wrapper {
+            position: relative;
+
+            &:where(:hover, :focus-within) {
+                .main__heading-link {
+                    opacity: 1;
+                }
+            }
+        }
+        
+        &-link {
+            font-family: var(--typeface-headings);
+            position: absolute;
+            inset-inline-start: 0;
+            inset-block-end: 10%;
+            //padding-inline-end: 2.5em;
+            transform: translateX(-100%);
+            width: 1em;
+            font-size: .85em;
+            font-weight: 600;
+            color: var(--color-highlight);
+            //outline: 1px solid;
+            
+            @include media.widerThan(caramel) {
+                opacity: 0;
+            }
+
+            @include media.widerThan(syrup) {
+                @at-root .main__heading-wrapper h2 + & {
+                    font-size: 1.25em;
+                }
+
+                @at-root .main__heading-wrapper h3 + & {
                     font-size: 1em;
                 }
 
-                & + *:not(li) {
-                    margin-block-start: 1em;
+                @at-root .main__heading-wrapper h4 + & {
+                    font-size: .9em;
+                }
+
+                @at-root .main__heading-wrapper h5 + & {
+                    font-size: .85em;
+                }
+
+                @at-root .main__heading-wrapper h6 + & {
+                    font-size: .85em;
+                }
+            }
+
+            @supports not (inset-inline-start: 0) {
+                right: 0;
+                bottom: 10%;
+            }
+        }
+    }
+
+    &__outline {
+        font-size: .75em;
+        margin-top: var(--site-padding);
+
+        @include media.widerThan(honey) {
+            font-size: .85em;
+        }
+
+        @include media.widerThan(syrup) {
+            font-size: 1em;
+        }
+
+        &-label {
+            font-family: var(--typeface-headings);
+            font-size: 1.05em;
+            font-weight: 525;
+            line-height: 1;
+
+            @include media.widerThan(honey) {
+                font-size: 1em;
+                font-weight: 450;
+            }
+
+            + * {
+                margin-block-start: .5em;
+            }
+        }
+
+        ol {
+            padding-inline-start: 0;
+            list-style-type: none;
+            counter-reset: section;
+            width: 100%;
+
+            > li {
+                font-family: var(--typeface-headings);
+                font-size: 1em;
+                position: relative;
+                font-weight: 475;
+
+                @include media.widerThan(honey) {
+                    line-height: 2.5;
+                    clear: both;
+                }
+
+                a {
+                    text-decoration-color: currentColor;
+
+                    &.is-current {
+                        font-weight: 650;
+                    }
+
+                    @include media.widerThan(honey) {
+                        font-size: 1.125em;
+                    }
+                }
+
+                &::before {
+                    counter-increment: section;
+                    content: counters(section, ".") ".";
+                    display: inline-block;
+                    font-feature-settings: 'c2sc';
+                    font-weight: 650;
+                    padding-inline-end: .5em;
+                    opacity: .5;
+
+                    @include media.widerThan(honey) {
+                        position: absolute;
+                        inset-inline-end: 0;
+                        inset-block-start: .25em;
+                        text-align: left;
+                        transform: translateX(calc(100% + .5em));
+
+                        @supports not (inset-inline-end: 0) {
+                            right: 0;
+                            top: .25em;
+                        }
+                    }
                 }
             }
         }
     }
 
-    @at-root :where(.site-layout.vers--page) #{$p} {
+    @at-root :where(#{$p}) :where(p, li) {
+        font-family: var(--typeface-paragraphs);
+        line-height: 1.75;
+        font-size: .8em;
+
+        @include media.widerThan(syrup) {
+            font-size: 1em;
+        }
+
+        & + *:not(li) {
+            margin-block-start: 1em;
+        }
+    }
+
+    @at-root .site-layout:where(.vers--page, .vers--single-post) :where(#{&}) {
         background-color: #fff;
         padding-block-start: calc(var(--site-padding) * 2);
         padding-block-end: calc(var(--site-padding) * 2);
@@ -34,48 +216,11 @@
             background-color: transparent;
         }
 
-        > :where(p, ol, ul, blockquote, dl) {
-            grid-column: span 3;
-        }
+        @include _mainContentElements();
 
-        > :where(ul, ol) {
-            display: flex;
-            flex-direction: column;
-            gap: .5em;
-        }
-
-        h2, h3, h4, h5, h6, &__heading-wrapper {
+        :where(h2, h3, h4, h5, h6, #{$p}__heading-wrapper) {
             grid-column: 1 / -1;
             line-height: 1;
-        }
-
-        &__heading {
-            &-wrapper {
-                position: relative;
-
-                &:where(:hover, :focus-within) {
-                    .main__heading-link {
-                        opacity: 1;
-                    }
-                }
-            }
-            
-            &-link {
-                position: absolute;
-                inset-inline-start: 0;
-                inset-block-end: 10%;
-                padding-inline-end: 2.5em;
-                transform: translateX(-100%);
-                width: 1em;
-                font-size: .5em;
-                text-decoration: none;
-                opacity: 0;
-
-                @supports not (inset-inline-start: 0) {
-                    right: 0;
-                    bottom: 10%;
-                }
-            }
         }
 
         h2 {
@@ -100,6 +245,28 @@
                 font-size: 1.25em;
                 line-height: 1;
             }
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 550;
+            margin-block-start: .5em;
+        }
+
+        h5 {
+            margin: 0;
+            font-size: .9em;
+            font-weight: 550;
+            margin-block-start: .25em;
+            font-feature-settings: "smcp", "c2cp";
+        }
+
+        h6 {
+            margin: 0;
+            margin-block-start: .25em;
+            font-size: 1em;
+            font-weight: 525;
         }
 
         hr {
@@ -168,12 +335,6 @@
         #{$p} {
             &__header {
                 grid-column: span 3;
-
-                & + * {
-                    @include media.widerThan(caramel) {
-                        margin-top: 2em;
-                    }
-                }
             }
 
             img, aside {
@@ -181,26 +342,139 @@
             }
 
             &__title {
-                font-family: var(--typeface-headings);
-                font-weight: 675;
-                font-size: 1.3125em;
-                line-height: 1;
-                margin: 0;
-
-                @include media.widerThan(syrup) {
-                    font-size: 3em;
-                }
-        
                 + * {
-                    margin-block-start: 2.5em;
+                    @include media.widerThan(honey) {
+                        margin-block-start: 2.5em;
+                    }
                 }
             }
-        
-            &__excerpt {
-                font-size: .8125em;
+        }
+    }
+
+    @at-root :where(.site-layout.vers--posts-listing) & {
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: var(--site-padding);
+        grid-template-columns: inherit;
+
+        @include media.widerThan(honey) {
+            display: grid;
+            grid-template-rows: min-content 1fr;
+
+            &__header {
+                grid-column: span 3;
+                position: sticky;
+                top: var(--site-padding);
+                align-self: start;
 
                 @include media.widerThan(syrup) {
-                    font-size: 1.5em;
+                    padding-inline-end: var(--site-padding);
+
+                }
+            }
+
+            &__post-listing {
+                grid-column: main-start / main-end;
+            }
+        }
+
+        @include media.widerThan(syrup) {
+            gap: 0;
+        }
+    }
+
+    @at-root .site-layout:where(.vers--single-post) :where(#{&}) {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--site-padding);
+        background-color: transparent;
+
+        @include media.widerThan(honey) {
+            display: grid;
+            grid-template-columns: var(--columns);
+            gap: 0;
+        }
+
+        #{$p} {
+            &__header {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                margin: var(--site-padding);
+                margin-block-end: 0;
+
+                @include media.widerThan(honey) {
+                    grid-column: side-start / side-end;
+                    background-color: transparent;
+                    padding: var(--site-padding);
+                    padding-inline-end: 0;
+                    margin: 0;
+                    text-align: right;
+                    position: static;
+                }
+            }
+
+            &__title {
+                font-weight: 750;
+            }
+
+            &__date {
+                display: block;
+                margin-block-start: .75em;
+
+                @include media.widerThan(honey) {
+                    margin-block-start: 1.5em;
+                }
+            }
+
+            &__outline {
+                background-color: rgba(0,0,0,.08);;
+                border-radius: 4px;
+                padding: 1em;
+                margin-block-start: 1em;
+
+                @include media.widerThan(honey) {
+                    background-color: transparent;
+                    padding: 0;
+                    margin-block-start: 3em;
+                    position: sticky;
+                    top: var(--site-padding);
+                }
+            }
+
+            &__excerpt {
+                @include media.widerThan(honey) {
+                    margin-bottom: 2.5em;
+                }
+            }
+
+            &__content {
+                padding: var(--site-padding);
+                background-color: #fff;
+                position: relative;
+                z-index: 2;
+                margin-block-start: 0;
+
+                @include _mainContentElements();
+
+                @include media.widerThan(honey) {
+                    background-color: transparent;
+                    grid-column: main-start / main-end;
+                    display: grid;
+                    grid-template-columns: var(--columns-main);
+                    grid-column-gap: 2.5em;
+                }
+
+                > * + * {
+                    margin-block-start: 1em;
+                }
+
+                p {
+                    @include media.narrowerThan(honey) {
+                        max-width: 60ch;
+                    }
                 }
             }
         }

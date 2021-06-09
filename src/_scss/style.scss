@@ -18,5 +18,8 @@
 @use 'chunks/site-menu';
 @use 'chunks/site-footer';
 @use 'chunks/main';
+@use 'chunks/posts-list';
+@use 'chunks/listed-post';
+@use 'chunks/archive-list';
 
 @use 'tools' as tools;

@@ -6,7 +6,21 @@ illustration: "contracting-lined"
 templateEngineOverride: md
 ---
 
-### First Version Priorities
+## 09.06.2021
+
++ improved font-loading, by utilising a service-worker `sw.js`, with help from [Chris Ferdinandi](https://gomakethings.com/improving-web-font-performance-with-service-workers/).
++ some files were renamed to be a bit more consistent and self-documenting.
++ implement a page for listing the 10 most recent blog posts and an archive list, that lists all posts.
++ add some new filters to eleventy: `console` in order to debug collections (as the `dump` filter seems to not work for this), `dateReadable`, to format the blog post dates to a readable date.
++ tweak how the headlines' URL fragments are displayed.
++ add the `eleventy-plugin-nesting-toc` by [Jordan Shurmer](https://github.com/JordanShurmer/eleventy-plugin-nesting-toc) plugin to automatically generate table of contents
++ allow the table of contents to [highlight whatever current headlined section is in view](https://www.youtube.com/watch?v=6KXPtcbR1x0) which... kinda works. This needs some tweaking in the future. 
++ add a new template for blog post single views.
++ add some global `meta` data to make this easier accessible throughout the website.
++ add an [h-card](https://indieweb.org/h-card).
++ all kinds of minor and bigger changes to the CSS.
+
+## First Version Priorities
 
 Here is a bit of a summary of the things that were important to me for the initial, first version of the site:
 

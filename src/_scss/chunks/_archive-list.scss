@@ -1,0 +1,43 @@
+@use '../objects/meta-label' as *;
+
+.archive-list {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+    @at-root :where(.site-layout.vers--page) .main & {
+        grid-column: 1 / -1;
+    }
+
+    &__item {
+        --background-color-lightness: 96%;
+        background-color: hsl(var(--color-hs-highlight) var(--background-color-lightness));
+        padding: 1em;
+        border-radius: 4px;
+
+        &:nth-child(odd) {
+            --background-color-lightness: 98%;
+        }
+
+        &-article {
+            display: flex;
+            gap: .5em;
+            justify-content: space-between;
+        }
+
+        &-title {
+            font-family: var(--typeface-headings);
+            margin-block-start: 0 !important;
+            font-weight: 500 !important;
+            font-size: 1em !important;
+        }
+
+        &-date {
+            @include meta-label();
+            line-height: 1;
+            transform: translateY(.15em)
+        }
+    }
+}

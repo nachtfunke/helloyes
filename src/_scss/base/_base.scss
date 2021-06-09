@@ -1,10 +1,11 @@
 @use "../tools/mixins/media" as media;
 
 body {
+    --site-border: .5em;
     background-color: var(--color-accent-300);
     font-family: var(--typeface-headings);
     color: var(--color-primary);
-    border: .5em solid #fff;
+    border: var(--site-border) solid #fff;
     transition: background-color var(--base-animation-duration) var(--base-easing);
 }
 
@@ -31,4 +32,14 @@ a.c2a {
 ul, ol {
     margin: 0;
     padding-inline-start: 1.25em;
+}
+
+em, i {
+    font-style: italic;
+    font-variation-settings: 'ital' 1;
+}
+
+strong, b {
+    font-weight: bolder;
+    font-weight: 550;
 }

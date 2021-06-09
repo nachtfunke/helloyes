@@ -1,0 +1,27 @@
+@use '../tools/mixins/media' as media;
+
+.posts-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--site-padding) / 2);
+
+    @include media.widerThan(caramel) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: masonry;
+    }
+
+    &__item {
+        font-size: 1em;
+
+        &:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--site-padding);
+            grid-column: span 2;
+        }
+    }
+}

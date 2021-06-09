@@ -3,7 +3,7 @@ layout: default
 title: "Hire me"
 excerpt: "I'm looking for a new position! And you should hire me:"
 illustration: "hiring-lined"
-templateEngineOverride: njk,md
+templateEngineOverride: md,njk
 ---
 {% from 'pull-link.macro.njk' import pullLink %}
 

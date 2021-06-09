@@ -37,7 +37,7 @@
             font-size: .85em;
             color: var(--color-dark);
 
-            @at-root body:where(.ctx--index) #{&} {
+            @at-root body:where(.ctx--index, .vers--posts-listing) #{&} {
                 color: var(--color-primary);
             }
         }

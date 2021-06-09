@@ -1,11 +1,13 @@
-const svgContents = require("eleventy-plugin-svg-contents"); // https://github.com/brob/eleventy-plugin-svg-contents
+const util = require('util');
 const markdownItAnchor = require("markdown-it-anchor");
+const svgContents = require("eleventy-plugin-svg-contents"); // https://github.com/brob/eleventy-plugin-svg-contents
+const toc = require('eleventy-plugin-nesting-toc'); // https://github.com/JordanShurmer/eleventy-plugin-nesting-toc
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
   const headlineAnchorSettings = {
     permalink: true,
-    permalinkSymbol: '🔗',
+    permalinkSymbol: '#',
     permalinkClass: 'main__heading-link',
     renderPermalink: (slug, opts, state, idx) => {
       // based on fifth version in
@@ -78,10 +80,21 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary('md', markdownConfigured);
 
+  eleventyConfig.addFilter('console', function(value) {
+      const str = util.inspect(value);
+      return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
+  });
+ 
+  eleventyConfig.addFilter('dateReadable', date => {
+    return date.toLocaleDateString('de-de');
+  });
+
   eleventyConfig.addPlugin(svgContents);
+  eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});
 
   eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');
+  eleventyConfig.addPassthroughCopy('src/sw.js');
 
   eleventyConfig.setBrowserSyncConfig({
     files: './dist/css/**/*.css'

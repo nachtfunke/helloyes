@@ -1,0 +1,66 @@
+@use '../tools/mixins/media' as media;
+@use '../objects/meta-label' as *;
+
+@mixin _inPostsList() {
+    @at-root .posts-list :where(#{&}) {
+        @content;
+    }
+} 
+
+.listed-post {
+    background-color: #fff;
+    padding: 1.5em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    box-shadow: 0 15px 42px rgba(0,0,0,.06);
+
+    @include _inPostsList() {
+        @include media.widerThan(caramel) {
+            padding: 2em;
+        }
+    }
+
+    &__title {
+        color: var(--color-highlight);
+        font-family: var(--typeface-headings);
+        line-height: 1.5;
+        font-weight: 625;
+        font-size: 1.25em;
+
+        :where(a) {
+            text-decoration-color: hsl(var(--color-hs-highlight) 75%);
+
+            &:visited {
+                color: hsl(var(--color-hs-dark) 50%);
+                text-decoration-color: hsl(var(--color-hs-dark) 75%);
+            }
+        }
+
+        @include media.widerThan(honey) {
+            font-weight: 650;
+        }
+
+        @include media.widerThan(syrup) {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+    }
+
+    &__excerpt {
+        font-family: var(--typeface-paragraphs);
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: .75em;
+    }
+
+    &__date {
+        @include meta-label();
+        margin-block-start: 0;
+        font-weight: 500;
+        font-size: .8em;
+    }
+}

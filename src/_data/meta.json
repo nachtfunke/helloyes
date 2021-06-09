@@ -1,0 +1,15 @@
+{
+    "site:": { 
+        "copyright": "2021 Thomas Michael Semmler",
+        "domain": "https://helloyes.dev"
+     },
+    "personal": {
+        "name": "Thomas Michael Semmler",
+        "email": "contact@thomassemmler.com"
+    },
+    "social": {
+        "dribbble": "https://dribbble.com/thomassemmler",
+        "twitter": "https://twitter.com/nachtfunke",
+        "linkedin": "https://www.linkedin.com/in/thomas-michael-semmler-8a8018207/"
+    }
+}
