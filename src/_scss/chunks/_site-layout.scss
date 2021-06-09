@@ -61,7 +61,6 @@
             position: sticky;
             top: 0;
             z-index: 0;
-            -webkit-transform: translate3d(0,0,0); // this is needed exclusively for safari. This forces a new layer, setting the z-index from the very start. Without it, the z-index only applies once the "sticky" part comes in, which on safari is being updated after the scroll was finished, not while it is happening.
 
             @include media.widerThan(caramel) {
                 align-self: stretch;
@@ -82,6 +81,10 @@
                         left: 50%;
                     }
                 }
+            }
+
+            & + .site-main {
+                -webkit-transform: translate3d(0,0,0); // this is needed exclusively for safari. This forces a new layer, setting the z-index from the very start. Without it, the z-index only applies once the "sticky" part comes in, which on safari is being updated after the scroll was finished, not while it is happening.
             }
         }
 
