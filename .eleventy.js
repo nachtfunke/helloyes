@@ -85,9 +85,9 @@ module.exports = function (eleventyConfig) {
       return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
   });
  
-  eleventyConfig.addFilter('dateReadable', date => {
-    return date.toLocaleDateString('de-de');
-  });
+  eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('de-de'));
+
+  eleventyConfig.addFilter('dateGetYear', date => date.getFullYear());
 
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});

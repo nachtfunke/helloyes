@@ -1,6 +1,7 @@
 ---
 layout: base
 bodyClass: "vers--single-post"
+permalink: "blog/{{ date | dateGetYear }}/{{ title | slug }}/"
 tags: ['post']
 ---
 <main class="site-main  main {{ mainclass }}" id="site-content">
@@ -9,7 +10,7 @@ tags: ['post']
         <time class="main__date">posted on {{ date | dateReadable }}</time>
         {% if content | toc | length and not hideToc%}
             <div class="main__outline" data-table-of-contents>
-                <p class="main__outline-label">Table of Contents:</h2>
+                <p class="main__outline-label">Table of Contents:</p>
                 {{ content | toc | safe }}
             </div>
         {% endif %}
