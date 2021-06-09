@@ -12,6 +12,7 @@
     padding-block-start: 1em;
     padding-block-end: 1.5em;
     padding-inline: var(--site-padding);
+    z-index: 1;
     
     @include media.widerThan(caramel) {
         display: flex;
