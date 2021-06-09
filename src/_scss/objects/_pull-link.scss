@@ -25,9 +25,10 @@
 
     &__link {
         font-family: var(--typeface-headings);
-        font-weight: 575;
-        color: var(--color-highlight);
+        font-weight: 500;
+        color: hsl(var(--color-hs-highlight) 34%);
         text-underline-offset: .15em;
+        text-decoration-color: hsl(var(--color-hs-highlight) 80%);
     }
 
     &__caption {
