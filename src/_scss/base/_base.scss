@@ -33,3 +33,13 @@ ul, ol {
     margin: 0;
     padding-inline-start: 1.25em;
 }
+
+em, i {
+    font-style: italic;
+    font-variation-settings: 'ital' 1;
+}
+
+strong, b {
+    font-weight: bolder;
+    font-weight: 550;
+}

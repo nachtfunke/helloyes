@@ -9,7 +9,6 @@
     > :where(ul, ol) {
         display: flex;
         flex-direction: column;
-        gap: .5em;
     }
 }
 
@@ -62,15 +61,43 @@
         }
         
         &-link {
+            font-family: var(--typeface-headings);
             position: absolute;
             inset-inline-start: 0;
             inset-block-end: 10%;
-            padding-inline-end: 2.5em;
+            //padding-inline-end: 2.5em;
             transform: translateX(-100%);
             width: 1em;
-            font-size: .5em;
-            text-decoration: none;
-            opacity: 0;
+            font-size: .85em;
+            font-weight: 600;
+            color: var(--color-highlight);
+            //outline: 1px solid;
+            
+            @include media.widerThan(caramel) {
+                opacity: 0;
+            }
+
+            @include media.widerThan(syrup) {
+                @at-root .main__heading-wrapper h2 + & {
+                    font-size: 1.25em;
+                }
+
+                @at-root .main__heading-wrapper h3 + & {
+                    font-size: 1em;
+                }
+
+                @at-root .main__heading-wrapper h4 + & {
+                    font-size: .9em;
+                }
+
+                @at-root .main__heading-wrapper h5 + & {
+                    font-size: .85em;
+                }
+
+                @at-root .main__heading-wrapper h6 + & {
+                    font-size: .85em;
+                }
+            }
 
             @supports not (inset-inline-start: 0) {
                 right: 0;
@@ -240,7 +267,6 @@
             margin-block-start: .25em;
             font-size: 1em;
             font-weight: 525;
-            margin-block-end: -.75em;
         }
 
         hr {
@@ -431,6 +457,8 @@
                 z-index: 2;
                 margin-block-start: 0;
 
+                @include _mainContentElements();
+
                 @include media.widerThan(honey) {
                     background-color: transparent;
                     grid-column: main-start / main-end;
@@ -438,8 +466,6 @@
                     grid-template-columns: var(--columns-main);
                     grid-column-gap: 2.5em;
                 }
-                 
-                @include _mainContentElements();
 
                 > * + * {
                     margin-block-start: 1em;

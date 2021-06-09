@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preload" as="style" href="{{ '/css/fonts.css' | url }}">
         <title>{{ title }} - Thomas Michael Semmler | Design Engineering, Accessibility, Frontend Design & CSS</title>
         <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}" media="print" onload="this.media='all'">
         <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
@@ -66,7 +67,7 @@
                     </div>
                 </nav>
             </nav>
-        </header>
+            </header>
         {{ content | safe }}
         <footer class="site-footer">
             <div class="site-footer__settings">
