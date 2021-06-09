@@ -17,13 +17,13 @@ pagination:
         {{ content | safe }}
     </header>
     <section class="main__post-listing">
-        <ol class="posts-list" reversed style="--max-items: {{ pagination.size }}">
+        <ol class="posts-list" reversed>
             {% for post in posts %}
                 <li class="posts-list__item">
                     <article class="listed-post">
                         <h1 class="listed-post__title"><a href="{{ post.url | url }}">{{ post.data.title | safe }}</a></h1>
-                        <p class="listed-post__excerpt">{{ post.data.excerpt | safe }}</p>
                         <time class="listed-post__date">posted on {{ post.date | dateReadable }}</time>
+                        <p class="listed-post__excerpt">{{ post.data.excerpt | safe }}</p>
                     </article>
                 </li>
             {% endfor %}

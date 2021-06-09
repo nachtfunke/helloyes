@@ -43,7 +43,7 @@
     }
 
     &__excerpt {
-        font-size: .8125em;
+        font-size: 1em;
 
         @include media.widerThan(syrup) {
             font-size: 1.5em;
@@ -84,6 +84,10 @@
         margin-top: var(--site-padding);
 
         @include media.widerThan(honey) {
+            font-size: .85em;
+        }
+
+        @include media.widerThan(syrup) {
             font-size: 1em;
         }
 
@@ -108,10 +112,6 @@
             list-style-type: none;
             counter-reset: section;
             width: 100%;
-            
-            @include media.widerThan(honey) {
-                clear: both;
-            }
 
             > li {
                 font-family: var(--typeface-headings);
@@ -165,7 +165,7 @@
     @at-root :where(#{$p}) :where(p, li) {
         font-family: var(--typeface-paragraphs);
         line-height: 1.75;
-        font-size: .7em;
+        font-size: .8em;
 
         @include media.widerThan(syrup) {
             font-size: 1em;
@@ -338,15 +338,18 @@
 
             &__header {
                 grid-column: span 3;
-                grid-row: 1;
+                position: sticky;
+                top: var(--site-padding);
+                align-self: start;
+
+                @include media.widerThan(syrup) {
+                    padding-inline-end: var(--site-padding);
+
+                }
             }
 
             &__post-listing {
-                grid-column: 1 / -1;
-                // padding: var(--site-padding);
-                grid-row: 2;
-                --horizontal-pull: calc( (var(--site-padding) + var(--site-border)) * -1);
-                margin: 0 var(--horizontal-pull);
+                grid-column: main-start / main-end;
             }
         }
 
@@ -370,14 +373,11 @@
 
         #{$p} {
             &__header {
-                padding: 1em;
                 position: sticky;
                 top: 0;
                 z-index: 1;
                 margin: var(--site-padding);
                 margin-block-end: 0;
-                background-color: rgba(0,0,0,.08);
-                border-radius: 5px;
 
                 @include media.widerThan(honey) {
                     grid-column: side-start / side-end;
@@ -399,18 +399,18 @@
                 margin-block-start: .75em;
 
                 @include media.widerThan(honey) {
-                    font-size: 1.125em;
                     margin-block-start: 1.5em;
                 }
             }
 
             &__outline {
-                background-color: inherit;
-                border-radius: inherit;
-                padding: inherit;
+                background-color: rgba(0,0,0,.08);;
+                border-radius: 4px;
+                padding: 1em;
                 margin-block-start: 1em;
 
                 @include media.widerThan(honey) {
+                    background-color: transparent;
                     padding: 0;
                     margin-block-start: 3em;
                     position: sticky;

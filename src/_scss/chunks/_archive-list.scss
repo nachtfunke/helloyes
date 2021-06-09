@@ -37,6 +37,7 @@
         &-date {
             @include meta-label();
             line-height: 1;
+            transform: translateY(.15em)
         }
     }
 }
