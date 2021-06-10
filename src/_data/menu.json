@@ -10,8 +10,7 @@
     },
     "work": {
         "name": "Work",
-        "url": "work",
-        "hidden": true
+        "url": "work"
     },
     "hiring": {
         "name": "Hire me",

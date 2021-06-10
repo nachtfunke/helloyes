@@ -223,7 +223,7 @@
             line-height: 1;
         }
 
-        h2 {
+        :where(h2) {
             margin: 0;
             font-size: 1em;
             font-weight: 625;
@@ -293,6 +293,12 @@
                     grid-column: span 3;
                 }
             }
+
+            &--full-column {
+                @include media.widerThan(caramel) {
+                    grid-column: 1 / -1;
+                }
+            }
         }
 
         aside, .aside { // okay listen. These elements will sometimes contain captioned elements, such as pull-links. These elements are already sectioning elements so it wouldn't make sense to wrap them in an aside. And sometimes whatever is in that place actually shouldn't be sectioned at all. That's where there is a semantic aside and a non-semantic aside :D This might be dumb idk lemme know what you think.
@@ -316,7 +322,7 @@
             }
         }
 
-        small {
+        :where(small) {
             display: block;
             font-size: .75em;
             line-height: 1.25;
