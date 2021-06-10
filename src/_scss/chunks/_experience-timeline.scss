@@ -61,6 +61,7 @@
             font-family: var(--typeface-headings);
             margin-block-start: 0;
             position: relative;
+            line-height: 1.25;
 
             &::before {
                 content: '';
@@ -83,7 +84,7 @@
 
         &-meta {
             font-family: var(--typeface-headings);
-            margin-block-start: .5em;
+            margin-block-start: .25em;
             font-size: .8125em;
             color: hsl(var(--color-hs-dark) 25%);
             font-weight: 525;

@@ -9,11 +9,9 @@
         <title>{{ title }} - Thomas Michael Semmler | Design Engineering, Accessibility, Frontend Design & CSS</title>
         <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}" media="print" onload="this.media='all'">
         <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ 'apple-touch-icon-57x57.png' | url }}">
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ 'apple-touch-icon-60x60.png' | url }}">
-        <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | url }}">
-        <link rel="icon" type="image/png" href="{{ 'favicon-32x32.png' | url }}" sizes="32x32">
-        <link rel="icon" type="image/png" href="{{ 'favicon-16x16.png' | url }}" sizes="16x16">
+        <link rel="icon" href="{{ '/assets/favicons/illusion/favicon.ico' | url }}" data-favicon>
+        <link rel="icon" href="{{ '/assets/favicons/illusion/icon.svg' | url }}" type="image/svg+xml" data-favicon>
+        <link rel="apple-touch-icon" href="{{ '/assets/favicons/illusion/apple-touch-icon.png' | url }}" data-favicon>
         <noscript>
             <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}">
         </noscript>
@@ -99,6 +97,20 @@
             const accentColorSettings = document.querySelectorAll('[data-accent-color-settings]');
             const accentOverride = sessionStorage['accent-color-override'];
             const footerSettingsButton = document.querySelector('[data-toggle-footer-settings]');
+            const favicons = document.querySelectorAll('[data-favicon]');
+
+            // set the favicon to one of the possible accent colors
+            const updateFavicon = (_newColor) => {
+                favicons.forEach( icon => {
+                    let href = icon.href;
+                    
+                    // meaning, that the used favicon does not use the color from the override
+                    if ( href.indexOf(_newColor)  ) {
+                        const newHref = href.replace(/(illusion|sandwisp|mint|perano)/, _newColor);
+                        icon.href = newHref;
+                    }
+                } );
+            }
             
             // make the closing of the menu nicer
             closeMenuButton.addEventListener('click', e => {
@@ -143,6 +155,7 @@
             // set the theme from session storage, if its set
             if ( accentOverride ) {
                 root.style.setProperty('--accent-color', `var(--color-hs-${accentOverride})`);
+                updateFavicon(accentOverride);
             }
 
             // for every occurance of the accent color settings menu
@@ -166,6 +179,8 @@
                             root.style.setProperty('--accent-color', newColor);
                             sessionStorage['accent-color-override'] = choice.value;
                         }
+
+                        updateFavicon(choice.value);
                     });
                 });
             });
