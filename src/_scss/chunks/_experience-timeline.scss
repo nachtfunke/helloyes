@@ -45,6 +45,11 @@
             inset-block-end: 0;
             transform: translateX(calc(-100% - .5em));
             line-height: 1;
+
+            @supports not (inset-inline-start: 0) {
+                left: 0;
+                bottom: 50%;
+            }
         }
 
         &.vers--subline {
@@ -73,6 +78,11 @@
                 inset-inline-start: 0;
                 inset-block-start: 50%;
                 transform: translate(calc(-100% - .3em), -50%);
+
+                @supports not (inset-inline-start: 0) {
+                    right: 0;
+                    top: 50%;
+                }
             }
         }
 
