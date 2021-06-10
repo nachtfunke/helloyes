@@ -6,6 +6,12 @@ illustration: "contracting-lined"
 templateEngineOverride: md
 ---
 
+## 10.06.2021
+
++ added the "work" page. This page displays a sort of timeline of my professional experiences.
++ try preloading some fonts again, as lighthouse wanted me to do it lol. This is never gonna end, is it?
++ all kinds of smaller color-contrast corrections to make the website more accessible
+
 ## 09.06.2021
 
 + improved font-loading, by utilising a service-worker `sw.js`, with help from [Chris Ferdinandi](https://gomakethings.com/improving-web-font-performance-with-service-workers/).
