@@ -40,6 +40,10 @@
             @at-root body:where(.ctx--index, .vers--posts-listing) #{&} {
                 color: var(--color-primary);
             }
+
+            > a {
+                text-decoration-thickness: 10%;
+            }
         }
 
         > a {
@@ -49,6 +53,10 @@
             align-items: inherit;
             width: 100%;
             text-decoration-color: hsl(var(--color-hs-primary) var(--color-weight-300));
+
+            @at-root .site-layout:where(.vers--posts-listing, .ctx--index) & {
+                text-decoration-color: hsl(var(--color-hs-primary) var(--color-weight-700));
+            }
             
             &[aria-current] {
                 color: var(--color-accent-900);
@@ -58,7 +66,8 @@
                 @at-root .site-layout.vers--posts-listing & {
                     --int-darker: calc(var(--color-weight-500) - 34%);
                     --int-darker-active-color: hsl(var(--color-hs-accent) var(--int-darker));
-                    color: var(--int-darker-active-color); 
+                    color: var(--int-darker-active-color);
+                    text-decoration-color: hsl(var(--color-hs-accent) var(--color-weight-700));
                 }
             }
         }

@@ -1,0 +1,13 @@
+{%- macro experienceTimelineEntry(params) -%}
+    <article class="experience-timeline__entry {{ 'vers--major' if params.major else 'vers--minor' }}">
+        <h2 class="experience-timeline__entry-title">{{ params.title }}</h2>
+        {%- if params.organisation or params.location -%}
+            <small class="experience-timeline__entry-meta">{{ params.organisation }} <svg height="13" width="7" aria-hidden="true"><use xlink:href="#icon-location-pin" /></svg> {{ params.location }}</small>
+        {%- endif -%}
+        {%- if params.description -%}
+        <div class="experience-timeline__entry-description">
+            {{ params.description | safe }}
+        </div>
+        {%- endif -%}
+    </article>
+{%- endmacro -%}
