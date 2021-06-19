@@ -127,6 +127,10 @@
             z-index: 3;
         }
 
+        .site-main {
+            align-self: start;
+        }
+
         .site-footer {
             @include media.widerThan(caramel) {
                 display: grid;
