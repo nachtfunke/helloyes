@@ -3,10 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ metaDescription if metaDescription else (excerpt if excerpt else 'Design Engineering, Accessibility, Frontend Design & CSS') | safe }}">
+        <meta name="og:description" content="{{ metaDescription if metaDescription else (excerpt if excerpt else 'Design Engineering, Accessibility, Frontend Design & CSS') | safe }}">
+        <meta name="author" content="Thomas Michael Semmler">
         <link rel="preload" as="font" href="{{ '/assets/fonts/work-sans-variable-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" as="font" href="{{ '/assets/fonts/poppins-regular-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" as="style" href="{{ '/css/fonts.css' | url }}">
-        <title>{{ title }} - Thomas Michael Semmler | Design Engineering, Accessibility, Frontend Design & CSS</title>
+        <title>{{ title }} - hello, yes. I'm Thomas Michael Semmler: CSS Developer, Designer & Developer from Vienna, Austria</title>
         <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}" media="print" onload="this.media='all'">
         <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
         <link rel="icon" href="{{ '/assets/favicons/illusion/favicon.ico' | url }}" type="image/x-icon" data-favicon>

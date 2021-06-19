@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Development Log"
+metaDescription: "All changes and updates made to this site, chronologically listed."
 excerpt: "Updates & Changes made to this website are collected here."
 illustration: "contracting-lined"
 templateEngineOverride: md

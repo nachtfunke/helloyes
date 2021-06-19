@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "About me"
+metaDescription: "All about who I am, as a Developer and Designer."
 excerpt: "Hello! My name is Thomas Michael Semmler and I am a Designer & Developer, Meditation & Mindfulness Teacher, and Counsellor in Training under Supervision<sup>1</sup> fom Vienna, Austria."
 illustration: "about-lined"
 templateEngineOverride: njk,md

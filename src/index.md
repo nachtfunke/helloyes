@@ -1,6 +1,6 @@
 ---
 layout: index
-title: "Hello yes."
+title: "Welcome"
 ---
 
 <div class="welcome">

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Imprint"
+metaDescription: "Legally required imprint, in accordance with Austrian law (as far as I know)."
 excerpt: false
 illustration: "welcome-lined"
 templateEngineOverride: njk,md
