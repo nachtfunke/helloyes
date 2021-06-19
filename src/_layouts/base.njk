@@ -49,10 +49,10 @@
                             <span class="button__text">close</span>
                         </a>
                     </div>
-                    <ul class="menu  site-menu__navigation" role="menu">
+                    <ul class="menu  site-menu__navigation">
                         {% for name, item in menu %}
                             {% if not item.hidden %}
-                                <li class="menu__item {% if item.small %}ctx--small{% endif %}" role="menuitem">
+                                <li class="menu__item {% if item.small %}ctx--small{% endif %}">
                                     <a href="/{{ item.url | url }}" {% if page.url == ( '/' + item.url + '/' ) %}aria-current="page"{% endif %}>
                                         <span class="text">{{ item.name }}</span>
                                         {% if not item.small %}
