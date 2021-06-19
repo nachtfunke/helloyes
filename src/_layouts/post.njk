@@ -4,10 +4,10 @@ bodyClass: "vers--single-post"
 permalink: "blog/{{ date | dateGetYear }}/{{ title | slug }}/"
 tags: ['post']
 ---
-<main class="site-main  main {{ mainclass }}" id="site-content">
+<main class="site-main  main {{ mainclass }}" id="site-content" itemscope itemtype="https://schema.org/Article">
     <header class="main__header">
-        <h1 class="main__title">{{ title }}</h1>
-        <time class="main__date">posted on {{ date | dateReadable }}</time>
+        <h1 class="main__title" itemprop="name">{{ title }}</h1>
+        <time class="main__date" itemporp="datePublished">posted on {{ date | dateReadable }}</time>
         {% if content | toc | length and not hideToc%}
             <div class="main__outline" data-table-of-contents>
                 <p class="main__outline-label">Table of Contents:</p>
@@ -15,9 +15,9 @@ tags: ['post']
             </div>
         {% endif %}
     </header>
-    <section class="main__content">
+    <section class="main__content" itemprop="articleBody">
         {% if excerpt %}
-            <p class="main__excerpt">{{ excerpt | safe }}</p>
+            <p class="main__excerpt" itemprop="about">{{ excerpt | safe }}</p>
         {% endif %}
         {{ content | safe }}
     </section>
