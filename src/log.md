@@ -6,11 +6,21 @@ illustration: "contracting-lined"
 templateEngineOverride: md
 ---
 
+## 19.06.2021
+
++ add interrupting sections of content to some timeline events, `.intermezzo`, as nunjucks macros
++ add work-domain patterns to represent ux, design, frontend, backend & brand to be used in presentational "work-diagrams" (first as images, then as svg). They're accent-color-override sensitive!
++ remove the arrow-icons from the main-navigation and place the main-navigation more accurately on the main grid
++ add a fix for the `.ico` favicon file; Sometimes, the mime-type isn't correct
++ Replace the websites main `<h1>` with "hello, yes." Instead of "Thomas M. Semmler". Need to test how this affects/works
++ add some missing `:hover` styles.
+
 ## 10.06.2021
 
 + added the "work" page. This page displays a sort of timeline of my professional experiences.
 + try preloading some fonts again, as lighthouse wanted me to do it lol. This is never gonna end, is it?
 + all kinds of smaller color-contrast corrections to make the website more accessible
++ add accent-color-override sensitive favicons
 
 ## 09.06.2021
 
