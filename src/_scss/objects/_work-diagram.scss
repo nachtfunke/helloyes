@@ -1,0 +1,20 @@
+.work-diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+
+    &__graphic {
+        svg {
+            max-width: 100%;
+        }
+    }
+
+    &__caption {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5em;
+        flex-wrap: wrap;
+    }
+}

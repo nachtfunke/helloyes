@@ -1,0 +1,10 @@
+<svg width="131" height="79" viewBox="0 0 131 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill="url(#pattern-frontend)" d="M51.9998 77.0001V52.0001H76.9998H102V77.0001H76.9998H51.9998Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-backend)" d="M102 26.9998V51.9997H76.9999V26.9998H102Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-frontend)" d="M102 2V27H51.9998V2H102Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M102 77.0001V52.0001L127 77.0001H102Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-backend)" d="M27 52.0001V77.0001H2V52.0001H27Z" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="39.5001" cy="64.5001" r="12.5" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="64.4998" cy="39.4997" r="12.5" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="45.7499" cy="45.7499" r="6.24999" stroke="#4B3339" stroke-width="2.5"/>
+</svg>

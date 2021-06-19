@@ -1,0 +1,43 @@
+@use '../tools/mixins/media' as media;
+
+.intermezzo {
+    background-color: #F7f7f7;
+    border-radius: 3px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    @include media.widerThan(syrup) {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2em;
+        align-items: center;
+    }
+
+    &__title {
+        &#{&} {
+            line-height: 1.25;
+            margin-top: 0;
+            margin-bottom: .5em;
+            font-size: 1.125em;
+            font-weight: 600;
+        }
+    }
+
+    &__text {
+        p {
+            color: hsl(var(--color-hs-dark) 40%);
+            font-size: .875em;
+        }
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        
+        img {
+            //width: auto;
+        }
+    }
+}

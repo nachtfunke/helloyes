@@ -17,6 +17,12 @@
         justify-content: space-between;
         font-weight: 475;
 
+        .icon {
+            @include media.widerThan(caramel) {
+                display: none;
+            }
+        }
+
         @at-root :where(.site-menu__navigation) #{&} {
             @include media.widerThan(caramel) {
                 --icon-color: var(--color-dark);
@@ -84,15 +90,15 @@
         
         @include media.widerThan(caramel) {
             flex-direction: row;
-            gap: 1em;
-            justify-content: space-between;
+            gap: 2em;
             margin-block-start: 0;
             align-items: center;
             font-size: .85em;
+            width: 100%;
+            justify-content: flex-end;
         }
 
         @include media.widerThan(honey) {
-            gap: 2em;
             font-size: 1em;
         }
     }

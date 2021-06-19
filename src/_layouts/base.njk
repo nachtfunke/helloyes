@@ -9,7 +9,7 @@
         <title>{{ title }} - Thomas Michael Semmler | Design Engineering, Accessibility, Frontend Design & CSS</title>
         <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}" media="print" onload="this.media='all'">
         <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
-        <link rel="icon" href="{{ '/assets/favicons/illusion/favicon.ico' | url }}" data-favicon>
+        <link rel="icon" href="{{ '/assets/favicons/illusion/favicon.ico' | url }}" type="image/x-icon" data-favicon>
         <link rel="icon" href="{{ '/assets/favicons/illusion/icon.svg' | url }}" type="image/svg+xml" data-favicon>
         <link rel="apple-touch-icon" href="{{ '/assets/favicons/illusion/apple-touch-icon.png' | url }}" data-favicon>
         <noscript>
@@ -30,6 +30,7 @@
             {% include 'report-a11y-issue.njk' %}
         </nav>
         {% include 'icons.njk' %}
+        {% include 'svg-patterns.njk' %}
         <header class="site-header" id="site-header">
             <h1 class="site-header__title">
                 <a href="{{ '/' | url }}">Thomas M. Semmler</a>

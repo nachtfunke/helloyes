@@ -1,0 +1,18 @@
+{%- macro workDiagram(params) -%}
+    {%- set illustration = '/src/assets/svg/work-domains/'+params.company+'-lined.svg' -%}
+    <figure class="work-diagram" aria-hidden="true">
+        <div class="work-diagram__graphic">{{ illustration | svgContents | safe }}</div>
+        <figcaption class="work-diagram__caption">
+            {%- for domain in params.domains -%}
+                <p class="fig">
+                    <span class="fig__icon" aria-hidden="true">
+                        <svg height="12" width="12">
+                            <use xlink:href="#icon-pattern-{{ domain | lower }}" />
+                        </svg>
+                    </span>
+                    <span class="fig__text">{{ domain }}</span>
+                </p>
+            {%- endfor -%}
+        </figcaption>
+    </figure>
+{%- endmacro -%}

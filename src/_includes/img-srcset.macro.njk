@@ -1,0 +1,12 @@
+{%- macro imgSrcset(params) -%}
+    <img alt="{{ params.alt }}"
+        src="{{ params.src }}.{{ params.file }}"
+        srcset="
+            {{ params.src }}.{{ params.file }},
+            {{ params.src }}@2x.{{ params.file }} 2x,
+            {{ params.src }}@3x.{{ params.file }} 3x,
+        "
+        {{ ('width="'+params.width+'"') if params.width }}
+        {{ ('height="'+params.height+'"') if params.height }}
+        >
+{%- endmacro -%}

@@ -1,0 +1,17 @@
+<svg width="187" height="109" viewBox="0 0 187 109" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill="url(#pattern-backend)" d="M105.428 81.5712H79.5711V107.428H105.428V81.5712Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-backend)" d="M79.5711 29.8571V55.7142H105.428V29.8571H79.5711Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-frontend)" d="M79.5711 55.7141V81.5713H105.428V107.428H131.285V55.7141H79.5711Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-frontend)" d="M27.8571 107.428V81.5712H2V107.428H27.8571Z" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="118.357" cy="42.7856" r="12.9286" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="40.7856" cy="94.4997" r="12.9286" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="144.214" cy="94.4997" r="12.9286" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="98.9643" cy="23.3932" r="6.46429" stroke="#4B3339" stroke-width="2.5"/>
+<circle fill="url(#pattern-design)" cx="60.1784" cy="88.0355" r="6.46429" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M157.143 107.428V81.5712L183 107.428H157.143Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M157.143 81.5713H131.286V55.7141L157.143 81.5713Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M131.286 4.00006L105.429 29.8572H131.286V4.00006Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M53.7141 107.428L79.5712 81.5712V107.428H53.7141Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-ux)" d="M27.857 81.5713H53.7142V55.7141L27.857 81.5713Z" stroke="#4B3339" stroke-width="2.5"/>
+<path fill="url(#pattern-brand)" d="M53.7141 81.5713H79.5712V55.7142L53.7141 29.8571V81.5713Z" stroke="#4B3339" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,27 @@
+.fig {
+    display: inline-flex;
+    gap: .33em;
+    align-items: center;
+
+    &#{&} { 
+        font-size: .75em;
+        line-height: 1;
+        margin-block-start: 0;
+    }
+
+    &__icon {
+        height: 1em;
+
+        svg {
+            height: 100%;
+            width: auto;
+        }
+    }  
+
+    &__text {
+        font-family: var(--typeface-headings);
+        font-feature-settings: "smcp", "c2sc";
+        font-weight: 500;
+        transform: translateY(1px);
+    }
+}

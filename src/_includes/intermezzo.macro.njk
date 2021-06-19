@@ -1,0 +1,15 @@
+{%- macro intermezzo(params) -%}
+    <div class="intermezzo {{ params.class if params.class }}">
+        <div class="intermezzo__text">
+            {%- if params.title -%}
+                <h3 class="intermezzo__title">{{ params.title | safe }}</h3>
+            {%- endif -%}
+            {{ params.content | safe }}
+        </div>
+        {%- if params.image -%}
+            <div class="intermezzo__image">
+                {{ params.image }}
+            </div>
+        {%- endif -%}
+    </div>
+{%- endmacro -%}

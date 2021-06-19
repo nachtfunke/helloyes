@@ -169,6 +169,9 @@
 
     @include media.widerThan(caramel) {
         padding-block-end: 0;
+        display: grid;
+        grid-template-columns: 2.08fr 3fr;
+        gap: var(--site-padding);
     }
 }
 
