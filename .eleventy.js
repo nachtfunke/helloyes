@@ -84,7 +84,7 @@ module.exports = function (eleventyConfig) {
       const str = util.inspect(value);
       return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
   });
- 
+
   eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('de-de'));
 
   eleventyConfig.addFilter('dateGetYear', date => date.getFullYear());
@@ -95,6 +95,24 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
+
+  /*
+  eleventyConfig.addCollection('nonsense', collectionsApi => {
+    const posts = collectionsApi.getFilteredByTag('post');
+
+    posts.forEach( post => { 
+      const srcPath = `${post.template.parsed.dir}/*.png`;
+      const distPath = post.template.dataCache.page.url;
+      
+      eleventyConfig.addPassthroughCopy({ srcPath: distPath });
+    });
+
+    return posts;
+  });
+  */
+
+  eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.png': 'assets/img/blog' });
+  eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.jpg': 'assets/img/blog' });
 
   eleventyConfig.setBrowserSyncConfig({
     files: './dist/css/**/*.css'
