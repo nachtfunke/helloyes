@@ -13,6 +13,7 @@
         grid-template-columns: 2fr 1fr;
         gap: 2em;
         align-items: center;
+        padding: 1.5em;
     }
 
     &__title {
@@ -35,9 +36,5 @@
     &__image {
         display: flex;
         justify-content: center;
-        
-        img {
-            //width: auto;
-        }
     }
 }

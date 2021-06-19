@@ -28,7 +28,7 @@
             width: 75vw;
             inset-block-start: 50%;
             inset-inline-start: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -60%);
 
             @supports not (inset-block-start: 0) {
                 top: 50%;
