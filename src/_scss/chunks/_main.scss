@@ -460,7 +460,9 @@
             &__content {
                 padding-block-start: calc(var(--site-padding) * 2);
                 padding-block-end: calc(var(--site-padding) * 2);
-                padding-inline: var(--site-padding);
+                //padding-inline: var(--site-padding);
+                padding-left: var(--site-padding);
+                padding-right: var(--site-padding);
                 background-color: #fff;
                 position: relative;
                 z-index: 2;
