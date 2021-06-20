@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Hire me"
+metaDescription: "All about hiring me as a Designer or Developer: What I look for in an employer, what you'll get if you work with me."
 excerpt: "I'm looking for a new position! And you should hire me:"
 illustration: "hiring-lined"
 templateEngineOverride: md,njk

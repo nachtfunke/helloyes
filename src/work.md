@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Work"
+metaDescription: "Comprehensive and chronological view of all my work experience over the years."
 excerpt: "I’ve been working in the industry since 2010. This is a chronological summary of my experiences."
 illustration: "work-lined"
 templateEngineOverride: md,njk

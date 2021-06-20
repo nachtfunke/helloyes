@@ -415,6 +415,7 @@
                     grid-column: side-start / side-end;
                     background-color: transparent;
                     padding: var(--site-padding);
+                    padding-block-start: calc(var(--site-padding) * 2 );
                     padding-inline-end: 0;
                     margin: 0;
                     text-align: right;
@@ -457,7 +458,9 @@
             }
 
             &__content {
-                padding: var(--site-padding);
+                padding-block-start: calc(var(--site-padding) * 2);
+                padding-block-end: calc(var(--site-padding) * 2);
+                padding-inline: var(--site-padding);
                 background-color: #fff;
                 position: relative;
                 z-index: 2;
@@ -479,6 +482,16 @@
                 }
 
                 p {
+                    code {
+                        background-color: rgba(0,0,0,.05);
+                        display: inline-block;
+                        padding-inline-start: .5em;
+                        padding-inline-end: .5em;
+                        border-radius: 2px;
+                        font-size: 1.125em;
+                        color: var(--color-accent-900);
+                    }
+
                     @include media.narrowerThan(honey) {
                         max-width: 60ch;
                     }
