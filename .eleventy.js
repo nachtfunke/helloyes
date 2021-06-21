@@ -2,6 +2,7 @@ const util = require('util');
 const markdownItAnchor = require("markdown-it-anchor");
 const svgContents = require("eleventy-plugin-svg-contents"); // https://github.com/brob/eleventy-plugin-svg-contents
 const toc = require('eleventy-plugin-nesting-toc'); // https://github.com/JordanShurmer/eleventy-plugin-nesting-toc
+const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -91,6 +92,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});
+  eleventyConfig.addPlugin(syntaxHighlighting);
 
   eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');

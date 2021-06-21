@@ -11,6 +11,9 @@
         <link rel="preload" as="style" href="{{ '/css/fonts.css' | url }}">
         <title>{{ title }} - hello, yes. I'm Thomas Michael Semmler: CSS Developer, Designer & Developer from Vienna, Austria</title>
         <link rel="stylesheet" type="text/css" href="{{ '/css/fonts.css' | url }}" media="print" onload="this.media='all'">
+        {% if syntaxHighlighting %}
+            <link rel="stylesheet" type="text/css" href="{{ '/css/syntax-highlighting.css' | url }}" media="print" onload="this.media='screen'">
+        {% endif %}
         <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
         <link rel="icon" href="{{ '/assets/favicons/illusion/favicon.ico' | url }}" type="image/x-icon" data-favicon>
         <link rel="icon" href="{{ '/assets/favicons/illusion/icon.svg' | url }}" type="image/svg+xml" data-favicon>
