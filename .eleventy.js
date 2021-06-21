@@ -94,24 +94,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});
   eleventyConfig.addPlugin(syntaxHighlighting);
 
-  eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-
-  /*
-  eleventyConfig.addCollection('nonsense', collectionsApi => {
-    const posts = collectionsApi.getFilteredByTag('post');
-
-    posts.forEach( post => { 
-      const srcPath = `${post.template.parsed.dir}/*.png`;
-      const distPath = post.template.dataCache.page.url;
-      
-      eleventyConfig.addPassthroughCopy({ srcPath: distPath });
-    });
-
-    return posts;
-  });
-  */
 
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.png': 'assets/img/blog' });
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.jpg': 'assets/img/blog' });
