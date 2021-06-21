@@ -2,8 +2,13 @@
 @use '../objects/meta-label' as *;
 
 @mixin _mainContentElements() {
-    > :where(p, ol, ul, blockquote, dl) {
+    > :where(p, ol, ul, blockquote, dl, pre) {
         grid-column: span 3;
+    }
+
+    > :where(pre) {
+        line-height: 1.5;
+        font-size: .7em;
     }
 
     > :where(ul, ol) {
@@ -108,7 +113,7 @@
 
     &__outline {
         font-size: .75em;
-        margin-top: var(--site-padding);
+        margin-block-start: var(--site-padding);
 
         @include media.widerThan(honey) {
             font-size: .85em;
@@ -130,7 +135,7 @@
             }
 
             + * {
-                margin-block-start: .5em;
+                margin-block-start: 1em;
             }
         }
 
@@ -139,6 +144,8 @@
             list-style-type: none;
             counter-reset: section;
             width: 100%;
+            display: flex;
+            flex-direction: column;
 
             > li {
                 font-family: var(--typeface-headings);
@@ -147,7 +154,6 @@
                 font-weight: 475;
 
                 @include media.widerThan(honey) {
-                    line-height: 2.5;
                     clear: both;
                 }
 
@@ -160,6 +166,8 @@
 
                     @include media.widerThan(honey) {
                         font-size: 1.125em;
+                        display: block;
+                        margin-bottom: .75em;
                     }
                 }
 
@@ -189,7 +197,7 @@
         }
     }
 
-    @at-root :where(#{$p}) :where(p, li) {
+    @at-root :where(#{$p}) :where(p, li, pre) {
         font-family: var(--typeface-paragraphs);
         line-height: 1.75;
         font-size: .8em;

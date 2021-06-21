@@ -7,6 +7,10 @@ illustration: "contracting-lined"
 templateEngineOverride: md
 ---
 
+## 21.06.2021
+
++ add syntax-highlighting
+
 ## 19.06.2021
 
 + add interrupting sections of content to some timeline events, `.intermezzo`, as nunjucks macros

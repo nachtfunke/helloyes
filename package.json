@@ -15,10 +15,11 @@
     "sass:build": "sass src/_scss:dist/css --no-source-map --style=compressed",
     "clean": "del dist",
     "start": "run-p -l clean sass:build sass:watch eleventy:serve",
-    "build": "run-s -l eleventy:build sass:build",
+    "build": "run-s -l clean eleventy:build sass:build",
     "test": "npm run eleventy:test"
   },
   "devDependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
     "del-cli": "^3.0.1",
     "npm-run-all": "^4.1.5"
   }

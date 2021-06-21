@@ -2,6 +2,7 @@ const util = require('util');
 const markdownItAnchor = require("markdown-it-anchor");
 const svgContents = require("eleventy-plugin-svg-contents"); // https://github.com/brob/eleventy-plugin-svg-contents
 const toc = require('eleventy-plugin-nesting-toc'); // https://github.com/JordanShurmer/eleventy-plugin-nesting-toc
+const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -91,25 +92,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(svgContents);
   eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});
+  eleventyConfig.addPlugin(syntaxHighlighting);
 
-  eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-
-  /*
-  eleventyConfig.addCollection('nonsense', collectionsApi => {
-    const posts = collectionsApi.getFilteredByTag('post');
-
-    posts.forEach( post => { 
-      const srcPath = `${post.template.parsed.dir}/*.png`;
-      const distPath = post.template.dataCache.page.url;
-      
-      eleventyConfig.addPassthroughCopy({ srcPath: distPath });
-    });
-
-    return posts;
-  });
-  */
 
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.png': 'assets/img/blog' });
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.jpg': 'assets/img/blog' });
