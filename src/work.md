@@ -60,11 +60,6 @@ templateEngineOverride: md,njk
                     description: '<p>I consider myself very fortunate for being able to teach people at SAE Vienna. Teaching their meant introducing people to the very first concepts of making websites. I was able to structure my course and even finetune it to a given groups specific needs. I maintained a slack channel for students and provided them with an online skriptum. Teaching people did turn out to be one of the most rewarding things I had ever done to this point.</p>'
                 }) }}
             </div>
-            {{ experienceTimelineEntry({ 
-                title: '2017: Meditation- & Mindfulness-Teaching Certificate',
-                organisation: 'WIFI Wien',
-                location: 'Vienna, Austria'
-            }) }}
             <div class="experience-timeline__line  vers--subline" style="--event-color: #489abf">
                 <time class="experience-timeline__date">Sept. 2016 - May 2021</time>
                 {{ experienceTimelineEntry({
@@ -75,6 +70,11 @@ templateEngineOverride: md,njk
                     description: '<p>Working with the people at easyname was pivotal for me. I entered the country at a time where neither frontend development, nor design was considered an integral part. I was brought in also with the intention to improve on this. I had the great privilege of joining a diverse team handpicked by Stephanie Anderson. The team kept growing and kept being expanded by extraordinary individuals.</p>' + intermezzo({ title: 'Establishing design through sustainable integration', content: '<p>At the point of joining the company, I had the unique opportunity of taking an inventory of previous design decisions and their potential. Instead of suggesting waves of redesigns, I opted for small, concise and sustainable changes to brand, frontend and UX.</p><p>My understanding about the role of design not just in the processes, but also as a contributing perspective in product development and how it serves individuals, teams and organisations grew massively thanks to the opportunities that were given to me there.</p>', image: workDiagram({ company: 'easyname', domains: ['UX', 'Design', 'Brand', 'Frontend', 'Backend'] }) })
                 }) }}
             </div>
+            {{ experienceTimelineEntry({ 
+                title: '2017: Meditation- & Mindfulness-Teaching Certificate',
+                organisation: 'WIFI Wien',
+                location: 'Vienna, Austria'
+            }) }}
             {{ experienceTimelineEntry({ 
                 title: 'since 2020: Counselling Sciences & Management of Social Systems, University Course',
                 organisation: 'ARGE Bildungsmanagement / SFU Vienna',
