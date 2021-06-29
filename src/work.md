@@ -66,7 +66,7 @@ templateEngineOverride: md,njk
                 location: 'Vienna, Austria'
             }) }}
             <div class="experience-timeline__line  vers--subline" style="--event-color: #489abf">
-                <time class="experience-timeline__date">Oct. - Nov. 2010</time>
+                <time class="experience-timeline__date">Sept. 2016 - May 2021</time>
                 {{ experienceTimelineEntry({
                     major: true,
                     title: 'Senior Software Developer, UI/UX-Designer',
