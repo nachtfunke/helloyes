@@ -42,7 +42,7 @@ templateEngineOverride: md,njk
                 description: '<p>I knew that I needed to some how proof that I had the knowledge that I claimed to have. For that reason I decided to do a 4 Month training programm from WIFI in Vienna. I completed this training and was given a "Diploma", a Certification that allowed me to land my first job as a junior Web Developer.</p>'
             }) }}
             <div class="experience-timeline__line  vers--subline" style="--event-color: #00AEEF">
-                <time class="experience-timeline__date">Oct. - Nov. 2010</time>
+                <time class="experience-timeline__date">Aug. 2011 - Dec. 2015</time>
                 {{ experienceTimelineEntry({
                     major: true,
                     title: 'Junior Web Developer',
