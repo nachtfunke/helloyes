@@ -45,7 +45,7 @@ templateEngineOverride: md,njk
                 <time class="experience-timeline__date">Aug. 2011 - Dec. 2015</time>
                 {{ experienceTimelineEntry({
                     major: true,
-                    title: 'Junior Web Developer',
+                    title: 'Web Developer',
                     organisation: 'ip-systems informationssysteme e.U.',
                     location: 'Vienna, Austria',
                     description: '<p>I consider my time at ip-systems to be my very first job, in spirit. They are a full-service agency, which for every day work meant communicating with clients, as well as conceptualising, planning and actually developing website projects. From updating existing legacy systems with new content or planning new website projects from scratch to finish, with small or medium-sized companies as clients. My desk neighbour, Daniel Mikesch (@alayron) turned out to not only be a great person to work with but also in a way a mentor, introducing me to jquery, constantly answering my questions and in general be very supportive of someone enterying the industry.</p>' + intermezzo({ title: 'From Webdesign to Webdevelopment', content: '<p>Even though I originally got into the web via design, I quickly noticed that development was giving me a very unique kick that I never stopped pursuing. Work at a full-service-provider meant learning to work with basic PHP and also JavaScript. My work from this time can be considered rather evenly distrubuted, with design taking up just a bit more than development and UX being the smallest portion.</p>', image: workDiagram({ company: 'ip-systems', domains: ['UX', 'Design', 'Frontend', 'Backend'] }) })
@@ -54,6 +54,7 @@ templateEngineOverride: md,njk
             <div class="experience-timeline__line  vers--subline" style="--event-color: #FF6900">
                 <time class="experience-timeline__date">2016 - 2017</time>
                 {{ experienceTimelineEntry({
+                    major: true,
                     title: 'Freelance Lecturer',
                     organisation: 'SAE Austria GmbH',
                     location: 'Vienna, Austria',
