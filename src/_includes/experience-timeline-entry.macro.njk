@@ -1,13 +1,54 @@
 {%- macro experienceTimelineEntry(params) -%}
-    <article class="experience-timeline__entry {{ 'vers--major' if params.major else 'vers--minor' }}">
-        <h2 class="experience-timeline__entry-title">{{ params.title }}</h2>
-        {%- if params.organisation or params.location -%}
-            <small class="experience-timeline__entry-meta">{{ params.organisation }} <svg height="13" width="7" aria-hidden="true"><use xlink:href="#icon-location-pin" /></svg> {{ params.location }}</small>
-        {%- endif -%}
-        {%- if params.description -%}
-        <div class="experience-timeline__entry-description">
-            {{ params.description | safe }}
+    {%- set type = "generic" if not (params.type | length) else params.type  -%}
+    <article class="experience-timeline__entry {{ 'vers--major' if params.major else 'vers--minor' }}" data-timeline-event>
+        <div class="experience-timeline__entry-type vers--{{ type }}" aria-hidden="true">
+            <svg height="28"><use xlink:href="#icon-event-type-{{ type }}" /></svg>
         </div>
+        <div class="experience-timeline__entry-text">
+            {%- if params.time -%}
+                <small class="experience-timeline__entry-meta">
+                    <time>{{ params.time }}</time>
+                </small>
+            {%- endif -%}
+            <h2 class="experience-timeline__entry-title">{{ params.title }}</h2>
+            {%- if params.organisation -%}
+                <small class="experience-timeline__entry-meta">
+                    <svg height="13" width="12" aria-hidden="true"><use xlink:href="#icon-organisation-marker" /></svg>
+                    {{ params.organisation }}
+                </small>
+            {%- endif -%}
+            {%- if params.location -%}
+                <small class="experience-timeline__entry-meta">
+                    <svg height="13" width="12" aria-hidden="true"><use xlink:href="#icon-location-marker" /></svg>
+                    {{ params.location }}
+                </small>
+            {%- endif -%}
+            {%- if params.tags -%}
+                <ul class="experience-timeline__entry-tags">
+                    {%- for tag in params.tags -%}
+                        <li class="tag">{{ tag }}</li>
+                    {%- endfor -%}
+                </ul>
+            {%- endif -%}
+            {%- if params.details or params.action -%}
+                <div class="experience-timeline__entry-action">
+                    {%- if not params.action -%}
+                        <button class="button" type="button" aria-expanded="false" aria-controls="timeline-event-{{ params.id }}-details" data-timeline-event-expand-button>
+                            <span class="button__text" data-timeline-event-expand-button-open>Show more</span>
+                            <span class="button__text" data-timeline-event-expand-button-close style="display: none;">Show less</span>
+                        </button>
+                    {%- else -%}
+                        {{ params.action }}
+                    {%- endif -%}
+                </div>
+            {%- endif -%}
+        </div>
+        {%- if params.details -%}
+            <div class="experience-timeline__entry-details" id="timeline-event-{{ params.id }}-details" data-timeline-event-details>
+                <div data-height-wrapper>
+                    {{ params.details | safe }}
+                </div>
+            </div>
         {%- endif -%}
     </article>
 {%- endmacro -%}

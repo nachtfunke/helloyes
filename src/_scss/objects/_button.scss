@@ -23,6 +23,7 @@
     border-radius: calc(1em + (var(--int-spacing) * 2));
     color: hsl(var(--color-hs-primary) var(--int-l-text));
     background-color: var(--int-theme);
+    border: none;
 
     @include media.widerThan(honey) {
         --int-size: 1em;

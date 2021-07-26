@@ -1,0 +1,35 @@
+---
+layout: default
+title: "Work"
+metaDescription: "Comprehensive and chronological view of all my work experience over the years."
+excerpt: "I’ve been working in the industry since 2010. This is a chronological summary of my experiences."
+illustration: "work-lined"
+templateEngineOverride: md,njk
+---
+{%- from 'experience-timeline-entry.macro.njk' import experienceTimelineEntry -%}
+
+<ol class="wrap-as--full-column  experience-timeline">
+    {%- for era, events in collections.orderedTimelineEvents | groupby('data.era') -%}
+        <li class="experience-timeline__era">
+            <time class="experience-timeline__date">{{ era }}</time>
+                <ol class="experience-timeline__events">
+                {%- for event in events -%}
+                    <li class="experience-timeline__events-item">
+                        {{- experienceTimelineEntry({
+                            id: event.data.order,
+                            major: event.data.major,
+                            type: event.data.type,
+                            title: event.data.title,
+                            organisation: event.data.organisation,
+                            time: event.data.time,
+                            location: event.data.location,
+                            tags: event.data.eventTags,
+                            details: event.templateContent
+                        }) -}}
+                    </li>
+                {%- endfor -%}
+            </ol>
+        </li>
+    {%- endfor -%}
+</ol>
+<script src="{{ '/assets/js/timeline.js' | url}}"></script>

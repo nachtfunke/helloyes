@@ -23,7 +23,7 @@
     &__title {
         font-family: var(--typeface-headings);
         font-weight: 675;
-        font-size: 1.3125em;
+        font-size: 1.5em;
         line-height: 1.25;
         margin: 0;
 
@@ -33,6 +33,10 @@
             @include media.widerThan(caramel) {
                 margin-block-start: 2em;
             }
+        }
+
+        @include media.widerThan(caramel) {
+            font-size: 2em;
         }
 
         @include media.widerThan(syrup) {
