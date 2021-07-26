@@ -1,6 +1,6 @@
 {%- macro experienceTimelineEntry(params) -%}
     {%- set type = "generic" if not (params.type | length) else params.type  -%}
-    <article class="experience-timeline__entry {{ 'vers--major' if params.major else 'vers--minor' }}" data-timeline-event>
+    <article class="experience-timeline__entry {{ 'vers--major' if params.major else 'vers--minor' }} {{ params.class if params.class }}" data-timeline-event>
         <div class="experience-timeline__entry-type vers--{{ type }}" aria-hidden="true">
             <svg height="28"><use xlink:href="#icon-event-type-{{ type }}" /></svg>
         </div>
@@ -42,13 +42,13 @@
                     {%- endif -%}
                 </div>
             {%- endif -%}
-        </div>
-        {%- if params.details -%}
+            {%- if params.details -%}
             <div class="experience-timeline__entry-details" id="timeline-event-{{ params.id }}-details" data-timeline-event-details>
                 <div data-height-wrapper>
                     {{ params.details | safe }}
                 </div>
             </div>
         {%- endif -%}
+        </div>
     </article>
 {%- endmacro -%}

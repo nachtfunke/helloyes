@@ -16,6 +16,7 @@ templateEngineOverride: md,njk
                 {%- for event in events -%}
                     <li class="experience-timeline__events-item">
                         {{- experienceTimelineEntry({
+                            class: event.data.class,
                             id: event.data.order,
                             major: event.data.major,
                             type: event.data.type,

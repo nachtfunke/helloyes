@@ -6,25 +6,38 @@
         
         if (button) {
             const details = event.querySelector('[data-timeline-event-details]');
-            const newHeight = details.querySelector('[data-height-wrapper]').offsetHeight;
+            const heightWrapper = details.querySelector('[data-height-wrapper]');
             const hideText = button.querySelector('[data-timeline-event-expand-button-close]');
             const showText = button.querySelector('[data-timeline-event-expand-button-open]');
             
             button.addEventListener('click', () => {
-                if ( event.classList.contains('is-expanded') ) {
-                    event.classList.remove('is-expanded');
-                    button.setAttribute('aria-expanded', false);
-                    details.style.height = 0;
-                    details.style.opacity = 0;
-                    hideText.style.display = 'none';
-                    showText.style.display = 'flex';
-                } else {
-                    event.classList.add('is-expanded');
-                    button.setAttribute('aria-expanded', true);
-                    details.style.height = newHeight+'px';
+                button.disabled = true;
+                
+                const expandEntry = () => {
+                    details.style.height = heightWrapper.offsetHeight+'px';
                     details.style.opacity = 1;
                     hideText.style.display = 'flex';
                     showText.style.display = 'none';
+                    button.disabled = false;
+                    event.removeEventListener('transitionend', expandEntry);
+                }
+                const collapseEntry = () => {
+                    event.classList.remove('is-expanded');
+                    button.setAttribute('aria-expanded', false);
+                    hideText.style.display = 'none';
+                    showText.style.display = 'flex';
+                    button.disabled = false;
+                    event.removeEventListener('transitionend', collapseEntry);
+                };
+
+                if ( event.classList.contains('is-expanded') ) {
+                    details.style.height = 0;
+                    details.style.opacity = 0;
+                    event.addEventListener('transitionend', collapseEntry, false)
+                } else {
+                    event.classList.add('is-expanded');
+                    button.setAttribute('aria-expanded', true);
+                    event.addEventListener('transitionend', expandEntry, false);
                 }
             });
         }
