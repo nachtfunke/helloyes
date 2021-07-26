@@ -5,7 +5,7 @@
     list-style-type: none;
     padding-inline-start: 0;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: calc(var(--site-padding)*2);
 
     @include media.widerThan(honey) {
@@ -49,7 +49,7 @@
     &__events {
         content-visibility: auto;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         list-style-type: none;
         padding-inline-start: 0;
         gap: 2em;
@@ -82,7 +82,7 @@
         grid-gap: var(--int-gap);
         position: relative;
         border-radius: 30px;
-        transition-property: margin-block, background-color;
+        transition-property: background-color;
         transition-timing-function: var(--base-easing);
         transition-duration: var(--base-animation-duration);
 
@@ -120,10 +120,6 @@
             @include media.widerThan(honey) {
                 background-color: var(--color-accent-100);
             }
-
-            @include media.widerThan(syrup) {
-                margin-block: 0;
-            }
         }
 
         &-type {
@@ -140,6 +136,10 @@
             transition-property: opacity, transform;
             transition-timing-function: var(--base-easing);
             transition-duration: var(--base-animation-duration);
+
+            @supports not (aspect-ratio: 1 / 1) {
+                height: var(--int-entry-type-size);
+            }
 
             @include media.widerThan(caramel) {
                 z-index: 2;
@@ -170,13 +170,14 @@
             gap: .25em;
             grid-column: content-start / content-end;
             grid-row: 1;
-            transition-property: padding-inline-start;
+            transition-property: padding-inline-start, padding-left;
             transition-timing-function: var(--base-easing);
             transition-duration: var(--base-animation-duration);
 
             @include media.widerThan(caramel) {
                 z-index: 1;
                 grid-column: 1 / -1;
+                padding-left: var(--shift);
                 padding-inline-start: var(--shift);
             }
 
