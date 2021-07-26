@@ -77,7 +77,7 @@ module.exports = function (eleventyConfig) {
       );
     }
   }
-  const markdownConfigured = markdownIt({ html: true }).use(markdownItAnchor, headlineAnchorSettings);
+  const markdownConfigured = markdownIt({ html: true }).use(markdownItAnchor, headlineAnchorSettings).disable('code');
 
   eleventyConfig.setLibrary('md', markdownConfigured);
 
@@ -99,6 +99,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.png': 'assets/img/blog' });
   eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.jpg': 'assets/img/blog' });
+
+  // order the timeline-events collection by 'order' instead of by date (eleventy default)
+  eleventyConfig.addCollection('orderedTimelineEvents', collection => {
+    return collection.getFilteredByTag('timeline-event').sort( (a,b) => a.data.order - b.data.order)
+  })
 
   eleventyConfig.setBrowserSyncConfig({
     files: './dist/css/**/*.css'
