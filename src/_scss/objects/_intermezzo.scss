@@ -1,9 +1,8 @@
 @use '../tools/mixins/media' as media;
+@use 'sticker' as sticker;
 
 .intermezzo {
-    background-color: hsl(var(--color-hs-accent) 95%);
-    border-radius: 15px;
-    padding: 1em;
+    @include sticker();
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -13,7 +12,6 @@
         grid-template-columns: 2fr 1fr;
         gap: 2em;
         align-items: center;
-        padding: 1.5em;
     }
 
     &__title {

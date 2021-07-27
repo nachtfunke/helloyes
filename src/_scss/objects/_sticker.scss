@@ -1,0 +1,11 @@
+@use '../tools/mixins/media' as media;
+
+@mixin sticker {
+    background-color: hsl(var(--color-hs-accent) 95%);
+    border-radius: 15px;
+    padding: 1em;
+
+    @include media.widerThan(syrup) {
+        padding: 1.5em;
+    }
+}
