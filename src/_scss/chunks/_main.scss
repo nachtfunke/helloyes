@@ -4,6 +4,16 @@
 @mixin _mainContentElements() {
     > :where(p, ol, ul, blockquote, dl, pre) {
         grid-column: span 3;
+
+        @include media.widerThan(caramel) {
+            @media (orientation: portrait) {
+                grid-column: span 5;
+
+                & + *:not(:where(p, ol, ul, dl, pre, hr)) {
+                    grid-column: span 2;
+                }
+            }
+        }
     }
 
     > :where(pre) {
@@ -220,6 +230,14 @@
         padding-block-start: calc(var(--site-padding) * 2);
         padding-block-end: calc(var(--site-padding) * 2);
 
+        @include media.widerThan(caramel) {
+            @media (orientation: portrait) {
+                padding: var(--site-padding);
+                display: grid;
+                grid-template-columns: inherit;
+            }
+        }
+
         @include media.widerThan(honey) {
             display: grid;
             grid-template-columns: var(--columns-main);
@@ -353,6 +371,13 @@
         #{$p} {
             &__header {
                 grid-column: span 3;
+
+                @include media.widerThan(caramel) {
+                    @media (orientation: portrait) {
+                        grid-column: span 5;
+                        margin-block-end: var(--site-padding);
+                    }
+                }
             }
 
             img, aside {
