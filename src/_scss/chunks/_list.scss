@@ -1,0 +1,10 @@
+.list {
+    &--horizontal {
+        list-style-type: none;
+        padding-inline-start: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5em;
+    }
+}

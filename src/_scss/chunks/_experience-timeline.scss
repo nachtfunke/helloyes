@@ -256,6 +256,10 @@
             transition-timing-function: var(--base-easing);
             transition-duration: 250ms;
             margin-block-start: var(--int-gap);
+
+            .list--horizontal {
+                margin-block-start: var(--int-gap);
+            }
         }
 
         :where(#{&}-description) {

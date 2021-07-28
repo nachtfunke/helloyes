@@ -1,0 +1,8 @@
+{%- macro tag(params) -%}
+    <span class="tag {{ 'theme--dark' if params.dark }} {{ 'vers--large' if params.large }}">
+        {%- if params.icon -%}
+            <svg aria-hidden="true"><use xlink:href="#{{ params.icon }}" /></svg>
+        {%- endif -%}
+        {{ params.text }}
+    </span>
+{%- endmacro -%}

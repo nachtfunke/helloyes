@@ -1,5 +1,5 @@
 @use '../tools/mixins/media' as media;
-@use 'sticker' as sticker;
+@use 'sticker' as *;
 
 .intermezzo {
     @include sticker();
