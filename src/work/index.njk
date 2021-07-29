@@ -4,6 +4,7 @@ title: "Experience"
 metaDescription: "Comprehensive and chronological view of all my work experience over the years."
 excerpt: "I’ve been working in the industry since 2010. This is a chronological summary of my experiences."
 illustration: "work-lined"
+headerSticker: "about"
 ---
 {%- from 'experience-timeline-entry.macro.njk' import experienceTimelineEntry -%}
 
@@ -33,11 +34,12 @@ illustration: "work-lined"
     {%- endfor -%}
 </ol>
 
-<hr style="margin-block-start: var(--site-padding)">
-
-<small>Some Icons are from the Noun Project:<br>
-Flag - created by Ian Zune<br>
-Learn - created by Icon Island<br>
-Magic - created by Shmidt Sergey
-</small>
+<div class="wrap-as--full-column">
+    <hr style="margin-block-start: var(--site-padding)">
+    <small>Some Icons are from the Noun Project:<br>
+    Flag - created by Ian Zune<br>
+    Learn - created by Icon Island<br>
+    Magic - created by Shmidt Sergey
+    </small>
+</div>
 <script src="{{ '/assets/js/timeline.js' | url}}"></script>

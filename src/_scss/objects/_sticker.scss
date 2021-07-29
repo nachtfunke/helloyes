@@ -1,11 +1,35 @@
 @use '../tools/mixins/media' as media;
 
 @mixin sticker {
-    background-color: hsl(var(--color-hs-accent) 95%);
+    --int-lightness: var(--lightness, 95%);
+    background-color: hsl(var(--color-hs-accent) var(--int-lightness));
     border-radius: 15px;
     padding: 1em;
 
     @include media.widerThan(syrup) {
         padding: 1.5em;
+    }
+}
+
+.sticker {
+    @include sticker;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+    &.theme--lighter {
+        --lightness: 98%;
+    }
+
+    &__text {
+        font-family: var(--typeface-paragraphs);
+        font-size: .975em;
+        color: var(--color-primary);
+    }
+
+    &__action {
+        margin-block-start: 0;
     }
 }

@@ -15,6 +15,10 @@
                 background-color: transparent;
             }
         }
+
+        @include media.widerThan(honey) {
+            background-color: transparent;
+        }
     }
 
     @include media.narrowerThan(caramel) {

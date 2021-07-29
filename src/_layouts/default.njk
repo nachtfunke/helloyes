@@ -14,6 +14,14 @@ bodyClass: "vers--page"
         {% if excerpt %}
             <p class="main__excerpt">{{ excerpt | safe }}</p>
         {% endif %}
+        {% if headerSticker %}
+            {% if headerSticker === 'about' %}
+                <div class="sticker  theme--lighter  main__header-sticker">
+                    <p class="sticker__text">Hello, yes. I'm Thomas Michael Semmler. Would you like to know more about me?</p>
+                    <a class="c2a vers--ghost  sticker__action" href="{{ '/about' | url }}">Get to know me</a>
+                </div>
+            {% endif %}
+        {% endif %}
     </header>
     {{ content | safe }}
 </main>

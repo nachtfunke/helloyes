@@ -43,6 +43,10 @@
             writing-mode: vertical-lr;
             color: hsl(var(--color-hs-dark) 76%);
             margin-block-end: 0;
+            position: sticky;
+            // lol
+            top: var(--site-padding);
+            bottom: var(--site-padding);
         }
     }
 

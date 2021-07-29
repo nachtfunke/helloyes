@@ -239,6 +239,7 @@
         }
 
         @include media.widerThan(honey) {
+            --column-illustration: 3fr;
             display: grid;
             grid-template-columns: var(--columns-main);
             column-gap: 2.5em;
@@ -376,13 +377,30 @@
 
         #{$p} {
             &__header {
-                grid-column: span 3;
+                grid-column: 1 / -1;
 
                 @include media.widerThan(caramel) {
+                    display: grid;
+                    grid-template-columns: inherit;
+
                     @media (orientation: portrait) {
-                        grid-column: span 5;
                         margin-block-end: var(--site-padding);
                     }
+                }
+
+                @include media.narrowerThan(syrup) {
+                    @media (orientation: landscape) {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                @include media.widerThan(caramel) {
+                    gap: var(--site-padding);
+                }
+
+                @include media.widerThan(syrup) {
+                    gap: calc(var(--site-padding)/2);
                 }
             }
 
@@ -391,12 +409,53 @@
             }
 
             &__title {
+                @include media.widerThan(caramel) {
+                    grid-column: 1 / -1;
+                }
+
                 + * {
                     @include media.widerThan(honey) {
                         margin-block-start: 2.5em;
                     }
                 }
             }
+
+            &__excerpt {
+                @include media.widerThan(caramel) {
+                    grid-column: 1 / 5;
+                    margin-block-start: 0;
+                }
+
+                @include media.widerThan(honey) {
+                    grid-column: span 3;
+                }
+
+                @include media.narrowerThan(fructose) {
+                    @media (orientation: landscape) {
+                        grid-column: span 2;
+                    }
+                }
+            }
+
+            &__header-sticker {
+                @include media.widerThan(caramel) {
+                    grid-column: span 2;
+                    grid-column-end: -1;
+                    margin-block-start: 0;
+                    align-self: center;
+                }
+
+                @include media.widerThan(honey) {
+                    grid-column: span 1;
+                }
+
+                @include media.narrowerThan(fructose) {
+                    @media (orientation: landscape) {
+                        grid-column: span 2;
+                    }
+                }
+            }
+            
         }
     }
 
