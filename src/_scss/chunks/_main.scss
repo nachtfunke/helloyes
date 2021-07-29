@@ -25,6 +25,12 @@
         display: flex;
         flex-direction: column;
     }
+
+    .portrait {
+        border-radius: 30px;
+        display: inline-block;
+        overflow: hidden;
+    }
 }
 
 .main {
@@ -438,6 +444,8 @@
             }
 
             &__header-sticker {
+                transform: rotate(-3deg);
+
                 @include media.widerThan(caramel) {
                     grid-column: span 2;
                     grid-column-end: -1;

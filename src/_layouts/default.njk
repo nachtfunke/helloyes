@@ -14,7 +14,7 @@ bodyClass: "vers--page"
         {% if excerpt %}
             <p class="main__excerpt">{{ excerpt | safe }}</p>
         {% endif %}
-        {% if headerSticker %}
+        {% if headerSticker or headerImage %}
             {% if headerSticker === 'about' %}
                 <div class="sticker  theme--lighter  main__header-sticker">
                     <p class="sticker__text">Hello, yes. I'm Thomas Michael Semmler. Would you like to know more about me?</p>
