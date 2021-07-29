@@ -11,6 +11,12 @@
         background-color: #fff;
 
         @include media.widerThan(caramel) {
+            @media (orientation: landscape) {
+                background-color: transparent;
+            }
+        }
+
+        @include media.widerThan(honey) {
             background-color: transparent;
         }
     }

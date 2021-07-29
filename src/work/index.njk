@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Work"
+title: "Experience"
 metaDescription: "Comprehensive and chronological view of all my work experience over the years."
 excerpt: "I’ve been working in the industry since 2010. This is a chronological summary of my experiences."
 illustration: "work-lined"
-templateEngineOverride: md,njk
+headerSticker: "about"
 ---
 {%- from 'experience-timeline-entry.macro.njk' import experienceTimelineEntry -%}
 
@@ -15,7 +15,7 @@ templateEngineOverride: md,njk
                 <ol class="experience-timeline__events">
                 {%- for event in events -%}
                     <li class="experience-timeline__events-item">
-                        {{- experienceTimelineEntry({
+                        {{ experienceTimelineEntry({
                             class: event.data.class,
                             id: event.data.order,
                             major: event.data.major,
@@ -25,8 +25,8 @@ templateEngineOverride: md,njk
                             time: event.data.time,
                             location: event.data.location,
                             tags: event.data.eventTags,
-                            details: event.templateContent
-                        }) -}}
+                            details: event.templateContent | markdown
+                        })}}
                     </li>
                 {%- endfor -%}
             </ol>
@@ -34,11 +34,12 @@ templateEngineOverride: md,njk
     {%- endfor -%}
 </ol>
 
-<hr style="margin-block-start: var(--site-padding)">
-
-<small>Some Icons are from the Noun Project:<br>
-Flag - created by Ian Zune<br>
-Learn - created by Icon Island<br>
-Magic - created by Shmidt Sergey
-</small>
+<div class="wrap-as--full-column">
+    <hr style="margin-block-start: var(--site-padding)">
+    <small>Some Icons are from the Noun Project:<br>
+    Flag - created by Ian Zune<br>
+    Learn - created by Icon Island<br>
+    Magic - created by Shmidt Sergey
+    </small>
+</div>
 <script src="{{ '/assets/js/timeline.js' | url}}"></script>

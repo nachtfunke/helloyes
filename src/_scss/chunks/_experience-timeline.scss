@@ -43,6 +43,10 @@
             writing-mode: vertical-lr;
             color: hsl(var(--color-hs-dark) 76%);
             margin-block-end: 0;
+            position: sticky;
+            // lol
+            top: var(--site-padding);
+            bottom: var(--site-padding);
         }
     }
 
@@ -90,6 +94,12 @@
             --shift: calc( var(--int-entry-type-size) + var(--int-gap) );
             --int-entry-type-size: 2.5em;
             grid-template-columns: [type-start] var(--int-entry-type-size) [type-end content-start] 1fr [content-end];
+
+            @media (orientation: portrait) {
+                --int-entry-type-size: 3em;
+                --int-gap: 1.5em;
+                align-items: center;
+            }
         }
 
         @include media.widerThan(honey) {
@@ -104,7 +114,7 @@
             padding: calc(var(--int-gap) * 2);
         }
 
-        &.is-expanded {
+        &.is-expanded, &:focus-within {
             @include media.widerThan(caramel) {
                 #{$p} {
                     &-text {
@@ -256,6 +266,15 @@
             transition-timing-function: var(--base-easing);
             transition-duration: 250ms;
             margin-block-start: var(--int-gap);
+
+            @at-root #{$p}:focus-within {
+                opacity: 1;
+                height: auto;
+            }
+
+            .list--horizontal {
+                margin-block-start: var(--int-gap);
+            }
         }
 
         :where(#{&}-description) {
@@ -281,6 +300,12 @@
             #{$p} {
                 &-title {
                     font-weight: 625;
+
+                    @include media.widerThan(caramel) {
+                        @media (orientation: portrait) {
+                            font-size: 1.3em;
+                        }
+                    }
 
                     @include media.widerThan(honey) {
                         font-size: 1.75em;

@@ -42,13 +42,13 @@
                     {%- endif -%}
                 </div>
             {%- endif -%}
-            {%- if params.details -%}
-            <div class="experience-timeline__entry-details" id="timeline-event-{{ params.id }}-details" data-timeline-event-details>
-                <div data-height-wrapper>
-                    {{ params.details | safe }}
+            {% if params.details %}
+                <div class="experience-timeline__entry-details" id="timeline-event-{{ params.id }}-details" data-timeline-event-details>
+                    <div data-height-wrapper>
+                        {{ params.details | safe }}
+                    </div>
                 </div>
-            </div>
-        {%- endif -%}
+            {% endif %}
         </div>
     </article>
 {%- endmacro -%}

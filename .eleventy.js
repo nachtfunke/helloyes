@@ -80,6 +80,7 @@ module.exports = function (eleventyConfig) {
   const markdownConfigured = markdownIt({ html: true }).use(markdownItAnchor, headlineAnchorSettings).disable('code');
 
   eleventyConfig.setLibrary('md', markdownConfigured);
+  eleventyConfig.addFilter('markdown', value => markdownConfigured.render(value));
 
   eleventyConfig.addFilter('console', function(value) {
       const str = util.inspect(value);
@@ -87,7 +88,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('dateReadable', date => date.toLocaleDateString('de-de'));
-
   eleventyConfig.addFilter('dateGetYear', date => date.getFullYear());
 
   eleventyConfig.addPlugin(svgContents);
