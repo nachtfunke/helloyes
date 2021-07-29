@@ -1,5 +1,4 @@
 {
     "tags": "timeline-event",
-    "permalink": false,
-    "templateEngineOverride": "md,njk"
+    "permalink": false
 }

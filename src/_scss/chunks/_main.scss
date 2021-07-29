@@ -359,6 +359,12 @@
             color: var(--color-dark);
             opacity: .75;
 
+            @include media.widerThan(caramel) {
+                @media (orientation: portrait) {
+                    grid-column: span 6;
+                }
+            }
+
             @include media.widerThan(syrup) {
                 font-size: .9em;
             }
