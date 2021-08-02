@@ -12,6 +12,10 @@
         "name": "Work",
         "url": "work"
     },
+    "case-studies": {
+        "name": "Case Studies",
+        "url": "work/case-studies"
+    },
     "hiring": {
         "name": "Hire me",
         "url": "hire"

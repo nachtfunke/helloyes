@@ -103,7 +103,9 @@ module.exports = function (eleventyConfig) {
   // order the timeline-events collection by 'order' instead of by date (eleventy default)
   eleventyConfig.addCollection('orderedTimelineEvents', collection => {
     return collection.getFilteredByTag('timeline-event').sort( (a,b) => a.data.order - b.data.order)
-  })
+  });
+
+  eleventyConfig.addCollection('orderedCaseStudies', collection => collection.getFilteredByTag('case-study').sort( (a,b) => a.data.order - b.data.order));
 
   eleventyConfig.setBrowserSyncConfig({
     files: './dist/css/**/*.css'

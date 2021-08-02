@@ -1,0 +1,250 @@
+@use '../tools/mixins/media' as media;
+
+.case-studies-list {
+    grid-column: 1 / -1;
+    list-style-type: none;
+    padding-inline-start: 0;
+    gap: var(--site-padding);
+    margin-block-start: var(--site-padding);
+    
+    &__item {
+        font-size: 1em;
+    }
+}
+
+.case-study {
+    $p: &;
+
+    &--listed {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        text-decoration: none;
+        position: relative;
+
+        @media (orientation: portrait) {
+            @include media.widerThan(caramel) {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            @include media.widerThan(honey) {
+                gap: var(--site-padding);
+            }
+        }
+
+        @media (orientation: landscape) {
+            @include media.widerThan(syrup) {
+                flex-direction: row;
+                align-items: start;
+                gap: calc(var(--site-padding)/2);
+            }
+
+            @include media.widerThan(nectar) {
+                align-items: center;
+                gap: var(--site-padding);
+            }
+        }
+
+        @media (hover: hover) and (prefers-reduced-motion: no-preference)  {
+            @include media.widerThan(caramel) {
+                gap: 0;
+                perspective: 700px;
+
+                &:hover, &:focus-within {
+                    #{$p} {
+                        &__cover {
+                            opacity: .5;
+                            transform: translateX(calc( (var(--site-padding)/2) * -1)) scale(.75) rotateY(180deg);
+
+                            &::after {
+                                transform: rotateY(0);
+                                opacity: 1;
+                            }
+                        }
+
+                        &__text {
+                            transform: translateX(-10em);
+                            filter: drop-shadow(0 15px 42px rgba(0,0,0,.12));
+                        }
+
+                        &__action {
+                            transform: translate(10em, -50%);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        & > * {
+            flex: 1;
+        }
+
+        #{$p} {
+            &__cover {
+                --int-cover-color: var(--cover-color, var(--color-primary));
+                background-color: var(--int-cover-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+                box-shadow: 0 15px 42px 0 rgba(0,0,0,.06);
+                padding: 1em;
+                aspect-ratio: 16 / 9;
+                position: relative;
+
+                @media (hover: hover) and (prefers-reduced-motion: no-preference)  {
+                    @include media.widerThan(caramel) {
+                        transition-property: opacity, transform;
+                        transition-duration: var(--base-animation-duration);
+                        transition-timing-function: var(--base-easing);
+
+                        &::after {
+                            content: '';
+                            border-radius: inherit;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            inset-block-start: 0;
+                            inset-inline-start: 0;
+                            background-color: var(--color-accent-900);
+                            transform: rotateY(180deg);
+                            backface-visibility: hidden;
+                            transition: inherit;
+                            opacity: 0;
+                            mix-blend-mode: color;
+
+                            @supports not (inset-block-start: 0) {
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+
+                @media (orientation: portrait) {
+                    @include media.widerThan(caramel) {
+                        aspect-ratio: 272 / 300;
+                        max-width: 272px;
+                    }
+                }
+
+                @media (orientation: landscape) {
+                    @include media.widerThan(honey) {
+                        aspect-ratio: 32 / 9;
+                    }
+
+                    @include media.widerThan(syrup) {
+                        aspect-ratio: 272 / 300;
+                        max-width: 272px;
+                    }
+                }
+
+                @supports not (aspect-ratio: 1 / 1) {
+                    min-height: 160px;
+
+                    @media (orientation: portrait) {
+                        @include media.widerThan(caramel) {
+                            height: 300px;
+                            width: 272px;
+                        }
+                    }
+
+                    @media (orientation: landscape) {
+                        @include media.widerThan(honey) {
+                            height: 150px;
+                            width: 100%;
+                        }
+
+                        @include media.widerThan(syrup) {
+                            height: 300px;
+                            width: 272px;
+                        }
+                    }
+                }
+
+                & > * {
+                    width: 75%;
+                    height: auto;
+                    max-width: 100%;
+                }
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+                    @include media.widerThan(caramel) {
+                        transition-property: opacity, transform, filter;
+                        transition-duration: var(--base-animation-duration);
+                        transition-timing-function: var(--base-easing);
+                        padding: var(--site-padding);
+                        background-color: rgba(255, 255, 255, 0.527);
+                        border-radius: 30px;
+                        backdrop-filter: blur(5px);
+                    }
+                }
+
+                @media (orientation: portrait) {
+                    @include media.widerThan(caramel) {
+                        flex: 2;
+                    }
+                }
+
+                @media (orientation: landscape) {
+                    @include media.widerThan(syrup) {
+                        flex: 2;
+                    }
+                }
+
+                > * + * {
+                    margin-block-start: 0;
+                }
+            }
+
+            &__action {
+                width: auto;
+
+                @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+                    @include media.widerThan(caramel) {
+                        position: absolute;
+                        opacity: 0;
+                        inset-inline-end: 0;
+                        inset-block-start: 50%;
+                        height: 57px;
+                        transform: translateY(-50%);
+                        transition-property: opacity, transform;
+                        transition-duration: var(--base-animation-duration);
+                        transition-timing-function: var(--base-easing);
+
+                        @supports not (inset-block-start: 0) {
+                            top: 50%;
+                            right: 0;
+                        }
+                    }
+                }
+                
+                @media (orientation: portrait) {
+                    align-self: start;
+
+                    @include media.widerThan(caramel) {
+                        align-self: flex-end;
+                    }
+                }
+                
+                @media (orientation: landscape) {
+                    @include media.widerThan(syrup) {
+                        align-self: flex-end;
+                    }
+                }
+            }
+
+            &__title {
+                margin-block-start: 0;
+            }
+        }
+    }
+}

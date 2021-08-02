@@ -1,0 +1,6 @@
+{
+    "tags": "case-study",
+    "permalink": "work/case-studies/{{ title | slug }}/",
+    "illustration": "design-engineering-lined",
+    "layout": "default"
+}

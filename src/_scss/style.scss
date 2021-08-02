@@ -26,6 +26,7 @@
 @use 'chunks/posts-list';
 @use 'chunks/listed-post';
 @use 'chunks/archive-list';
-@use 'chunks/experience-timeline.scss';
+@use 'chunks/experience-timeline';
+@use 'chunks/case-study';
 
 @use 'tools' as tools;
