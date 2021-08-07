@@ -1,0 +1,40 @@
+.color-list {
+    padding-inline-start: 0;
+    list-style-type: none;
+    display: flex;
+    gap: .5em;
+
+    &__item {
+        --int-color: var(--color, var(--color-accent-300));
+        --int-txt-color: var(--txt-color, #333);
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: var(--int-color);
+        color: var(--int-txt-color);
+        line-height: 1;
+        font-family: var(--typeface-headings);
+        font-weight: 550;
+        font-feature-settings: 'smcp', 'c2sc';
+        font-size: 1em;
+
+        &-weight {
+            font-size: .85em;
+            font-weight: 500;
+        }
+
+        &-lightness {
+            font-size: .75em;
+            font-weight: 375;
+        }
+        
+
+        @supports not (aspect-ratio: 1 / 1) {
+            height: 3rem
+        }
+    }
+}

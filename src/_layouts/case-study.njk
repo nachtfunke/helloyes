@@ -13,13 +13,16 @@ bodyClass: "vers--single-post vers--case-study"
                 {{ content | toc | safe }}
             </div>
         {% endif %}
-        <p class="main__excerpt" itemprop="about">{{ excerpt | safe }}</p>
     </header>
     <section class="main__content  case-study">
-        {% if logo %}
+        {% if logo or logoImage %}
             <header class="case-study__header">
                 <div class="case-study__logo">
-                    {{ ('/src/assets/img/case-studies/' + id + '/' + logo + '.svg') | svgContents | safe }}
+                    {% if logo %}
+                        {{ ('/src/assets/img/case-studies/' + id + '/' + logo + '.svg') | svgContents | safe }}
+                    {% elseif logoImage %}
+                        <img src="{{ '/assets/img/case-studies/' + id + '/' + logoImage }}" alt="logo for the project {{ title }}">
+                    {% endif %}
                 </div>
                 {% if caseStudyTags %}
                     <ul class="list--horizontal  case-study__tags">
@@ -30,7 +33,7 @@ bodyClass: "vers--single-post vers--case-study"
                 {% endif %}
             </header>
         {% endif %}
-        {{ content | safe }}
+        <div class="case-study__content">{{ content | safe }}</div>
     </section>
 </main>
 {% if content | toc | length %}

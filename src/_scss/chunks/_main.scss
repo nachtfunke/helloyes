@@ -450,8 +450,6 @@
             }
 
             &__header-sticker {
-                transform: rotate(-3deg);
-
                 @include media.widerThan(caramel) {
                     grid-column: span 2;
                     grid-column-end: -1;
@@ -600,7 +598,7 @@
                     margin-block-start: 1em;
                 }
 
-                p {
+                :where(p) {
                     code {
                         background-color: rgba(0,0,0,.05);
                         display: inline-block;
@@ -614,6 +612,25 @@
                     @include media.narrowerThan(honey) {
                         max-width: 60ch;
                     }
+                }
+            }
+        }
+    }
+
+    @at-root .site-layout:where(.vers--case-study) :where(#{$p}) {
+        #{$p} {
+            &__content {
+                @include media.widerThan(honey) {
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (orientation: portrait) {
+                        text-align: center;
+                    }
+                }
+
+                @include media.widerThan(syrup) {
+                    text-align: center;
                 }
             }
         }

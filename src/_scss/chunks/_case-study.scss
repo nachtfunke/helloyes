@@ -14,6 +14,231 @@
 
 .case-study {
     $p: &;
+    gap: calc(var(--site-padding)/2);
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-block-end: calc(var(--site-padding) * 2);
+
+        @include media.widerThan(honey) {
+            align-items: center;
+            margin-block-end: 0;
+            gap: calc(var(--site-padding)/2);
+        }
+    }
+
+    &__logo {
+        > svg {
+            display: block;
+            max-width: 100%;
+            height: 2em;
+            width: auto;
+
+            @include media.widerThan(honey) {
+                height: 4em;
+            }
+        }
+    }
+
+    &__tags {
+        @include media.widerThan(honey) {
+            justify-content: center;
+            max-width: 600px;
+        }
+    }
+
+    &__intro {
+        @include media.widerThan(syrup) {
+            columns: 2;
+            column-gap: calc(var(--site-padding)/2);
+
+            & > * {
+                text-align: end;
+
+                & + * {
+                    text-align: start;
+                }
+            }
+        }
+    }
+
+    &__content {
+        @include media.widerThan(caramel) {
+            @media (orientation: portrait) {
+                p {
+                    max-width: 100% !important;
+                }
+            }
+        }
+
+        @include media.widerThan(syrup) {
+            p {
+                max-width: 60ch !important;
+                margin-inline-start: auto;
+                margin-inline-end: auto;
+            }
+        }
+
+        .main__heading-wrapper {
+            & + * {
+                margin-block-start: 1em;
+            }
+        }
+
+        &-block {
+            display: flex;
+            flex-direction: column;
+            gap: var(--site-padding);
+
+            & + * {
+                margin-block-start: var(--site-padding);
+            }
+
+            @include media.widerThan(syrup) {
+                flex-direction: row;
+                align-items: center;
+                gap: calc(var(--site-padding)/2);
+
+                #{$p}__content-block {
+                    &-text {
+                        flex: 2;
+                        text-align: start;
+                    }
+
+                    &-aside {
+                        flex: 1;
+                    }
+                }
+            }
+
+            &-aside {
+                flex-wrap: wrap;
+            }
+
+            &.vers--single-column {
+                @include media.widerThan(syrup) {
+                    flex-direction: column;
+                    text-align: center;
+
+                    #{$p}__content-block {
+                        &-text {
+                            text-align: center;
+                        }
+    
+                        &-aside {
+                            text-align: center;
+                            flex-direction: row;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__gallery {
+        --int-max-items: var(--max-items, 2);
+        list-style-type: none;
+        padding-inline-start: 0;
+        display: grid;
+        grid-auto-columns: 100%;
+        overflow-x: scroll;
+        scroll-padding: 2em;
+        scroll-snap-type: x mandatory;
+
+        @include media.narrowerThan(caramel) {
+            --full-margin: calc(var(--site-padding) + var(--site-border));
+            --full-bleed: calc( var(--full-margin) * -1);
+            margin-inline-start: var(--full-bleed);
+            margin-inline-end: var(--full-bleed);
+            padding-inline-start: var(--full-margin);
+            padding-inline-end: var(--full-margin);
+        }
+
+        @include media.widerThan(caramel) {
+            grid-auto-columns: minmax(calc(100%/var(--int-max-items)), 100%);
+            margin-inline-start: calc(var(--site-padding) * -1);
+            margin-inline-end: calc(var(--site-padding) * -1);
+            padding-inline-start: var(--site-padding);
+            padding-inline-end: var(--site-padding);
+        }
+        
+        &-item {
+            $item: &;
+            --int-padding: 1em;
+            font-size: 1em;
+            grid-row: 1;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            padding: var(--int-padding);
+            overflow: visible;
+
+            @media (hover: hover) {
+                &.show-fullsize {
+                    position: relative;
+                    perspective: 500px;
+
+                    & > img,
+                    #{$item}-fullsize {
+                        transition-property: transform, opacity;
+                        transition-duration: var(--base-animation-duration);
+                        transition-timing-function: var(--base-easing);
+                    }
+
+                    & > img {
+                        transform-origin: top center;
+                    }
+
+                    #{$item}-fullsize {
+                        --offset: 0;
+                        position: absolute;
+                        inset-block-end: var(--int-padding);
+                        inset-inline-start: 50%;
+                        transform: translate(-50%, var(--offset));
+                        opacity: 0;
+                    }
+
+                    &:hover,
+                    &:focus-within {
+                        & > img {
+                            opacity: .75;
+                            transform: rotateX(-15deg);
+                        }
+                        
+                        #{$item}-fullsize {
+                            opacity: 1;
+                            --offset: -2em;
+                        }
+                    }
+                }
+            }
+
+            @include media.widerThan(syrup) {
+                padding: 2.5em;
+            }
+
+            & > img {
+                display: block;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: var(--shadow-fat);
+                width: 100%;
+
+                @include media.widerThan(syrup) {
+                    border-radius: 30px;
+                }
+            }
+        }
+
+        & + * {
+            margin-block-start: var(--site-padding);
+        }
+    }
 
     &--listed {
         display: flex;
@@ -203,6 +428,10 @@
                 > * + * {
                     margin-block-start: 0;
                 }
+            }
+
+            &__tags {
+                justify-content: flex-start;
             }
 
             &__action {
