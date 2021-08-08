@@ -7,15 +7,22 @@
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+    counter-reset: menu-item;
 
     &__item {
         --icon-color: var(--color-accent-300);
+        counter-increment: menu-item;
         color: var(--color-primary);
         font-size: 1em;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
         font-weight: 475;
+        flex-direction: column;
+        gap: 1em;
+        perspective: 500px;
+
+        @include media.widerThan(caramel) {
+            position: relative;
+        }
 
         .icon {
             @include media.widerThan(caramel) {
@@ -39,50 +46,139 @@
             }
         }
 
-        &.ctx--small {
-            font-size: .85em;
-            color: hsl(var(--color-hs-highlight) 31%);
-
-            @at-root body:where(.ctx--index, .vers--posts-listing) #{&} {
-                color: var(--color-primary);
-            }
-
-            > a {
-                text-decoration-thickness: 10%;
-            }
-        }
-
         > a {
+            --underline-color: hsl(var(--color-hs-primary) var(--color-weight-300));
             color: inherit;
             display: inherit;
-            justify-content: inherit;
+            justify-content: space-between;
             align-items: inherit;
             width: 100%;
-            text-decoration-color: hsl(var(--color-hs-primary) var(--color-weight-300));
+            text-decoration: none;
 
-            &:hover {
-                text-decoration-color: var(--color-accent-500);
+            & > .text {
+                margin-inline-end: auto;
+                text-decoration-skip-ink: auto;
+                text-decoration: underline;
+                text-decoration-thickness: 15%;
+                text-decoration-color: var(--underline-color);
             }
 
-            @at-root .site-layout:where(.vers--posts-listing, .ctx--index) & {
-                text-decoration-color: hsl(var(--color-hs-primary) var(--color-weight-700));
+            &::before {
+                content: '0' counter(menu-item);
+                margin-inline-end: 1em;
+                text-decoration: none;
+                text-decoration-color: transparent;
+                font-feature-settings: 'tnum';
+                font-weight: 550;
+                color: var(--color-accent-300);
 
-                &:hover {
-                    text-decoration-color: var(--color-accent-900);
+                @at-root .site-layout:where(.vers--posts-listing, .ctx--index, .vers--single-post) & {
+                    color: var(--color-accent-500);
+                }
+            }
+
+            &:hover, &:focus {
+                --underline-color: var(--color-accent-500);
+
+                & + .submenu {
+                    transform: translateZ(0);
+                    opacity: 1;
+                }
+            }
+
+            @at-root .site-layout:where(.vers--posts-listing, .ctx--index, .vers--single-post) & {
+                --underline-color: hsl(var(--color-hs-primary) var(--color-weight-700));
+
+                &:hover, &:focus {
+                    --underline-color: var(--color-accent-900);
                 }
             }
             
             &[aria-current] {
-                color: var(--color-accent-900);
-                text-decoration-color: var(--color-accent-300);
+                --underline-color: var(--color-accent-300);
                 --icon-color: currentcolor;
+                color: var(--color-accent-900);
 
-                @at-root .site-layout.vers--posts-listing & {
+                @at-root .site-layout:where(.vers--posts-listing, .ctx--index, .vers--single-post) & {
                     --int-darker: calc(var(--color-weight-500) - 34%);
                     --int-darker-active-color: hsl(var(--color-hs-accent) var(--int-darker));
+                    --underline-color: hsl(var(--color-hs-accent) var(--color-weight-700));
                     color: var(--int-darker-active-color);
-                    text-decoration-color: hsl(var(--color-hs-accent) var(--color-weight-700));
                 }
+
+                /*& + .submenu {
+                    opacity: 1;
+                    flex-direction: row;
+                    inset-inline-start: 50%;
+                    transform: translateX(-50%);
+                }*/
+            }
+        }
+    }
+
+    &__submenu {
+        background-color: hsl(var(--color-hs-accent) 97.5%);
+        border-radius: 15px;
+        padding: 1em;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        padding-inline-start: 2.25em;
+        margin-inline-end: -1em;
+
+        @include media.widerThan(caramel) {
+            --spacer-height: 1em;
+            position: absolute;
+            inset-block-start: calc(100% + var(--spacer-height));
+            inset-inline-end: 0;
+            padding: 1em;
+            white-space: nowrap;
+            border-radius: 5px;
+            box-shadow: var(--shadow-fat);
+            margin-inline-end: 0;
+            transition-property: transform, opacity;
+            transition-timing-function: var(--base-easing);
+            transition-duration: var(--base-animation-duration);
+            transform: translateZ(1em);
+            opacity: 0;
+            background-color: #fff;
+
+            @supports not (inset-block: 0) {
+                top: calc(100% + var(--spacer-height));
+                right: 0;
+            }
+
+            &:focus-within, &:hover {
+                transform: translateZ(0);
+                opacity: 1;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                height: var(--spacer-height);
+                width: 100%;
+                inset-block-end: 100%;
+                inset-inline-start: 0;
+
+                @supports not (inset-block: 0) {
+                    bottom: 100%;
+                    left: 0;
+                }
+            }
+        }
+
+        @include media.widerThan(nectar) {
+            padding: 2em;
+        }
+
+        .submenu__item > a {
+            display: flex;
+            justify-content: space-between;
+
+            @include media.widerThan(caramel) {
+
             }
         }
     }
