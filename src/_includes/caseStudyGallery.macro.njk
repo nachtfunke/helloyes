@@ -1,0 +1,17 @@
+{%- macro caseStudyGallery(params) -%}
+<ul class="case-study__gallery" {%- if params.maxItems -%}style="--max-items: {{ params.maxItems }}"{%- endif -%}>
+    {%- for image in params.images -%}
+        <li class="case-study__gallery-item {{ 'show-fullsize' if image.fullsize }}">
+            <img loading="lazy"
+                src="{{ params.pathPrefix }}/{{ image.src }}.jpg"
+                srcset="{{ params.pathPrefix }}/{{ image.src }}.jpg, {{ params.pathPrefix }}/{{ image.src }}@2x.jpg 2x"
+                alt="{{ image.alt if image.alt else '' }}">
+            {%- if image.fullsize -%}
+                <a class="button  case-study__gallery-item-fullsize" href="{{ params.pathPrefix }}/{{ image.fullsize }}.jpg" target="_blank">
+                    <span class="button__text">fullsize</span>
+                </a>
+            {%- endif -%}
+        </li>
+    {%- endfor -%}
+</ul>
+{%- endmacro -%}

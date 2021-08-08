@@ -1,0 +1,121 @@
+---
+order: 3
+id: 'farbe-am-stein'
+title: 'Farbe am Stein'
+excerpt: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.'
+caseStudyTags: ['Branding', 'Business Cards', 'Website Design']
+color: '#163756'
+coverLogo: 'logo-shape'
+logoImage: 'logo.png'
+templateEngineOverride: "md,njk"
+---
+{% from 'caseStudyGallery.macro.njk' import caseStudyGallery %}
+{% set contentImages = (imagePath+id+'/content' | url) %}
+
+<div class="main__excerpt  case-study__intro">
+    <p>“Farbe am Stein” is a tiny microbrand. It literally translates to “Color on Stone”.</p>
+    <p>It was created out of necessity, when my mother asked for help with her business cards.</p>
+</div>
+
+<section class="case-study__content-block  vers--single-column">
+    <div class="case-study__content-block-text">
+
+## Color
+
+The client had specific preferences - so we started out with a combination of orange and a dark blue. This is still the main Scheme, but there are three secondary colors thought of, intended for future use.
+    </div>
+    <aside class="case-study__content-block-aside">
+        <div class="case-study__color-list">
+            <p class="meta-label">Core Colors</p>
+            <p class="sr-only">List of colors, a dark-greyish blue as highlight color, a very dark brown as the primary color, a light-greyish brown as the dark color and a light pink as the interchangable accent color.</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: #163756; --txt-color: #fff">P</li>
+                <li class="color-list__item" style="--color: #363636; --txt-color: #fff">D</li>
+                <li class="color-list__item" style="--color: #F6925A;  --txt-color: #fff">A</li>
+            </ul>
+        </div>
+        <div class="case-study__color-list">
+            <p class="meta-label">Secondary Colors</p>
+            <p class="sr-only">List of colors, lightly saturated, bright red, yellow green and blue</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: #F6E75A"></li>
+                <li class="color-list__item" style="--color: #F65A6D"></li>
+                <li class="color-list__item" style="--color: #5AABF6"></li>
+            </ul>
+        </div>
+        <div class="case-study__color-list">
+            <p class="meta-label">Color-Weight Scale</p>
+            <p class="sr-only">List of grey colors ascending in darkness, representing the color-weight scale that can be applied to all colors.</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: hsl(0 0% 80%)">
+                    <span class="color-list__item-weight">light</span>
+                    <span class="color-list__item-lightness">80%</span>
+                </li>
+                <li class="color-list__item" style="--color: hsl(0 0% 66%)">
+                    <span class="color-list__item-weight">bold</span>
+                    <span class="color-list__item-lightness">66%</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</section>
+
+## Business Cards
+
+Through an iterative Approach we were able to conclude with a Combination of “Dosis” and “Caveat Brush” for the business cards and the brand. They have a bit of an unusual format and feature rounded corners.
+
+{{ caseStudyGallery({
+    pathPrefix: contentImages,
+    maxItems: 2,
+    images: [
+        {src: 'fas-business-card-1', alt: 'Business card front side showing the Logo; "Farbe am Stein" in a brush-script on top and "Doris Semmler" in all caps in a sans-serif on the bottom'},
+        {src: 'fas-business-card-2', alt: 'Business card back side showing an instagram logo, a telephone number and text reading in german: "Bemalen von steinen auf Auftrag, Indoor/outdoor; Portraits; Haustiere; Logos" and a brush icon'}
+    ]
+}) }}
+
+## Brand Manual
+
+A Brand Manual was created to encapsulate and convey the usage of the visual brand, to ensure consistency.
+
+{{ caseStudyGallery({
+    pathPrefix: contentImages,
+    maxItems: 3,
+    images: [
+        {
+            src: 'fas-brand-manual-1-thumbnail',
+            fullsize: 'fas-brand-manual-1-fullsize',
+            alt: 'Screenshot of the Cover Page of the Brand Manual'
+        }, {
+            src: 'fas-brand-manual-2-thumbnail',
+            fullsize: 'fas-brand-manual-2-fullsize',
+            alt: 'Screenshot of the "Contents"-Page'
+        }, {
+            src: 'fas-brand-manual-3-thumbnail',
+            fullsize: 'fas-brand-manual-3-fullsize',
+            alt: 'Screenshot of the "Elements" index page'
+        }, {
+            src: 'fas-brand-manual-4-thumbnail',
+            fullsize: 'fas-brand-manual-4-fullsize',
+            alt: 'Screenshot of the "Color" page, showing and explaining the usage of the brands core colors'
+        }, {
+            src: 'fas-brand-manual-5-thumbnail',
+            fullsize: 'fas-brand-manual-5-fullsize',
+            alt: 'Screenshot of a page showing and explaining the usage of the brands font "Dosis"'
+        }
+    ]
+}) }}
+
+## Process Examples
+
+The Process was noteworthy, because the client was very involved in different stages. I made a conscious effort to always provide a lot of choice. Here are some screenshots of the process from the rough sketch to the final product.
+
+{{ caseStudyGallery({
+    pathPrefix: contentImages,
+    maxItems: 2,
+    images: [
+        {src: 'fas-process-example-1', alt: 'Screenshot showing several different font faces of the word "Farbe am Stein"'},
+        {src: 'fas-process-example-2', alt: 'Screenshot showing several ways of combining the words "Farbe am Stein" and "Doris Semmler"'},
+        {src: 'fas-process-example-3', alt: 'Screenshot showing several possible versions of combining color in the logo'},
+        {src: 'fas-process-example-4', alt: 'Screenshot showing several versionf of the business card including the final version'}
+    ]
+}) }}

@@ -1,0 +1,14 @@
+[dev]
+  command = "npm run start"
+
+[[redirects]]
+  from = "/hire"
+  to = "/work/hire"
+
+[[redirects]]
+  from = "/legal"
+  to = "/about/legal"
+
+[[redirects]]
+  from = "/log"
+  to = "/about/log"

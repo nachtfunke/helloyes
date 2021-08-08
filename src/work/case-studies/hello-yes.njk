@@ -1,0 +1,138 @@
+---
+order: 2
+id: 'hello-yes'
+title: 'hello, yes.'
+excerpt: '“hello, yes” is a tiny little personal brand that I use for my development / design public facing persona.'
+caseStudyTags: ['Eleventy', 'Branding', 'Accessibility', 'HTML', 'SCSS', 'SVG', 'Vanilla JavaScript', 'Illustration']
+color: '#F7ABBE'
+coverLogo: 'logo-shape'
+logo: 'logo'
+templateEngineOverride: "md,njk"
+---
+{% from 'caseStudyGallery.macro.njk' import caseStudyGallery %}
+{% set contentImages = (imagePath+id+'/content' | url) %}
+
+<div class="main__excerpt  case-study__intro">
+    <p>“hello, yes” is a tiny little personal brand that I use for my development / design public facing persona.</p>
+    <p>I started working on it in late Spring 2021, and it evolved and changed since and will continue to do so.</p>
+</div>
+
+<section class="case-study__content-block">
+    <div class="case-study__content-block-text">
+
+## Color
+
+As a designer I tend to invest a lot of time into the logic that governs the color. For a simple, bare-minimum brand like “hello, yes.” I did not want to invest too much time or effort. So I opted for a simple color scheme.
+
+There are 4 functional color positions in total: Primary (P), Highlight (H), Dark (D) & Accent (A). Their functional position determines their usage in a given application use case, providing a constraint that allows for more creative design choices.
+
+In the end, I couldn’t resist and filled in the gaps by also adding alternative accent colors. I regret nothing.
+
+The System also features a Color-Weight system, making colors subject to lightness-change, based on a fixed decrement of -15%.
+    </div>
+    <aside class="case-study__content-block-aside">
+        <div class="case-study__color-list">
+            <p class="meta-label">Core Colors</p>
+            <p class="sr-only">List of colors, a dark-greyish blue as highlight color, a very dark brown as the primary color, a light-greyish brown as the dark color and a light pink as the interchangable accent color.</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: var(--color-highlight); --txt-color: #fff">H</li>
+                <li class="color-list__item" style="--color: var(--color-primary); --txt-color: #fff">P</li>
+                <li class="color-list__item" style="--color: var(--color-dark); --txt-color: #fff">D</li>
+                <li class="color-list__item" style="--color: hsl(var(--color-hs-illusion) var(--color-weight-300))">A*</li>
+            </ul>
+        </div>
+        <div class="case-study__color-list">
+            <p class="meta-label">*Alternative Accent Colors</p>
+            <p class="sr-only">List of colors, lightly saturated, bright red, yellow green and blue</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: hsl(var(--color-hs-rose) var(--color-weight-300))"></li>
+                <li class="color-list__item" style="--color: hsl(var(--color-hs-sandwisp) var(--color-weight-300))"></li>
+                <li class="color-list__item" style="--color: hsl(var(--color-hs-mint) var(--color-weight-300))"></li>
+                <li class="color-list__item" style="--color: hsl(var(--color-hs-perano) var(--color-weight-300))"></li>
+            </ul>
+        </div>
+        <div class="case-study__color-list">
+            <p class="meta-label">Color-Weight Scale</p>
+            <p class="sr-only">List of grey colors ascending in darkness, representing the color-weight scale that can be applied to all colors.</p>
+            <ul class="color-list" aria-hidden="true">
+                <li class="color-list__item" style="--color: hsl(0 0% var(--color-weight-100))">
+                    <span class="color-list__item-weight">100</span>
+                    <span class="color-list__item-lightness">97%</span>
+                </li>
+                <li class="color-list__item" style="--color: hsl(0 0% var(--color-weight-300))">
+                    <span class="color-list__item-weight">300</span>
+                    <span class="color-list__item-lightness">82%</span>
+                </li>
+                <li class="color-list__item" style="--color: hsl(0 0% var(--color-weight-500))">
+                    <span class="color-list__item-weight">500</span>
+                    <span class="color-list__item-lightness">67%</span>
+                </li>
+                <li class="color-list__item" style="--color: hsl(0 0% var(--color-weight-700)); --txt-color: #fff">
+                    <span class="color-list__item-weight">700</span>
+                    <span class="color-list__item-lightness">52%</span>
+                </li>
+                <li class="color-list__item" style="--color: hsl(0 0% var(--color-weight-900)); --txt-color: #fff">
+                    <span class="color-list__item-weight">900</span>
+                    <span class="color-list__item-lightness">37%</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</section>
+<section class="case-study__content-block">
+    <div class="case-study__content-block-text">
+
+## Typography
+
+I wanted to look just different enough. Current typographical trends are often very endemic to a certain vocabulary. I wanted something inbetween. So I decided to go with a combination of “Work Sans” for heavy but warm headlines and “Poppins” for geometric and pleasent paragraphs. Luckily Google Fonts provides Work Sans as a variable font and includes many open type features.
+
+    </div>
+    <aside class="case-study__content-block-aside">
+        <img src="{{ contentImages+'/typography-example.svg' | url }}" alt="Showing the text 'headline' and 'Meta Label' in various text sizes">
+    </aside>
+</section>
+
+## Illustration & Icons
+
+My drawing skills have rusted since I stopped drawing. But I still like to “illustrate” (lol) with abstract shapes. I loved the idea of using simple shapes that remind of toy building blocks to create abstract compositions.
+
+Later on I decided to also play with different patterns and for a short amount of time, some of the illustrations even served as quasi diagrams.
+
+{{ caseStudyGallery({
+    pathPrefix: contentImages,
+    maxItems: 2,
+    images: [
+        {src: 'hello-yes-illustrations-1', alt: 'four line-art illustrations of interconnected simple shapes (Circles, rectangles and triangles and combinations)'},
+        {src: 'hello-yes-illustrations-2', alt: 'four illustrations of interconnected simple shapes with various patterns'},
+        {src: 'hello-yes-illustrations-3', alt: 'variations of two illustrations showing the progress from line-art to pattern-filled to usage as diagram/infographic with legend'},
+        {src: 'hello-yes-illustrations-4', alt: 'six hand-made abstract icons, as an example of hand made iconography'}
+    ]
+}) }}
+
+## Website
+
+All of this eventually accumulated on this very website that you are visiting. Here are some... screenshots, lol. But - to legitimize this a bit, some of them are of older versions of the website.
+
+{{ caseStudyGallery({
+    pathPrefix: contentImages,
+    maxItems: 3,
+    images: [
+        {
+            src: 'website-mobile-home-thumbnail',
+            fullsize: 'website-mobile-home-fullsize',
+            alt: 'screenshot showing the mobile version of the website with the fly-out mobile navigation overlaying the website partly'
+        }, {
+            src: 'website-experience-thumbnail',
+            fullsize: 'website-experience-fullsize',
+            alt: 'screenshot of a page of the website, showing work-experience chronologically'
+        }, {
+            src: 'website-work-thumbnail',
+            fullsize: 'website-work-fullsize',
+            alt: 'screenshot of a previous version of the page of the website, showing work-experience chronologically'
+        }, {
+            src: 'website-hire-me-thumbnail',
+            fullsize: 'website-hire-me-fullsize',
+            alt: 'screenshot of a page of the website, showing information about hiring'
+        }
+    ]
+}) }}

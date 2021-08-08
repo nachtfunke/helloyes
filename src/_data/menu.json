@@ -1,6 +1,6 @@
 {
     "blog" : {
-        "name": "Blog",
+        "name": "blog",
         "url": "blog"
     },
     "contracting": {
@@ -9,25 +9,31 @@
         "hidden": true
     },
     "work": {
-        "name": "Work",
-        "url": "work"
-    },
-    "hiring": {
-        "name": "Hire me",
-        "url": "hire"
+        "name": "work",
+        "url": "work",
+        "submenu": {
+            "case-studies": {
+                "name": "case studies",
+                "url": "work/case-studies"
+            },
+            "hiring": {
+                "name": "hire me",
+                "url": "work/hire"
+            }
+        }
     },
     "about": {
-        "name": "Who this?",
-        "url": "about"
-    },
-    "log": {
-        "name": "log",
-        "url": "log",
-        "small": true
-    },
-    "imprint": {
-        "name": "Imprint",
-        "url": "legal",
-        "small": true
+        "name": "about",
+        "url": "about",
+        "submenu": {
+            "imprint": {
+                "name": "imprint",
+                "url": "work/legal"
+            },
+            "log": {
+                "name": "log",
+                "url": "work/log"
+            }
+        }
     }
 }

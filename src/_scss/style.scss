@@ -14,6 +14,7 @@
 @use 'objects/tag';
 
 @use 'chunks/list';
+@use 'chunks/color-list';
 @use 'chunks/skip-to-content';
 @use 'chunks/accent-color-settings';
 @use 'chunks/site-layout';
@@ -26,6 +27,7 @@
 @use 'chunks/posts-list';
 @use 'chunks/listed-post';
 @use 'chunks/archive-list';
-@use 'chunks/experience-timeline.scss';
+@use 'chunks/experience-timeline';
+@use 'chunks/case-study';
 
 @use 'tools' as tools;

@@ -1,3 +1,5 @@
+@use '../tools/mixins/media' as media;
+
 * {
     box-sizing: border-box;
     text-size-adjust: none;
@@ -48,7 +50,13 @@
     --base-padding: 1em;
     --base-easing: cubic-bezier(0.85, 0, 0.15, 1);
     --base-animation-duration: 1ms;
+    /* A commonly reused shadow */
+    --shadow-fat: 0 5px 15px 0 rgba(0,0,0,.15);
     background-color: #fff; /* the background that you can see when you pull on one of the sides of the website */
+
+    @include media.widerThan(syrup) {
+        --shadow-fat: 0 2px 5px 0 rgba(0,0,0,.06), 0 15px 42px 0 rgba(0,0,0,.04);
+    }
 }
 
 /* Add Animation progressively; Only make durations longer when there is no preferences */

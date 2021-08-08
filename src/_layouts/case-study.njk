@@ -1,0 +1,66 @@
+---
+layout: base
+bodyClass: "vers--single-post vers--case-study"
+---
+{% from 'tag.macro.njk' import tag %}
+
+<main class="site-main  main {{ mainclass }}" id="site-content">
+    <header class="main__header">
+        <h1 class="main__title">{{ title }}</h1>
+        {% if content | toc | length and not hideToc%}
+            <div class="main__outline" data-table-of-contents>
+                <p class="main__outline-label">Outline</p>
+                {{ content | toc | safe }}
+            </div>
+        {% endif %}
+    </header>
+    <section class="main__content  case-study">
+        {% if logo or logoImage %}
+            <header class="case-study__header">
+                <div class="case-study__logo">
+                    {% if logo %}
+                        {{ ('/src/assets/img/case-studies/' + id + '/' + logo + '.svg') | svgContents | safe }}
+                    {% elseif logoImage %}
+                        <img src="{{ '/assets/img/case-studies/' + id + '/' + logoImage }}" alt="logo for the project {{ title }}">
+                    {% endif %}
+                </div>
+                {% if caseStudyTags %}
+                    <ul class="list--horizontal  case-study__tags">
+                        {% for caseStudyTag in caseStudyTags %}
+                            <li class="list__item">{{ tag({ text: caseStudyTag, large: true}) }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </header>
+        {% endif %}
+        <div class="case-study__content">{{ content | safe }}</div>
+    </section>
+</main>
+{% if content | toc | length %}
+    <script>
+
+        // With a little bit of help from Ben Frain, thanks! https://www.youtube.com/watch?v=6KXPtcbR1x0
+        if (document.querySelector('[data-table-of-contents]')) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                treshhold: [1]
+            };
+            
+            let observer = new IntersectionObserver( (entry => {
+                const tocLinks = document.querySelectorAll('.toc a');
+
+                entry.forEach( e => {
+                    if ( e.isIntersecting === true ) {
+                        tocLinks.forEach(link => link.classList.remove('is-current'));
+                        document.querySelector(`a[href="#${e.target.id}"]`).classList.add('is-current');
+                    }
+                })
+            }), observerOptions);
+
+            const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
+            headings.forEach( heading => observer.observe(heading) );
+        }
+
+    </script>
+{% endif %}
