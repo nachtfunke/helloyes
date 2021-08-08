@@ -7,6 +7,15 @@ illustration: "contracting-lined"
 templateEngineOverride: md
 ---
 
+## 08.08.2021
+
++ Added "Case Studies", listing some projects that are intended to give more insight into the visual work that was done
++ Changed Some Urls and softly redesigned the navigation, including a very it'll-do-type-of dropdown-menu (that leaves desire for improvement)
+
+## 29.07.2021
+
++ New redesigned Work-Experience pages!
+
 ## 21.06.2021
 
 + add syntax-highlighting
