@@ -18,7 +18,7 @@
             },
             "hiring": {
                 "name": "hire me",
-                "url": "hire"
+                "url": "work/hire"
             }
         }
     },
@@ -28,11 +28,11 @@
         "submenu": {
             "imprint": {
                 "name": "imprint",
-                "url": "legal"
+                "url": "work/legal"
             },
             "log": {
                 "name": "log",
-                "url": "log"
+                "url": "work/log"
             }
         }
     }
