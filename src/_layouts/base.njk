@@ -6,8 +6,8 @@
         <meta name="description" content="{{ metaDescription if metaDescription else (excerpt if excerpt else 'Design Engineering, Accessibility, Frontend Design & CSS') | safe }}">
         <meta name="og:description" content="{{ metaDescription if metaDescription else (excerpt if excerpt else 'Design Engineering, Accessibility, Frontend Design & CSS') | safe }}">
         <meta name="author" content="Thomas Michael Semmler">
-        <link rel="alternate" type="application/atom+xml" href="{{ meta.site.feeds.blog.xml.url }}" title="{{ meta.site.feeds.blog.title }}">
-        <link rel="alternate" type="application/json" href="{{ meta.site.feeds.blog.json.url }}" title="{{ meta.site.feeds.blog.title }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ meta.site.feeds.blog.xml.url }}" title="{{ meta.site.feeds.blog.title }} (JSON)">
+        <link rel="alternate" type="application/json" href="{{ meta.site.feeds.blog.json.url }}" title="{{ meta.site.feeds.blog.title }} (atom)">
         <link rel="preload" as="font" href="{{ '/assets/fonts/work-sans-variable-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" as="font" href="{{ '/assets/fonts/poppins-regular-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" as="style" href="{{ '/css/fonts.css' | url }}">
