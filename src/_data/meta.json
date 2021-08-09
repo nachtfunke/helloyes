@@ -4,7 +4,7 @@
         "domain": "https://helloyes.dev",
         "feeds": {
             "blog": {
-                "title": "Blog Posts from on helloyes.dev",
+                "title": "Thomas Michael Semmler - helloyes.dev",
                 "description": "Articles about design, accessibility, design engineering, design ops, eleventy and CSS from Thomas Michael Semmler",
                 "xml": {
                     "path": "/feeds/blog/feed.xml",
