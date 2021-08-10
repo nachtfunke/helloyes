@@ -42,6 +42,10 @@
             @include media.widerThan(honey) {
                 > a {
                     gap: 1em;
+
+                    &::before {
+                        margin-inline-end: 0 !important;
+                    }
                 }
             }
         }
@@ -105,13 +109,6 @@
                     --underline-color: hsl(var(--color-hs-accent) var(--color-weight-700));
                     color: var(--int-darker-active-color);
                 }
-
-                /*& + .submenu {
-                    opacity: 1;
-                    flex-direction: row;
-                    inset-inline-start: 50%;
-                    transform: translateX(-50%);
-                }*/
             }
         }
     }
@@ -176,10 +173,6 @@
         .submenu__item > a {
             display: flex;
             justify-content: space-between;
-
-            @include media.widerThan(caramel) {
-
-            }
         }
     }
 
