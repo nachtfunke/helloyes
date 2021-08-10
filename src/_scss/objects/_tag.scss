@@ -1,4 +1,4 @@
-.tag {
+.tag:not(.token) {
     font-family: var(--typeface-headings);
     font-weight: 500;
     line-height: 1;
