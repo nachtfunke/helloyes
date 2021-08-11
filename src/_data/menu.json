@@ -28,11 +28,11 @@
         "submenu": {
             "imprint": {
                 "name": "imprint",
-                "url": "work/legal"
+                "url": "about/legal"
             },
             "log": {
                 "name": "log",
-                "url": "work/log"
+                "url": "about/log"
             }
         }
     }
