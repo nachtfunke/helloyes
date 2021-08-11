@@ -3,12 +3,12 @@ layout: base
 bodyClass: "vers--page"
 ---
 
-<div class="site-illustration" aria-hidden="true">
-    {% if illustration %}
-        {{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}
-    {% endif %}
-</div>
 <main class="site-main  main  {{ mainclass }}" id="site-content">
+    <div class="main__illustration" aria-hidden="true">
+        {% if illustration %}
+            {{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}
+        {% endif %}
+    </div>
     <header class="main__header">
         <h1 class="main__title">{{ title }}</h1>
         {% if excerpt %}
@@ -23,5 +23,5 @@ bodyClass: "vers--page"
             {% endif %}
         {% endif %}
     </header>
-    {{ content | safe }}
+    <section class="main__content">{{ content | safe }}</section>
 </main>

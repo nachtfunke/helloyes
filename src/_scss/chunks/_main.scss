@@ -2,20 +2,6 @@
 @use '../objects/meta-label' as *;
 
 @mixin _mainContentElements() {
-    > :where(p, ol, ul, blockquote, dl, pre) {
-        grid-column: span 3;
-
-        @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                grid-column: span 5;
-
-                & + *:not(:where(p, ol, ul, dl, pre, hr)) {
-                    grid-column: span 2;
-                }
-            }
-        }
-    }
-
     > :where(pre) {
         line-height: 1.5;
         font-size: .7em;
@@ -51,10 +37,39 @@
 .main {
     $p: &;
 
+    &__illustration {
+        display: inline-block;
+        float: inline-end;
+        margin-inline-start: 2em;
+        margin-block-end: 2em;
+
+        @supports not (float: inline-end) {
+            float: right;
+        }
+        
+        & > svg {
+            display: block;
+            width: clamp(8em, 15vw, 330px);
+            height: auto;
+            color: var(--color-accent-300);
+            
+            path { 
+                stroke: currentColor;
+                stroke-width: 4;
+            }
+        }
+    }
+
+    &__header {
+        &#{&} {
+            margin-block-start: 0;
+        }
+    }
+
     &__title {
         font-family: var(--typeface-headings);
         font-weight: 675;
-        font-size: 1.5em;
+        font-size: 2em;
         line-height: 1.25;
         margin: 0;
 
@@ -82,7 +97,7 @@
     }
 
     &__excerpt {
-        font-size: 1em;
+        font-size: 1.25em;
 
         @include media.widerThan(syrup) {
             font-size: 1.5em;
@@ -247,31 +262,17 @@
     }
 
     @at-root .site-layout:where(.vers--page, .vers--single-post) :where(#{&}) {
-        background-color: #fff;
         padding-block-start: calc(var(--site-padding) * 2);
         padding-block-end: calc(var(--site-padding) * 2);
 
-        @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                padding: var(--site-padding);
-                display: grid;
-                grid-template-columns: inherit;
-            }
-        }
-
         @include media.widerThan(honey) {
             --column-illustration: 3fr;
-            display: grid;
-            grid-template-columns: var(--columns-main);
-            column-gap: 2.5em;
             border-radius: 0;
-            background-color: transparent;
         }
 
         @include _mainContentElements();
 
         :where(h2, h3, h4, h5, h6, #{$p}__heading-wrapper) {
-            grid-column: 1 / -1;
             line-height: 1;
         }
 

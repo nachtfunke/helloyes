@@ -2,7 +2,6 @@
 
 body {
     --site-border: .5em;
-    background-color: var(--color-accent-300);
     font-family: var(--typeface-headings);
     color: var(--color-primary);
     border: var(--site-border) solid #fff;
@@ -16,21 +15,17 @@ a {
     text-decoration-thickness: 15%;
 }
 
-@supports (text-decoration-color: hotpink) {
-    a {
-        color: inherit;
-        text-decoration-color: var(--color-highlight);
+a {
+    color: inherit;
+    text-decoration-color: var(--color-highlight);
 
-        &:hover {
-            text-decoration-color: var(--color-accent-700);
-        }
+    &:hover {
+        text-decoration-color: var(--color-accent-700);
     }
 
-}
-
-a.button,
-a.c2a {
-    text-decoration: none;
+    &.button, &.c2a {
+        text-decoration: none;
+    }
 }
 
 ul, ol {
