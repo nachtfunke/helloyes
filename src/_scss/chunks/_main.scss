@@ -1,7 +1,14 @@
 @use '../tools/mixins/media' as media;
 @use '../objects/meta-label' as *;
 
+@keyframes headlineTargetBlink {
+    50% {
+        color: var(--color-accent-500);
+    }
+}
+
 @mixin _mainContentElements() {
+
     > :where(pre) {
         line-height: 1.5;
         font-size: .7em;
@@ -13,9 +20,34 @@
     }
 
     .portrait {
-        border-radius: 30px;
-        display: inline-block;
-        overflow: hidden;
+        --int-margin: var(--margin, 1em);
+        width: clamp(7em, 30%, 250px);
+        float: inline-start;
+        margin-inline-end: var(--int-margin);
+        margin-block-end: var(--int-margin);
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        @supports not (float: inline-start) {
+            float: left;
+        }
+
+        @include media.widerThan(syrup) {
+            --margin: calc(var(--site-padding)/2);
+        }
+
+        &__image {
+            border-radius: min(2.5vw, 15px);
+            display: block;
+            overflow: hidden;
+            box-shadow: var(--shadow-fat);
+        }
+
+        &__caption {
+            font-size: .95em;
+            color: var(--color-dark);
+        }
     }
 
     blockquote {
@@ -46,21 +78,63 @@
         @supports not (float: inline-end) {
             float: right;
         }
+
+        @include media.widerThan(honey) {
+            margin: 0;
+        }
+
+        & > * {
+            @include media.narrowerThan(honey) {
+                display: none;
+            }
+        }
         
-        & > svg {
+        &-icon {
             display: block;
             width: clamp(8em, 15vw, 330px);
-            height: auto;
             color: var(--color-accent-300);
+            margin: 0;
+
+            svg {
+                width: 100%;
+                height: auto;
+                
+                path { 
+                    stroke: currentColor;
+                    stroke-width: 4;
+                }
+            }
+        }
+
+        &.vers--pills {
+            position: relative;
             
-            path { 
-                stroke: currentColor;
-                stroke-width: 4;
+            #{$p}__illustration {
+                &-big-pill {
+                    position: absolute;
+                    inset-block-start: 0;
+                    inset-inline-start: 0;
+                    width: 100%;
+                    z-index: -1;
+
+                    @supports not (inset-block-start: 0) {
+                        top: 0;
+                        left: 0;
+                    }
+                    
+                    svg {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
             }
         }
     }
 
     &__header {
+        margin-block-end: var(--site-padding);
+        
         &#{&} {
             margin-block-start: 0;
         }
@@ -73,20 +147,16 @@
         line-height: 1.25;
         margin: 0;
 
-        & + * {
-            margin-block-start: 1em;
-
-            @include media.widerThan(caramel) {
-                margin-block-start: 2em;
-            }
-        }
-
         @include media.widerThan(caramel) {
-            font-size: 2em;
+            font-size: 2.5em;
         }
 
         @include media.widerThan(syrup) {
             font-size: 3em;
+        }
+
+        @include media.widerThan(fructose) {
+            font-size: 3.5em;
         }
     }
 
@@ -97,6 +167,7 @@
     }
 
     &__excerpt {
+        margin-block-start: 1em;
         font-size: 1.25em;
 
         @include media.widerThan(syrup) {
@@ -106,6 +177,7 @@
 
     &__heading {
         &-wrapper {
+            clear: both;
             position: relative;
 
             &:where(:hover, :focus-within) {
@@ -113,13 +185,23 @@
                     opacity: 1;
                 }
             }
+
+            :is(h2, h3, h5, h5, h6) {
+                margin-block-start: .75em;
+                margin-block-end: .5em;
+            }
+
+            :where(h2, h3, h4, h5, h6) {
+                display: inline-block;
+
+                &:target {
+                    animation: headlineTargetBlink 800ms alternate;
+                }
+            }
         }
         
         &-link {
             font-family: var(--typeface-headings);
-            position: absolute;
-            inset-inline-start: 0;
-            inset-block-end: 10%;
             //padding-inline-end: 2.5em;
             transform: translateX(-100%);
             width: 1em;
@@ -152,11 +234,6 @@
                 @at-root .main__heading-wrapper h6 + & {
                     font-size: .85em;
                 }
-            }
-
-            @supports not (inset-inline-start: 0) {
-                right: 0;
-                bottom: 10%;
             }
         }
     }
@@ -250,10 +327,14 @@
     @at-root :where(#{$p}) :where(p, li, pre) {
         font-family: var(--typeface-paragraphs);
         line-height: 1.75;
-        font-size: .8em;
+        font-size: 1em;
 
         @include media.widerThan(syrup) {
             font-size: 1em;
+        }
+
+        @include media.widerThan(fructose) {
+            font-size: 1.125em;
         }
 
         & + *:not(li) {
@@ -262,9 +343,6 @@
     }
 
     @at-root .site-layout:where(.vers--page, .vers--single-post) :where(#{&}) {
-        padding-block-start: calc(var(--site-padding) * 2);
-        padding-block-end: calc(var(--site-padding) * 2);
-
         @include media.widerThan(honey) {
             --column-illustration: 3fr;
             border-radius: 0;
@@ -278,13 +356,16 @@
 
         :where(h2) {
             margin: 0;
-            font-size: 1em;
+            font-size: 1.75em;
             font-weight: 625;
-            margin-block-start: 1em;
+            line-height: 1.25;
+
+            + a {
+                font-size: 1.75em;
+            }
 
             @include media.widerThan(syrup) {
                 font-size: 1.75em;
-                line-height: 1.25;
             }
         }
 
@@ -340,41 +421,6 @@
             }
         }
 
-        .wrap-as {
-            &--main-column {
-                @include media.widerThan(caramel) {
-                    grid-column: span 3;
-                }
-            }
-
-            &--full-column {
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / -1;
-                }
-            }
-        }
-
-        aside, .aside { // okay listen. These elements will sometimes contain captioned elements, such as pull-links. These elements are already sectioning elements so it wouldn't make sense to wrap them in an aside. And sometimes whatever is in that place actually shouldn't be sectioned at all. That's where there is a semantic aside and a non-semantic aside :D This might be dumb idk lemme know what you think.
-            display: flex;
-            flex-direction: column;
-            gap: .5em;
-
-            @include media.widerThan(caramel) {
-                gap: 1.5em;
-                flex-direction: row;
-                grid-column: 1 / -1;
-
-                .button {
-                    align-self: self-start;
-                }
-            }
-
-            @include media.widerThan(syrup) {
-                flex-direction: column;
-                grid-column: span 1;
-            }
-        }
-
         :where(small) {
             display: block;
             font-size: .75em;
@@ -398,89 +444,12 @@
         }
 
         #{$p} {
-            &__header {
-                grid-column: 1 / -1;
-
-                @include media.widerThan(caramel) {
-                    display: grid;
-                    grid-template-columns: inherit;
-
-                    @media (orientation: portrait) {
-                        margin-block-end: var(--site-padding);
-                    }
-                }
-
-                @include media.narrowerThan(syrup) {
-                    @media (orientation: landscape) {
-                        display: flex;
-                        flex-direction: column;
-                    }
-                }
-
-                @include media.widerThan(caramel) {
-                    gap: var(--site-padding);
-                }
-
-                @include media.widerThan(syrup) {
-                    gap: calc(var(--site-padding)/2);
-                }
-            }
-
-            img, aside {
-                grid-column: 4 / -1;
-            }
-
-            &__title {
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / -1;
-                }
-
-                + * {
-                    @include media.widerThan(honey) {
-                        margin-block-start: 2.5em;
-                    }
-                }
-            }
-
             &__excerpt {
-                @media (orientation: landscape) {
-                    @include media.narrowerThan(fructose) {
-                        grid-column: span 2;
-                    }
-
-                    &:last-child {
-                        @include media.narrowerThan(nectar) {
-                            grid-column: 1 / -1;
-                        }
-                    }
-                }
-
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / 5;
-                    margin-block-start: 0;
-                }
-
-                @include media.widerThan(honey) {
-                    grid-column: span 3;
-                }
             }
 
             &__header-sticker {
                 @include media.widerThan(caramel) {
-                    grid-column: span 2;
-                    grid-column-end: -1;
                     margin-block-start: 0;
-                    align-self: center;
-                }
-
-                @include media.widerThan(honey) {
-                    grid-column: span 1;
-                }
-
-                @include media.narrowerThan(fructose) {
-                    @media (orientation: landscape) {
-                        grid-column: span 2;
-                    }
                 }
             }
             
@@ -582,12 +551,6 @@
                 }
             }
 
-            &__excerpt {
-                @include media.widerThan(honey) {
-                    margin-bottom: 2.5em;
-                }
-            }
-
             &__content {
                 padding-block-start: calc(var(--site-padding) * 2);
                 padding-block-end: calc(var(--site-padding) * 2);
@@ -647,6 +610,55 @@
 
                 @include media.widerThan(syrup) {
                     text-align: center;
+                }
+            }
+        }
+    }
+
+    &.vers--content-page {
+        @include media.widerThan(honey) {
+            --vertical-spacing: min(15vh, calc(var(--site-padding)) * 2);
+            display: grid;
+            grid-template-columns: inherit;
+            gap: clamp(1em, 1vw, 40px);
+        }
+
+        #{$p} {
+            &__illustration {
+                @include media.widerThan(honey) {
+                    grid-column: illustration-start/illustration-end;
+                    grid-row: 1 / 2;
+                    z-index: 1;
+                    padding-block-start: var(--vertical-spacing);
+
+                    &-icon {
+                        @include media.widerThan(honey) {
+                            transform: translateX(calc(var(--site-padding) * -1));
+                            position: absolute;
+                        }
+                        
+                        & > svg {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &__header {
+                @include media.widerThan(honey) {
+                    grid-column: main-start/main-end;
+                    grid-row: 1;
+                    z-index: 2;
+                    padding-block-start: var(--vertical-spacing);
+                }
+            }
+
+            &__content {
+                @include media.widerThan(honey) {
+                    grid-column: main-start/main-end;
+                    grid-row: 2;
+                    z-index: 2;
+                    margin-block-start: 0;
                 }
             }
         }

@@ -9,7 +9,6 @@
     gap: calc(var(--site-padding)*2);
 
     @include media.widerThan(honey) {
-        margin-top: var(--site-padding);
         gap: calc(var(--site-padding)/2);
     }
 
@@ -274,6 +273,10 @@
 
             .list--horizontal {
                 margin-block-start: var(--int-gap);
+            }
+
+            p {
+                font-size: 1em;
             }
         }
 

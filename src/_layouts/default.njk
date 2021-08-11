@@ -1,26 +1,20 @@
 ---
 layout: base
 bodyClass: "vers--page"
+mainclass: "vers--content-page"
 ---
 
 <main class="site-main  main  {{ mainclass }}" id="site-content">
-    <div class="main__illustration" aria-hidden="true">
+    <div class="main__illustration  vers--pills" aria-hidden="true">
         {% if illustration %}
-            {{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}
+            <div class="main__illustration-icon">{{ ('/src/assets/svg/illustrations/' + illustration + ".svg") | svgContents | safe }}</div>
         {% endif %}
+        <div class="main__illustration-big-pill">{{ '/src/assets/svg/shapes/pill-big.svg' | svgContents | safe }}</div>
     </div>
     <header class="main__header">
         <h1 class="main__title">{{ title }}</h1>
         {% if excerpt %}
             <p class="main__excerpt">{{ excerpt | safe }}</p>
-        {% endif %}
-        {% if headerSticker or headerImage %}
-            {% if headerSticker === 'about' %}
-                <div class="sticker  theme--lighter  main__header-sticker">
-                    <p class="sticker__text">Hello, yes. I'm Thomas Michael Semmler. Would you like to know more about me?</p>
-                    <a class="c2a vers--ghost  sticker__action" href="{{ '/about' | url }}">Get to know me</a>
-                </div>
-            {% endif %}
         {% endif %}
     </header>
     <section class="main__content">{{ content | safe }}</section>
