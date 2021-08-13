@@ -28,7 +28,7 @@ module.exports = function() {
 					return false;
 				}
 			},
-            tags: 'post',
+            tags: ['post'],
             layout: 'post'
 		}
 	}
