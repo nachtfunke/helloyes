@@ -1,5 +1,6 @@
 *.css.map
 node_modules
 /dist
+.env
 # Local Netlify folder
 .netlify
