@@ -1,8 +1,9 @@
 ---
-date: 2021-06-09
+date: 2021-10-09
 title: 'Is it too late to start blogging?'
 excerpt: "11 years into the web industry seems like a rather late point to start blogging. But I'm gonna attempt it anyway."
 templateEngineOverride: njk,md
+draft: true
 ---
 
 I've read blogs, consumed podcasts and read articles on the web industry since 2010. Now I decided that I wanna take part in all of it.
