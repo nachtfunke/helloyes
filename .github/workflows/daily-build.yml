@@ -1,0 +1,16 @@
+name: Daily Netlify build trigger
+
+on:
+  schedule:
+    # Run at 5:50 AM UTC every day
+    - cron: '50 5 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request to Netlify's build hook
+        env:
+          BUILD_HOOK: ${{ secrets.NETLIFY_DAILY_BUILD }}
+        run: |
+          curl -X POST -d {} "$BUILD_HOOK"
