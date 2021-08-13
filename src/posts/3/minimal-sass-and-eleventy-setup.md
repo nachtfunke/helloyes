@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2021-06-21
 title: 'Minimal SASS & eleventy Setup'
 metaDescription: "A post about setting up SASS with eleventy without additional tools"

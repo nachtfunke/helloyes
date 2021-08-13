@@ -1,24 +1,48 @@
 ---
 layout: base
 bodyClass: "vers--single-post"
-permalink: "blog/{{ date | dateGetYear }}/{{ title | slug }}/"
-tags: ['post']
 ---
-<main class="site-main  main {{ mainclass }}" id="site-content" itemscope itemtype="https://schema.org/Article">
+{% from 'tag.macro.njk' import tag %}
+<main class="site-main  main vers--single-post {{ mainclass }}" id="site-content" itemscope itemtype="https://schema.org/Article">
     <header class="main__header">
-        <h1 class="main__title" itemprop="name">{{ title }}</h1>
-        <time class="main__date" itemporp="datePublished">posted on {{ date | dateReadable }}</time>
-        {% if content | toc | length and not hideToc%}
-            <div class="main__outline" data-table-of-contents>
-                <p class="main__outline-label">Table of Contents:</p>
-                {{ content | toc | safe }}
-            </div>
-        {% endif %}
+        <div class="main__illustration">
+            {{ '/src/assets/svg/shapes/blog-blobs.svg' | svgContents | safe }}
+        </div>
+        <div class="main__header-text">
+            {% if not caseStudy %}
+                <h1 class="main__title" itemprop="name">{{ title }}</h1>
+            {% else %}
+                <h1 class="sr-only">{{ title }}</h1>
+                <div class="main__title-logo" aria-hidden="true">
+                    {% if logo %}
+                        {{ ('/src/assets/img/case-studies/' + id + '/' + logo + '.svg') | svgContents | safe }}
+                    {% elseif logoImage %}
+                        <img src="{{ '/assets/img/case-studies/' + id + '/' + logoImage }}" alt="logo for the project {{ title }}">
+                    {% endif %}
+                </div>
+                {% if caseStudyTags %}
+                    <ul class="list--horizontal  main__title-tags">
+                        {% for caseStudyTag in caseStudyTags %}
+                            <li class="list__item">{{ tag({ text: caseStudyTag, small: true, dark: true}) }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+            {% if not hideDate %}<time class="main__date" itemporp="datePublished">posted on {{ date | dateReadable }}</time>{% endif %}
+        </div>
+        <div class="main__header-intro">
+            {% if excerpt %}
+                <p class="main__excerpt" itemprop="about">{{ excerpt | safe }}</p>
+            {% endif %}
+        </div>
     </header>
-    <section class="main__content" itemprop="articleBody">
-        {% if excerpt %}
-            <p class="main__excerpt" itemprop="about">{{ excerpt | safe }}</p>
-        {% endif %}
+    {% if content | toc | length and not hideToc%}
+        <div class="main__outline" data-table-of-contents>
+            <p class="main__outline-label">Table of Contents:</p>
+            {{ content | toc | safe }}
+        </div>
+    {% endif %}
+    <section class="main__content {{ contentclass }}" itemprop="articleBody">
         {{ content | safe }}
     </section>
 </main>

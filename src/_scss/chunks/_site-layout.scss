@@ -2,7 +2,7 @@
 
 .site-layout {
     // rows
-    --site-padding: var(--base-padding);
+    --site-padding: clamp(var(--base-padding), 5vw, var(--base-padding) * 5);
     --site-header-row: [header] 4.25em;
     --site-content-rows: [main] auto;
     --site-footer-row: [footer] fit-content(4.25em);
@@ -25,45 +25,20 @@
         --site-header-row: [header] auto;
         --site-content-rows: [main] 1fr;
         --site-footer-row: [footer] auto;
-        --columns: 3fr [illustration-start] 3fr [main-start] 1fr [illustration-end] 2fr 3fr 2fr 1fr [main-end] 3fr 3fr;
-        --site-padding: calc(var(--base-padding) * 1.75);
-    }
-
-    @include media.widerThan(honey) {
-        --site-padding: calc(var(--base-padding) * 2.25);
+        --columns: [illustration-start] 3fr [main-start] 3fr [illustration-end] 1fr 2fr 3fr 2fr 1fr 3fr 3fr [main-end];
     }
 
     @include media.widerThan(syrup) {
-        --site-padding: calc(var(--base-padding) * 5);
+        --columns: 3fr [illustration-start] 3fr [main-start] 1fr [illustration-end] 2fr 3fr 2fr 1fr [main-end] 3fr 3fr;
     }
 
     &.vers--page {
         --site-content-rows: [illustration] min-content [main] auto;
         
         @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                background-color: #fff;
-                --site-content-rows: [main] 1fr;
-                --site-padding: calc(var(--base-padding) * 2.25);
-            }
-
-            @media (orientation: landscape) {
-                --site-header-row: [header] min-content;
-                --site-content-rows: [illustration main] auto;
-                --site-footer-row: [footer] min-content;
-
-                > * {
-                    z-index: 2;
-                }
-    
-                &::before {
-                    content: '';
-                    background-color: #fff;
-                    grid-column: main-start / main-end;
-                    grid-row: 1 / -1;
-                    z-index: 1;
-                }
-            }
+            --site-header-row: [header] min-content;
+            --site-content-rows: [main] auto;
+            --site-footer-row: [footer] min-content;
         }
 
         .site-header {
@@ -110,38 +85,6 @@
                 margin: 0;
                 align-self: start;
             }
-        }
-
-        .site-footer {
-            @include media.widerThan(caramel) {
-                display: grid;
-                grid-template-columns: var(--columns);
-
-                &__copy {
-                    grid-column: 4 / -1;
-                    padding-inline-start: var(--site-padding);
-                }
-            }
-        }
-    }
-
-    &.vers--single-post {
-        @include media.widerThan(honey) {
-            &::before {
-                content: '';
-                background-color: #fff;
-                grid-column: main-start / main-end;
-                grid-row: 1 / -1;
-                z-index: 1;
-            }
-        }
-        
-        .site-header {
-            z-index: 3;
-        }
-
-        .site-main {
-            align-self: start;
         }
 
         .site-footer {

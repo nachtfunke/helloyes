@@ -1,3 +1,5 @@
+@use '../tools/mixins/media' as media;
+
 .tag:not(.token) {
     font-family: var(--typeface-headings);
     font-weight: 500;
@@ -6,10 +8,14 @@
     background-color: hsl(var(--color-hs-accent) 95%);
     color: var(--color-primary);
     border-radius: 8px;
-    font-size: .8125em;
+    font-size: .75em;
     display: inline-flex;
     gap: .5em;
     align-items: center;
+
+    @include media.widerThan(honey) {
+        font-size: .8125em;
+    }
 
     > svg {
         display: inline-block;
@@ -25,8 +31,12 @@
     }
 
     &.vers--large {
-        font-size: 1em;
+        font-size: .85em;
         line-height: 1.75;
         border-radius: 1.15em;
+
+        @include media.widerThan(honey) {
+            font-size: 1em;
+        }
     }
 }

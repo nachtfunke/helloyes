@@ -12,13 +12,13 @@
     }
 
     &__item {
-        --background-color-lightness: 96%;
-        background-color: hsl(var(--color-hs-highlight) var(--background-color-lightness));
+        --background-color-lightness: 97%;
+        background-color: hsl(var(--color-hs-accent) var(--background-color-lightness));
         padding: 1em;
         border-radius: 4px;
 
         &:nth-child(odd) {
-            --background-color-lightness: 98%;
+            --background-color-lightness: 99%;
         }
 
         &-article {
@@ -37,7 +37,8 @@
         &-date {
             @include meta-label();
             line-height: 1;
-            transform: translateY(.15em)
+            transform: translateY(.15em);
+            white-space: nowrap;
         }
     }
 }

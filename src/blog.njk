@@ -1,0 +1,31 @@
+---
+layout: "default"
+title: "Blog"
+metaDescription: "The most Recent blog posts about all things Design, Development, CSS, Design Engineering, etc."
+excerpt: "Here are some of the recent things I have taken the time to write down. Let me know what you think - oh, and please take it all with a grain of salt."
+illustration: false
+mainclass: "vers--listing-page"
+pagination:
+    data: collections.post
+    size: 10
+    reverse: true
+    alias: posts
+---
+
+<section class="main__post-listing">
+    <ol class="posts-list" reversed>
+        {% for post in posts %}
+            <li class="posts-list__item">
+                <article class="listed-post">
+                    <h2 class="listed-post__title">{{ post.data.title | safe }}</h2>
+                    <time class="listed-post__date">posted on {{ post.date | dateReadable }}</time>
+                    <p class="listed-post__excerpt">{{ post.data.excerpt | safe }}</p>
+                    <a class="c2a vers--bold  listed-post__action" href="{{ post.url | url }}">read more</a>
+                </article>
+            </li>
+        {% endfor %}
+        <li class="posts-list__item">
+            <a class="c2a  vers--ghost" href="{{ '/blog/archives' | url }}">See all posts in the archive</a>
+        </li>
+    </ol>
+</section>

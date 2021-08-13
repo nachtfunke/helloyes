@@ -5,7 +5,6 @@ title: 'easyname'
 excerpt: 'My work at easyname was complex and included a lot of different things - from refactoring the large CSS (and HTML in PHP) Codebase, to upgrading the easyname brand and designing and building landing & content pages as well as planning for content, product features and long-term refactorings with a bigger architectural picture in mind.'
 caseStudyTags: ['Refactoring', 'HTML', 'Large Scale (S)CSS', 'Accessibility', 'UI Design', 'UX Design', 'PHP', 'Content Strategy', 'Vanilla JavaScript', 'React', 'TypeScript', 'Design Engineering', 'Design Ops']
 color: '#489abf'
-coverLogo: 'logo-shape'
 logo: 'logo'
 templateEngineOverride: "md,njk"
 ---
