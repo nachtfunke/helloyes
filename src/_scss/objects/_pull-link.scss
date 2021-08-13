@@ -1,15 +1,23 @@
 @use '../tools/mixins/media' as media;
 @use 'meta-label' as *;
 
-// .785em;
-// 1.125em;
-
 .pull-link {
-    font-size: .785em;
     display: flex;
     flex-direction: column;
-    gap: .44em;
+    gap: 1em;
     align-items: stretch;
+    background-color: #fff;
+    border: 4px solid currentcolor;
+    color: var(--color-highlight);
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: var(--shadow-fat);
+    position: relative;
+    transition: color var(--base-animation-duration) var(--base-easing);
+
+    &:hover, :focus {
+        color: var(--color-accent-500);
+    }
 
     @include media.widerThan(caramel) {
         font-size: .85em;
@@ -25,10 +33,20 @@
 
     &__link {
         font-family: var(--typeface-headings);
-        font-weight: 500;
-        color: hsl(var(--color-hs-highlight) 34%);
+        font-weight: 575;
         text-underline-offset: .15em;
         text-decoration-color: hsl(var(--color-hs-highlight) 80%);
+        transition: inherit;
+        transition-property: text-decoration-color;
+        font-size: 1.125em;
+
+        @media (hover: hover) {
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+            }
+        }
     }
 
     &__caption {
@@ -42,8 +60,6 @@
     }
 
     @include media.narrowerThan(honey) {
-        background-color: hsl(var(--color-hs-highlight) var(--color-weight-100));
-        padding: 1em;
-        border-radius: 5px;
+        
     }
 }
