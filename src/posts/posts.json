@@ -1,5 +1,0 @@
-{
-    "permalink": "blog/{{ date | dateGetYear }}/{{ title | slug }}/",
-    "tags": ["post"],
-    "layout": "post"
-}
