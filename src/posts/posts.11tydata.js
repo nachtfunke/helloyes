@@ -29,7 +29,8 @@ module.exports = function() {
 				}
 			},
             tags: ['post'],
-            layout: 'post'
+            layout: 'post',
+			bodyClass: 'vers--single-post'
 		}
 	}
 }

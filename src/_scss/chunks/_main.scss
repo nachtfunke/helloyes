@@ -382,7 +382,7 @@
             line-height: 1;
         }
 
-        :where(p > code) {
+        :where(p code) {
             background-color: #fff;
             font-weight: 500;
             color: #333;
