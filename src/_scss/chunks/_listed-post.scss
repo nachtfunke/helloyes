@@ -15,37 +15,18 @@
     flex-direction: column;
     gap: .5em;
     box-shadow: 0 15px 42px rgba(0,0,0,.06);
+    position: relative;
 
     @include _inPostsList() {
         @include media.widerThan(caramel) {
-            padding: 2em;
+            padding: clamp(2em, 5vw, 4em);
         }
     }
 
     &__title {
-        color: var(--color-highlight);
         font-family: var(--typeface-headings);
-        line-height: 1.5;
-        font-weight: 625;
-        font-size: 1.25em;
-
-        :where(a) {
-            text-decoration-color: hsl(var(--color-hs-highlight) 75%);
-
-            &:visited {
-                color: hsl(var(--color-hs-dark) 50%);
-                text-decoration-color: hsl(var(--color-hs-dark) 75%);
-            }
-        }
-
-        @include media.widerThan(honey) {
-            font-weight: 650;
-        }
-
-        @include media.widerThan(syrup) {
-            font-size: 1.5em;
-            font-weight: 600;
-        }
+        font-size: 1.75em;
+        font-weight: 650;
     }
 
     &__excerpt {
@@ -62,5 +43,18 @@
         margin-block-start: 0;
         font-weight: 500;
         font-size: .8em;
+    }
+
+    &__action {
+        margin-block-start: 2em;
+        align-self: start;
+
+        @media (hover: hover) {
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+            }
+        }
     }
 }

@@ -1,20 +1,13 @@
 @use '../tools/mixins/media' as media;
 @use '../objects/meta-label' as *;
 
-@mixin _mainContentElements() {
-    > :where(p, ol, ul, blockquote, dl, pre) {
-        grid-column: span 3;
-
-        @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                grid-column: span 5;
-
-                & + *:not(:where(p, ol, ul, dl, pre, hr)) {
-                    grid-column: span 2;
-                }
-            }
-        }
+@keyframes headlineTargetBlink {
+    50% {
+        color: var(--color-accent-500);
     }
+}
+
+@mixin _mainContentElements() {
 
     > :where(pre) {
         line-height: 1.5;
@@ -27,9 +20,34 @@
     }
 
     .portrait {
-        border-radius: 30px;
-        display: inline-block;
-        overflow: hidden;
+        --int-margin: var(--margin, 1em);
+        width: clamp(7em, 30%, 250px);
+        float: inline-start;
+        margin-inline-end: var(--int-margin);
+        margin-block-end: var(--int-margin);
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        @supports not (float: inline-start) {
+            float: left;
+        }
+
+        @include media.widerThan(syrup) {
+            --margin: calc(var(--site-padding)/2);
+        }
+
+        &__image {
+            border-radius: min(2.5vw, 15px);
+            display: block;
+            overflow: hidden;
+            box-shadow: var(--shadow-fat);
+        }
+
+        &__caption {
+            font-size: .95em;
+            color: var(--color-dark);
+        }
     }
 
     blockquote {
@@ -51,27 +69,94 @@
 .main {
     $p: &;
 
-    &__title {
-        font-family: var(--typeface-headings);
-        font-weight: 675;
-        font-size: 1.5em;
-        line-height: 1.25;
-        margin: 0;
+    &__illustration {
+        display: inline-block;
+        float: inline-end;
+        margin-inline-start: 2em;
+        margin-block-end: 2em;
 
-        & + * {
-            margin-block-start: 1em;
+        @supports not (float: inline-end) {
+            float: right;
+        }
 
-            @include media.widerThan(caramel) {
-                margin-block-start: 2em;
+        @include media.widerThan(honey) {
+            margin: 0;
+        }
+
+        & > * {
+            @include media.narrowerThan(honey) {
+                display: none;
+            }
+        }
+        
+        &-icon {
+            display: block;
+            width: clamp(6em, 15vw, 330px);
+            color: var(--color-accent-300);
+            margin: 0;
+
+            svg {
+                width: 100%;
+                height: auto;
+                
+                path { 
+                    stroke: currentColor;
+                    stroke-width: 4;
+                }
             }
         }
 
+        &.vers--pills {
+            position: relative;
+            
+            #{$p}__illustration {
+                &-big-pill {
+                    position: absolute;
+                    inset-block-start: 0;
+                    inset-inline-start: 0;
+                    width: 100%;
+                    z-index: -1;
+
+                    @supports not (inset-block-start: 0) {
+                        top: 0;
+                        left: 0;
+                    }
+                    
+                    svg {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    &__header {
+        margin-block-end: var(--site-padding);
+        
+        &#{&} {
+            margin-block-start: 0;
+        }
+    }
+
+    &__title {
+        font-family: var(--typeface-headings);
+        font-weight: 675;
+        font-size: 2em;
+        line-height: 1.25;
+        margin: 0;
+
         @include media.widerThan(caramel) {
-            font-size: 2em;
+            font-size: 2.5em;
         }
 
         @include media.widerThan(syrup) {
             font-size: 3em;
+        }
+
+        @include media.widerThan(fructose) {
+            font-size: 3.5em;
         }
     }
 
@@ -82,7 +167,8 @@
     }
 
     &__excerpt {
-        font-size: 1em;
+        margin-block-start: 1em;
+        font-size: 1.15em;
 
         @include media.widerThan(syrup) {
             font-size: 1.5em;
@@ -91,6 +177,7 @@
 
     &__heading {
         &-wrapper {
+            clear: both;
             position: relative;
 
             &:where(:hover, :focus-within) {
@@ -98,13 +185,23 @@
                     opacity: 1;
                 }
             }
+
+            :is(h2, h3, h5, h5, h6) {
+                margin-block-start: .75em;
+                margin-block-end: .5em;
+            }
+
+            :where(h2, h3, h4, h5, h6) {
+                display: inline-block;
+
+                &:target {
+                    animation: headlineTargetBlink 800ms alternate;
+                }
+            }
         }
         
         &-link {
             font-family: var(--typeface-headings);
-            position: absolute;
-            inset-inline-start: 0;
-            inset-block-end: 10%;
             //padding-inline-end: 2.5em;
             transform: translateX(-100%);
             width: 1em;
@@ -138,20 +235,28 @@
                     font-size: .85em;
                 }
             }
-
-            @supports not (inset-inline-start: 0) {
-                right: 0;
-                bottom: 10%;
-            }
         }
     }
 
     &__outline {
-        font-size: .75em;
+        font-size: .8em;
         margin-block-start: var(--site-padding);
+        background-color: var(--color-accent-100);
+        padding: 1.5em;
+        border-radius: 15px;
+
+        @supports (backdrop-filter: blur(10px)) {
+            backdrop-filter: blur(10px);
+            opacity: .8;
+        }
 
         @include media.widerThan(honey) {
-            font-size: .85em;
+            font-size: .9em;
+            background-color: transparent;
+            opacity: 1;
+            backdrop-filter: none;
+            margin-block-start: 0 !important;
+            padding: 0;
         }
 
         @include media.widerThan(syrup) {
@@ -167,10 +272,23 @@
             @include media.widerThan(honey) {
                 font-size: 1em;
                 font-weight: 450;
+                text-align: right;
+                margin-block-end: 2em;
             }
 
             + * {
                 margin-block-start: 1em;
+            }
+        }
+
+        nav {
+            @include media.widerThan(honey) {
+                position: sticky;
+                inset-block-start: calc(var(--site-padding)/2);
+
+                @supports not (inset-block-start: 0) {
+                    top: calc(var(--site-padding)/2);
+                }
             }
         }
 
@@ -203,6 +321,8 @@
                         font-size: 1.125em;
                         display: block;
                         margin-bottom: .75em;
+                        text-align: right;
+                        padding-inline-end: 2.5em;
                     }
                 }
 
@@ -217,13 +337,13 @@
 
                     @include media.widerThan(honey) {
                         position: absolute;
-                        inset-inline-end: 0;
+                        inset-inline-end: calc(var(--site-padding)/2);
                         inset-block-start: .25em;
                         text-align: left;
                         transform: translateX(calc(100% + .5em));
 
                         @supports not (inset-inline-end: 0) {
-                            right: 0;
+                            right: calc(var(--site-padding)/2);
                             top: .25em;
                         }
                     }
@@ -232,13 +352,17 @@
         }
     }
 
-    @at-root :where(#{$p}) :where(p, li, pre) {
+    @at-root :where(#{$p}) :where(p, li, pre, address) {
         font-family: var(--typeface-paragraphs);
         line-height: 1.75;
-        font-size: .8em;
+        font-size: .9em;
 
-        @include media.widerThan(syrup) {
+        @include media.widerThan(honey) {
             font-size: 1em;
+        }
+
+        @include media.widerThan(fructose) {
+            font-size: 1.125em;
         }
 
         & + *:not(li) {
@@ -247,43 +371,41 @@
     }
 
     @at-root .site-layout:where(.vers--page, .vers--single-post) :where(#{&}) {
-        background-color: #fff;
-        padding-block-start: calc(var(--site-padding) * 2);
-        padding-block-end: calc(var(--site-padding) * 2);
-
-        @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                padding: var(--site-padding);
-                display: grid;
-                grid-template-columns: inherit;
-            }
-        }
-
         @include media.widerThan(honey) {
             --column-illustration: 3fr;
-            display: grid;
-            grid-template-columns: var(--columns-main);
-            column-gap: 2.5em;
             border-radius: 0;
-            background-color: transparent;
         }
 
         @include _mainContentElements();
 
         :where(h2, h3, h4, h5, h6, #{$p}__heading-wrapper) {
-            grid-column: 1 / -1;
             line-height: 1;
+        }
+
+        :where(p > code) {
+            background-color: #fff;
+            font-weight: 500;
+            color: #333;
+            display: inline-block;
+            padding: .1em .4em;
+            border-radius: 3px;
+            box-shadow: 
+                0 1px 2px rgba(0,0,0,.15),
+                0 3px 6px rgba(0,0,0,.08);
         }
 
         :where(h2) {
             margin: 0;
-            font-size: 1em;
+            font-size: 1.75em;
             font-weight: 625;
-            margin-block-start: 1em;
+            line-height: 1.25;
+
+            + a {
+                font-size: 1.75em;
+            }
 
             @include media.widerThan(syrup) {
                 font-size: 1.75em;
-                line-height: 1.25;
             }
         }
 
@@ -339,45 +461,10 @@
             }
         }
 
-        .wrap-as {
-            &--main-column {
-                @include media.widerThan(caramel) {
-                    grid-column: span 3;
-                }
-            }
-
-            &--full-column {
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / -1;
-                }
-            }
-        }
-
-        aside, .aside { // okay listen. These elements will sometimes contain captioned elements, such as pull-links. These elements are already sectioning elements so it wouldn't make sense to wrap them in an aside. And sometimes whatever is in that place actually shouldn't be sectioned at all. That's where there is a semantic aside and a non-semantic aside :D This might be dumb idk lemme know what you think.
-            display: flex;
-            flex-direction: column;
-            gap: .5em;
-
-            @include media.widerThan(caramel) {
-                gap: 1.5em;
-                flex-direction: row;
-                grid-column: 1 / -1;
-
-                .button {
-                    align-self: self-start;
-                }
-            }
-
-            @include media.widerThan(syrup) {
-                flex-direction: column;
-                grid-column: span 1;
-            }
-        }
-
         :where(small) {
             display: block;
             font-size: .75em;
-            line-height: 1.25;
+            line-height: 1.75;
             color: var(--color-dark);
             opacity: .75;
 
@@ -396,238 +483,12 @@
             margin-block-start: 1em;
         }
 
-        #{$p} {
-            &__header {
-                grid-column: 1 / -1;
-
-                @include media.widerThan(caramel) {
-                    display: grid;
-                    grid-template-columns: inherit;
-
-                    @media (orientation: portrait) {
-                        margin-block-end: var(--site-padding);
-                    }
-                }
-
-                @include media.narrowerThan(syrup) {
-                    @media (orientation: landscape) {
-                        display: flex;
-                        flex-direction: column;
-                    }
-                }
-
-                @include media.widerThan(caramel) {
-                    gap: var(--site-padding);
-                }
-
-                @include media.widerThan(syrup) {
-                    gap: calc(var(--site-padding)/2);
-                }
-            }
-
-            img, aside {
-                grid-column: 4 / -1;
-            }
-
-            &__title {
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / -1;
-                }
-
-                + * {
-                    @include media.widerThan(honey) {
-                        margin-block-start: 2.5em;
-                    }
-                }
-            }
-
-            &__excerpt {
-                @media (orientation: landscape) {
-                    @include media.narrowerThan(fructose) {
-                        grid-column: span 2;
-                    }
-
-                    &:last-child {
-                        @include media.narrowerThan(nectar) {
-                            grid-column: 1 / -1;
-                        }
-                    }
-                }
-
-                @include media.widerThan(caramel) {
-                    grid-column: 1 / 5;
-                    margin-block-start: 0;
-                }
-
-                @include media.widerThan(honey) {
-                    grid-column: span 3;
-                }
-            }
-
-            &__header-sticker {
-                @include media.widerThan(caramel) {
-                    grid-column: span 2;
-                    grid-column-end: -1;
-                    margin-block-start: 0;
-                    align-self: center;
-                }
-
-                @include media.widerThan(honey) {
-                    grid-column: span 1;
-                }
-
-                @include media.narrowerThan(fructose) {
-                    @media (orientation: landscape) {
-                        grid-column: span 2;
-                    }
-                }
-            }
-            
-        }
-    }
-
-    @at-root :where(.site-layout.vers--posts-listing) & {
-        align-self: start;
-        display: flex;
-        flex-direction: column;
-        gap: var(--site-padding);
-        grid-template-columns: inherit;
-
-        @include media.widerThan(honey) {
-            display: grid;
-            grid-template-rows: min-content 1fr;
-
-            &__header {
-                grid-column: span 3;
-                position: sticky;
-                top: var(--site-padding);
-                align-self: start;
-
-                @include media.widerThan(syrup) {
-                    padding-inline-end: var(--site-padding);
-
-                }
-            }
-
-            &__post-listing {
-                grid-column: main-start / main-end;
-            }
-        }
-
-        @include media.widerThan(syrup) {
-            gap: 0;
-        }
-    }
-
-    @at-root .site-layout:where(.vers--single-post) :where(#{&}) {
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--site-padding);
-        background-color: transparent;
-
-        @include media.widerThan(honey) {
-            display: grid;
-            grid-template-columns: var(--columns);
-            gap: 0;
-        }
-
-        #{$p} {
-            &__header {
-                display: block;
-                position: sticky;
-                top: 0;
-                z-index: 1;
-                margin: var(--site-padding);
-                margin-block-end: 0;
-
-                @include media.widerThan(honey) {
-                    grid-column: side-start / side-end;
-                    background-color: transparent;
-                    padding: var(--site-padding);
-                    padding-block-start: calc(var(--site-padding) * 2 );
-                    padding-inline-end: 0;
-                    margin: 0;
-                    text-align: right;
-                    position: static;
-                }
-            }
-
-            &__title {
-                font-weight: 750;
-            }
-
-            &__date {
-                display: block;
-                margin-block-start: .75em;
-
-                @include media.widerThan(honey) {
-                    margin-block-start: 1.5em;
-                }
-            }
-
-            &__outline {
-                background-color: rgba(0,0,0,.08);;
-                border-radius: 4px;
-                padding: 1em;
+        .pull-link {
+            &:not(:first-child) {
                 margin-block-start: 1em;
-
-                @include media.widerThan(honey) {
-                    background-color: transparent;
-                    padding: 0;
-                    margin-block-start: 3em;
-                    position: sticky;
-                    top: var(--site-padding);
-                }
             }
-
-            &__excerpt {
-                @include media.widerThan(honey) {
-                    margin-bottom: 2.5em;
-                }
-            }
-
-            &__content {
-                padding-block-start: calc(var(--site-padding) * 2);
-                padding-block-end: calc(var(--site-padding) * 2);
-                //padding-inline: var(--site-padding);
-                padding-left: var(--site-padding);
-                padding-right: var(--site-padding);
-                background-color: #fff;
-                position: relative;
-                z-index: 2;
-                margin-block-start: 0;
-                -webkit-transform: translate3d(0,0,0); // this is needed exclusively for safari. This forces a new layer, setting the z-index from the very start. Without it, the z-index only applies once the "sticky" part comes in, which on safari is being updated after the scroll was finished, not while it is happening.
-
-                @include _mainContentElements();
-
-                @include media.widerThan(honey) {
-                    background-color: transparent;
-                    grid-column: main-start / main-end;
-                    display: grid;
-                    grid-template-columns: var(--columns-main);
-                    grid-column-gap: 2.5em;
-                }
-
-                > * + * {
-                    margin-block-start: 1em;
-                }
-
-                :where(p) {
-                    code {
-                        background-color: rgba(0,0,0,.05);
-                        display: inline-block;
-                        padding-inline-start: .5em;
-                        padding-inline-end: .5em;
-                        border-radius: 2px;
-                        font-size: 1.125em;
-                        color: var(--color-accent-900);
-                    }
-
-                    @include media.narrowerThan(honey) {
-                        max-width: 60ch;
-                    }
-                }
+            &:not(:last-child) {
+                margin-block-end: 1em;
             }
         }
     }
@@ -646,6 +507,184 @@
 
                 @include media.widerThan(syrup) {
                     text-align: center;
+                }
+            }
+        }
+    }
+
+    &.vers--content-page {
+        @include media.widerThan(honey) {
+            --vertical-spacing: min(15vh, calc(var(--site-padding)) * 2);
+            display: grid;
+            grid-template-columns: inherit;
+            gap: clamp(1em, 1vw, 40px);
+        }
+
+        #{$p} {
+            &__illustration {
+                @include media.widerThan(honey) {
+                    grid-column: illustration-start/illustration-end;
+                    grid-row: 1 / 2;
+                    z-index: 1;
+                    padding-block-start: var(--vertical-spacing);
+
+                    &-icon {
+                        @include media.widerThan(honey) {
+                            transform: translateX(calc(var(--site-padding) * -1));
+                            position: absolute;
+                        }
+                        
+                        & > svg {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &__header {
+                @include media.widerThan(honey) {
+                    grid-column: main-start/main-end;
+                    grid-row: 1;
+                    z-index: 2;
+                    padding-block-start: var(--vertical-spacing);
+                }
+            }
+
+            &__content {
+                @include media.widerThan(honey) {
+                    grid-column: main-start/main-end;
+                    grid-row: 2;
+                    z-index: 2;
+                    margin-block-start: 0;
+                }
+            }
+        }
+    }
+
+    &.vers--listing-page {
+        &#{$p} {
+            @include media.widerThan(syrup) {
+                grid-column: 2 / -2 ;
+                padding: var(--site-padding) 0;
+            }
+        }
+    }
+
+    &.vers--single-post {
+        @include media.widerThan(honey) {
+            grid-column: 2 / -2;
+            padding: var(--site-padding) 0;
+            display: grid;
+            grid-template-columns: [side-start] 1fr [side-end text-start] 1.5fr [text-end];
+            margin-inline: calc(var(--site-padding) * -1);
+            column-gap: calc(var(--site-padding) / 2);
+
+            @supports not (margin-inline: 0) {
+                margin-inline-start: calc(var(--site-padding) * -1);
+                margin-inline-end: calc(var(--site-padding) * -1);
+            }
+        }
+
+        #{$p} {
+            &__header {
+                position: relative;
+
+                @include media.widerThan(honey) {
+                    grid-column: 1 / -1;
+                    display: grid;
+                    grid-template-columns: inherit;
+                    margin-block-end: 0;
+                    padding-block: var(--site-padding);
+                    gap: inherit;
+
+                    @supports not (padding-block: 0) {
+                        padding-inline-start: var(--site-padding);
+                        padding-inline-end: var(--site-padding);
+                    }
+                }
+
+                &-text {
+                    @include media.widerThan(honey) {
+                        text-align: end;
+                        display: flex;
+                        flex-direction: column;
+                        gap: min(2.5vh, 2em);
+                    }
+                }
+
+                &-intro {
+                    @include media.widerThan(honey) {
+                        align-self: end;
+                    }
+                }
+            }
+
+            &__illustration {
+                position: absolute;
+                width: 100%;
+                inset-block-start: 0;
+                inset-inline-start: 0;
+                margin: 0;
+                z-index: -1;
+                opacity: .5;
+
+                @supports not (inset-block-start: 0) {
+                    top: 0;
+                    left: 0;
+                }
+
+                @include media.widerThan(honey) {
+                    height: 100%;
+                    width: calc(100% + (var(--site-padding) * 2 ));
+                    inset-inline-start: 50%;
+                    transform: translateX(-50%);
+                    opacity: 1;
+
+                    @supports not (inset-inline-start: 0) {
+                        left: 50%;
+                    }
+                }
+
+                > svg {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &__title {
+                &-tags {
+                    @include media.widerThan(honey) {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            &__excerpt {
+                @include media.widerThan(honey) {
+                    margin-block-start: 0;
+                    padding: clamp(1em, 5vw, 1.5rem);
+                    border-radius: 15px;
+                    background-color: rgba(255,255,255,.6);
+
+                    @supports (backdrop-filter: blur(25px)) {
+                        background-color: rgba(255,255,255,.37);
+                        backdrop-filter: blur(25px);
+                    }
+                }
+            }
+
+            &__outline {
+                @include media.widerThan(honey) {
+                    grid-column: side-start / side-end;
+                }
+            }
+
+            &__content {
+                @include media.widerThan(honey) {
+                    grid-column: text-start / text-end;
+                    margin-block-start: 0;
+                    overflow: auto; // needed because of the code-snippets producing overflow!
                 }
             }
         }

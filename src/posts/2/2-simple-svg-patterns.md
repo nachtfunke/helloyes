@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2021-06-20
 title: 'Very simple Patterns with SVG'
 metaDescription: "An informative log of how I ended up (hand)-coding some simple patterns in SVG"

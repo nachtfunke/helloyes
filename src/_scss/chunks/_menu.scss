@@ -123,6 +123,7 @@
         gap: .5em;
         padding-inline-start: 2.25em;
         margin-inline-end: -1em;
+        z-index: 10;
 
         @include media.widerThan(caramel) {
             --spacer-height: 1em;

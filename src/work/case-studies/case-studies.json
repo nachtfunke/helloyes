@@ -2,6 +2,8 @@
     "tags": "case-study",
     "permalink": "work/case-studies/{{ id }}/",
     "illustration": "design-engineering-lined",
-    "layout": "case-study",
+    "layout": "post",
+    "caseStudy": true,
+    "hideDate": true,
     "imagePath": "/assets/img/case-studies/"
 }

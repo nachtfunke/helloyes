@@ -2,20 +2,14 @@
 order: 2
 id: 'hello-yes'
 title: 'hello, yes.'
-excerpt: '“hello, yes” is a tiny little personal brand that I use for my development / design public facing persona.'
+excerpt: '“hello, yes” is a tiny little personal brand that I use for my development / design public facing persona. I started working on it in late Spring 2021, and it evolved and changed since and will continue to do so.'
 caseStudyTags: ['Eleventy', 'Branding', 'Accessibility', 'HTML', 'SCSS', 'SVG', 'Vanilla JavaScript', 'Illustration']
 color: '#F7ABBE'
-coverLogo: 'logo-shape'
 logo: 'logo'
 templateEngineOverride: "md,njk"
 ---
 {% from 'caseStudyGallery.macro.njk' import caseStudyGallery %}
 {% set contentImages = (imagePath+id+'/content' | url) %}
-
-<div class="main__excerpt  case-study__intro">
-    <p>“hello, yes” is a tiny little personal brand that I use for my development / design public facing persona.</p>
-    <p>I started working on it in late Spring 2021, and it evolved and changed since and will continue to do so.</p>
-</div>
 
 <section class="case-study__content-block">
     <div class="case-study__content-block-text">

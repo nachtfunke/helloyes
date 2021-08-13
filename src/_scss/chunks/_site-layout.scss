@@ -2,75 +2,43 @@
 
 .site-layout {
     // rows
-    --site-padding: var(--base-padding);
+    --site-padding: clamp(var(--base-padding), 5vw, var(--base-padding) * 5);
     --site-header-row: [header] 4.25em;
     --site-content-rows: [main] auto;
     --site-footer-row: [footer] fit-content(4.25em);
     --site-layout-rows: [skip] min-content [bar] min-content var(--site-header-row) var(--site-content-rows) var(--site-footer-row);
     // columns
-    --column-illustration: 0fr;
+    /*--column-illustration: 0fr;
     --columns-main: [main-start] 3fr 1fr 2fr 3fr [main-end];
-    --columns-side: [side-start] var(--column-illustration) 2fr [side-end] 1fr;
+    --columns-side: [side-start] var(--column-illustration) 2fr [side-end] 1fr;*/
     --columns: repeat(3, 1fr);
     display: grid;
     grid-template-columns: var(--columns);
     grid-template-rows: var(--site-layout-rows);
     min-height: 100vh;
+
+    &.ctx--index {
+        background-color: var(--color-accent-300);
+    }
     
     @include media.widerThan(caramel) {
         --site-header-row: [header] auto;
         --site-content-rows: [main] 1fr;
         --site-footer-row: [footer] auto;
-        --columns: var(--columns-side) var(--columns-main);
-        --site-padding: calc(var(--base-padding) * 1.75);
-    }
-
-    @include media.widerThan(honey) {
-        --site-padding: calc(var(--base-padding) * 2.25);
+        --columns: [illustration-start] 3fr [main-start] 3fr [illustration-end] 1fr 2fr 3fr 2fr 1fr 3fr 3fr [main-end];
     }
 
     @include media.widerThan(syrup) {
-        --site-padding: calc(var(--base-padding) * 5);
-    }
-    @media (orientation: landscape) {
-        --column-illustration: 1fr;
-
-        @include media.widerThan(nectar) {
-            --column-illustration: 2fr;
-        }
-
-        @include media.widerThan(nectar) {
-            --column-illustration: 3fr;
-        }
+        --columns: 3fr [illustration-start] 3fr [main-start] 1fr [illustration-end] 2fr 3fr 2fr 1fr [main-end] 3fr 3fr;
     }
 
     &.vers--page {
         --site-content-rows: [illustration] min-content [main] auto;
         
         @include media.widerThan(caramel) {
-            @media (orientation: portrait) {
-                background-color: #fff;
-                --site-content-rows: [main] 1fr;
-                --site-padding: calc(var(--base-padding) * 2.25);
-            }
-
-            @media (orientation: landscape) {
-                --site-header-row: [header] min-content;
-                --site-content-rows: [illustration main] auto;
-                --site-footer-row: [footer] min-content;
-
-                > * {
-                    z-index: 2;
-                }
-    
-                &::before {
-                    content: '';
-                    background-color: #fff;
-                    grid-column: main-start / main-end;
-                    grid-row: 1 / -1;
-                    z-index: 1;
-                }
-            }
+            --site-header-row: [header] min-content;
+            --site-content-rows: [main] auto;
+            --site-footer-row: [footer] min-content;
         }
 
         .site-header {
@@ -78,10 +46,6 @@
         }
 
         .site-illustration {
-            position: sticky;
-            top: 0;
-            z-index: 0;
-
             @include media.widerThan(caramel) {
                 align-self: stretch;
                 position: relative;
@@ -115,51 +79,12 @@
         .site-main {
             align-self: stretch;
             z-index: 2;
+            grid-column: 1 / -1;
 
             @include media.widerThan(caramel) {
                 margin: 0;
                 align-self: start;
-
-                @media (orientation: portrait) {
-                    grid-column: 1 / -1;
-                }
-
-                @media (orientation: landscape) {
-                    grid-column: main-start / main-end;
-                }
             }
-        }
-
-        .site-footer {
-            @include media.widerThan(caramel) {
-                display: grid;
-                grid-template-columns: var(--columns);
-
-                &__copy {
-                    grid-column: 4 / -1;
-                    padding-inline-start: var(--site-padding);
-                }
-            }
-        }
-    }
-
-    &.vers--single-post {
-        @include media.widerThan(honey) {
-            &::before {
-                content: '';
-                background-color: #fff;
-                grid-column: main-start / main-end;
-                grid-row: 1 / -1;
-                z-index: 1;
-            }
-        }
-        
-        .site-header {
-            z-index: 3;
-        }
-
-        .site-main {
-            align-self: start;
         }
 
         .site-footer {
@@ -202,7 +127,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @include media.widerThan(caramel) {
+    @include media.widerThan(honey) {
         padding-block-end: 0;
         display: grid;
         grid-template-columns: 2.08fr 3fr;

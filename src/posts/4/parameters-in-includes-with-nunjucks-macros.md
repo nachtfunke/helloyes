@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2021-08-10
 title: 'Using parameters in your eleventy includes with nunjucks macros'
 metaDescription: "Includes are great. But for actual reusability of code, parameters are always needed. Luckily, nunjucks makes this possible with macros!"
