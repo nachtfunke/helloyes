@@ -219,7 +219,7 @@ This doesn't _pass_ the `html` variable to the include, but because it was defin
 
 ## This is a big deal.
 
-The moment I realized that this was possible, I felt like a big block was finally lifted. A big reason for why, even as someone who just writes presentational, vanilla JavaScript, frameworks like React or Vue look appealing to me is the idea of the Encapsulated piece of Markup that can be abstracted and reused. Nunjucks macros in eleventy are giving me this experience.
+The moment I realized that this was possible, I felt like a big block was finally lifted. A big reason for why, even as someone who just writes presentational, vanilla JavaScript, frameworks like React or Vue look appealing to me is the idea of the Encapsulated piece of Markup that can be abstracted and reused. Nunjucks macros in eleventy are giving me this experience. And there even are examples of libraries using this technique to provide their authors with encapsulated, reusable chunks of markups, like for example the [gov.uk Design System](https://design-system.service.gov.uk/components/)<sup>[1](#footnotes)</sup>.
 
 ## A more complex, eleventy-ish example
 
@@ -268,8 +268,14 @@ eleventyConfig.setLibrary('md', markdownConfigured);
 
 This will fix that issue. But, I still encountered some other strange behaviour that I couldn't fully debug: Stray `<p>` and `</p>`'s. In the DOM inspector this looks just like additional paragraph tags, but looking into the source code reveals that there were actual stray paragraphs opening and closing tags flying around. At that time, I was using this complex nunjucks component in a `.md` file with `templateEngineOverride: njk,md`. I could fix it by turning the file into a `.njk` file and applied a `| markdown` filter to its contents. This might not work for all situations, but it worked in this one.
 
-A big thanks to [Shiv](https://shivjm.blog/) for helping me debug this issue and eventually supplying me with the idea of using the `| markdown` filter on the eleventy discord! And a big thanks for [Stephanie Eckles](https://thinkdobecreate.com/) for inspiring me to write this article.
-
 ## Conclusion
 
 Write macros. Lol.
+
+<footer class="main__footnotes" id="footnotes">
+
+A big thanks to [Shiv](https://shivjm.blog/) for helping me debug this issue and eventually supplying me with the idea of using the `| markdown` filter on the eleventy discord! And a big thanks for [Stephanie Eckles](https://thinkdobecreate.com/) for inspiring me to write this article.
+
+<sup>1</sup>) This was pointed out to me by [Edgar Lechaudel](https://twitter.com/elechaudel) on the [Frontend Horse Discord](https://frontend.horse/chat), thank you!</p>
+
+</footer>

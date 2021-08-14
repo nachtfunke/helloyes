@@ -352,6 +352,18 @@
         }
     }
 
+    &__footnotes {
+        margin-block-start: max(var(--site-padding)/2, 2em);
+        border-block-start: 2px solid hsl(var(--color-hs-dark) 85%);
+        padding-block-start: max(var(--site-padding)/2, 2em);
+
+        :where(p) {
+            font-size: .95em;
+            color: var(--color-dark);
+            font-style: italic;
+        }
+    }
+
     @at-root :where(#{$p}) :where(p, li, pre, address) {
         font-family: var(--typeface-paragraphs);
         line-height: 1.75;
