@@ -12,7 +12,7 @@ On this website you can see these simple shape compositions everywhere. I do lik
 
 In Figma, I created these little "diagrams" where these shape compositions are filled with some patterns. They would serve the purpose of visually communicating what types of tasks I was doing at a given employment on my work-experience timeline:
 
-![screenshot of figma with Geometrical shapes filled with colorful patterns]({{ '/assets/img/blog/figma-illustrations.png' | url }})
+![screenshot of figma with Geometrical shapes filled with colorful patterns](figma-illustrations.png)
 
 ## Early Attempts
 

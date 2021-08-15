@@ -4,6 +4,7 @@ const svgContents = require("eleventy-plugin-svg-contents"); // https://github.c
 const toc = require('eleventy-plugin-nesting-toc'); // https://github.com/JordanShurmer/eleventy-plugin-nesting-toc
 const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 const rss = require('@11ty/eleventy-plugin-rss');
+const assetsForPermalink = require('eleventy-plugin-page-assets');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -95,12 +96,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(toc, {tags: ['h2', 'h3', 'h4', 'h5', 'h6']});
   eleventyConfig.addPlugin(syntaxHighlighting);
   eleventyConfig.addPlugin(rss);
+  eleventyConfig.addPlugin(assetsForPermalink, {
+    mode: 'directory',
+    hashAssets: false,
+    postsMatching: 'src/posts/*/*.md'
+  });
 
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
-
-  eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.png': 'assets/img/blog' });
-  eleventyConfig.addPassthroughCopy({ 'src/posts/**/*.jpg': 'assets/img/blog' });
 
   // order the timeline-events collection by 'order' instead of by date (eleventy default)
   eleventyConfig.addCollection('orderedTimelineEvents', collection => {
