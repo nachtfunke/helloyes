@@ -3,10 +3,39 @@ import { focusFirstIn } from "./util/getFocusable.js";
 
 const openMenuButton = document.querySelector('[data-open-site-menu]');
 const closeMenuButton = document.querySelector('[data-close-site-menu]');
+const toggleSubmenuButton = document.querySelectorAll('[data-show-submenu]')
 const menu = document.querySelector('[data-site-menu]');
 
 // adding a Paint Worklett allowing corner smoothing with CSS border-radius
 (CSS.paintWorklet || paintWorklet).addModule('/assets/js/vendor/smooth-corners.js')
+
+// showing & hiding the submenus for main navigaton items
+toggleSubmenuButton.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        let link = button.previousElementSibling;
+        let submenu = button.nextElementSibling;
+
+        if ( button.getAttribute('aria-expanded') === 'true' ) {
+            button.setAttribute('aria-expanded', false);
+            link.setAttribute('aria-expanded', false);
+            button.focus();
+            submenu.addEventListener('transitionend', function hide(e) {
+                e.stopPropagation;
+                submenu.hidden = true;
+                submenu.removeEventListener('transitionend', hide);
+            })
+        } else {
+            submenu.hidden = false;
+            setTimeout(() => {
+                button.setAttribute('aria-expanded', true);
+                link.setAttribute('aria-expanded', true);
+                focusFirstIn(submenu);
+            }, 1);
+        }
+    })
+})
 
 // open the menu
 openMenuButton.addEventListener('click', e => {
