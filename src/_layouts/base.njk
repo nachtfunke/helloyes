@@ -44,18 +44,18 @@
                 <a href="{{ '/' | url }}">hello, yes.</a>
             </h1>
             <div class="site-header__navigation">
-                <a class="button  site-header__open-menu" href="#site-menu">
+                <button class="button  site-header__open-menu" aria-expanded="false" type="button" data-open-site-menu>
                     <span class="button__text">Menu</span>
                     <span class="button__icon" aria-hidden="true">
                         <svg height="10" width="2"><use xlink:href="#icon-open-menu" /></svg>
                     </span>
-                </a>
-                <nav class="site-menu" id="site-menu" data-menu aria-labelledby="site-menu-label">
+                </button>
+                <nav class="site-menu" id="site-menu" data-site-menu aria-labelledby="site-menu-label">
                     <div class="site-menu__header"> 
                         <h2 class="site-menu__header-title" id="site-menu-label">Main Navigation</h2>
-                        <a class="button  site-menu__header-close" href="#site-content" data-close-site-menu>
+                        <button class="button  site-menu__header-close" type="button" data-close-site-menu>
                             <span class="button__text">close</span>
-                        </a>
+                        </button>
                     </div>
                     <ul class="menu  site-menu__navigation">
                         {% for name, item in menu %}
