@@ -129,7 +129,7 @@
         }
     }
 
-    &:not(:focus-within):not(:target) {
+    &:not(:target):not(.is-open) {
         clip: rect(0 0 0 0); 
         clip-path: inset(50%);
         height: 1px;

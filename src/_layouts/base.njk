@@ -110,13 +110,13 @@
         {{ content | safe }}
         <footer class="site-footer">
             <div class="site-footer__settings">
-                <a class="button  site-footer__settings-toggle" href="#footer-settings-menu" data-toggle-footer-settings>
+                <button class="button  site-footer__settings-toggle" type="button" aria-expanded="false" data-toggle-footer-color-settings>
                     <span class="button__text">change color</span>
                     <span class="button__icon" aria-hidden="true">
                         <svg height="10" width="2"><use xlink:href="#icon-open-menu" /></svg>
                     </span>
-                </a>
-                <div class="accent-color-settings-menu" id="footer-settings-menu">
+                </button>
+                <div class="accent-color-settings-menu" data-footer-color-settings>
                     {% include 'accent-color-settings.njk' %}
                 </div>
             </div>
