@@ -17,8 +17,6 @@ toggleSubmenuButton.forEach(button => {
         let link = button.previousElementSibling;
         let submenu = button.nextElementSibling;
 
-        console.log(submenu.hidden);
-
         if ( button.getAttribute('aria-expanded') === 'true' ) {
             button.setAttribute('aria-expanded', false);
             link.setAttribute('aria-expanded', false);
