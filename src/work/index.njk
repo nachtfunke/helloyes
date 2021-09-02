@@ -8,7 +8,7 @@ headerSticker: "about"
 ---
 {%- from 'experience-timeline-entry.macro.njk' import experienceTimelineEntry -%}
 
-<ol class="wrap-as--full-column  experience-timeline">
+<ol class="wrap-as--full-column  experience-timeline" role="list">
     {%- for era, events in collections.orderedTimelineEvents | groupby('data.era') -%}
         <li class="experience-timeline__era">
             <time class="experience-timeline__date">{{ era }}</time>

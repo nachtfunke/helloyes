@@ -8,7 +8,7 @@ mainclass: "vers--listing-page"
 ---
 {% from 'tag.macro.njk' import tag %}
 
-<ul class="case-studies-list">
+<ul class="case-studies-list" role="list">
     {% for caseStudy in collections.orderedCaseStudies %}
         <li class="case-studies-list__item">
             <article class="case-study--listed" style="--cover-color: {{ caseStudy.data.color }}">

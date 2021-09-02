@@ -8,7 +8,7 @@ illustration: "welcome-lined"
 templateEngineOverride: md,njk
 ---
 
-<ol class="archive-list" reversed>
+<ol class="archive-list" role="list" reversed>
     {%- for post in collections.post | reverse -%}
         <li class="archive-list__item">
             <article class="archive-list__item-article" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">

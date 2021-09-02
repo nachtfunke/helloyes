@@ -18,7 +18,7 @@ pagination:
         {{ content | safe }}
     </header>
     <section class="main__post-listing">
-        <ol class="posts-list" reversed>
+        <ol class="posts-list" role="list" reversed>
             {% for post in posts %}
                 <li class="posts-list__item">
                     <article class="listed-post">
