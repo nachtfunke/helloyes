@@ -39,6 +39,69 @@
         text-decoration: none;
     }
 
+    &__title.vers--logo {
+        font-size: clamp(1em, 3vw, 1.5em);
+        display: flex;
+        gap: .4em;
+        align-items: center;
+        position: relative;
+        justify-self: start;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: clamp(24px, 5vw, 44px);
+            aspect-ratio: 1/1;
+            background-color: hsl(var(--accent-color) var(--color-weight-300));
+            border-radius: 50%;
+            mix-blend-mode: color;
+        }
+
+        > img {
+            display: block;
+            aspect-ratio: 1 / 1;
+            width: clamp(24px, 5vw, 44px);
+            border-radius: 50%;
+
+            @supports not (aspect-ratio: 1 / 1) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        > figcaption {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: .16em;
+
+            > a {
+                font-family: var(--typeface-headings);
+                text-decoration: none;
+                font-weight: 625;
+                line-height: 1;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+
+            > small {
+                font-family: var(--typeface-headings);
+                font-size: .4em;
+                font-feature-settings: "smcp", "c2sc";
+                font-weight: 525;
+                line-height: 1;
+                display: inline-flex;
+                padding: .3em .8em;
+                border-radius: 1.6em;
+                background-color: var(--color-accent-300);
+            }
+        }
+    }
+
     /* That's the button that opens the flyout menu on mobile */
     &__open-menu {
         @include media.widerThan(caramel) {
