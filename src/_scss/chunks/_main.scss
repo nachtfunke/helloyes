@@ -187,8 +187,12 @@
             }
 
             :is(h2, h3, h5, h5, h6) {
-                margin-block-start: .75em;
+                margin-block-start: 1em;
                 margin-block-end: .5em;
+            }
+
+            &:first-child :is(h2, h3, h4, h5, h6) {
+                margin-block-start: 0;
             }
 
             :where(h2, h3, h4, h5, h6) {

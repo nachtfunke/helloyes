@@ -22,7 +22,7 @@
 
 /* Flyout-Menu */
 .site-menu {
-    --site-footer-row: [footer] 1fr;
+    --site-footer-row: [footer] auto;
     --site-layout-rows: var(--site-header-row) var(--site-content-rows) var(--site-footer-row);
     position: fixed;
     inset-block-start: 0;
@@ -35,6 +35,8 @@
     transition-timing-function: var(--base-easing);
     transition-duration: var(--base-animation-duration);
     padding: .5em;
+    box-shadow: var(--shadow-fat);
+    overflow-y: auto;
 
     @supports not (inset-block-start: 0) {
         top: 0;
@@ -69,10 +71,12 @@
         padding: 0;
         z-index: 0;
         width: auto;
+        box-shadow: none;
+        overflow-y: visible;
     }
 
     // Thanks, Scott O'Hara!  https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
-    &:not(:focus-within):not(:target) {
+    &:not(:target):not(.is-open) {
         @include media.narrowerThan(caramel) {
             clip: rect(0 0 0 0); 
             clip-path: inset(50%);

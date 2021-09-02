@@ -4,7 +4,7 @@
     // rows
     --site-padding: clamp(var(--base-padding), 5vw, var(--base-padding) * 5);
     --site-header-row: [header] 4.25em;
-    --site-content-rows: [main] auto;
+    --site-content-rows: [main] 1fr;
     --site-footer-row: [footer] fit-content(4.25em);
     --site-layout-rows: [skip] min-content [bar] min-content var(--site-header-row) var(--site-content-rows) var(--site-footer-row);
     // columns
@@ -84,18 +84,6 @@
             @include media.widerThan(caramel) {
                 margin: 0;
                 align-self: start;
-            }
-        }
-
-        .site-footer {
-            @include media.widerThan(caramel) {
-                display: grid;
-                grid-template-columns: var(--columns);
-
-                &__copy {
-                    grid-column: 4 / -1;
-                    padding-inline-start: var(--site-padding);
-                }
             }
         }
     }
