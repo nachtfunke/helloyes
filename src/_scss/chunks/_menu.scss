@@ -109,7 +109,7 @@
         > button {
             border-radius: 3px;
             background-color: var(--color-accent-100);
-            display: none;
+            display: flex;
             width: auto;
             padding: .5em;
             font-size: .75em;
@@ -125,8 +125,6 @@
             }
 
             @include media.widerThan(caramel) {
-                display: flex;
-
                 @at-root .site-layout:where(.vers--posts-listing, .ctx--index, .vers--single-post) & {
                     background-color: var(--color-accent-500);
                     --icon-color: var(--color-accent-300);
@@ -148,9 +146,12 @@
         flex-direction: column;
         gap: .5em;
         padding-inline-start: 2.25em;
-        margin-inline-end: -1em;
         z-index: 10;
-        flex: 1;
+        flex: 100%;
+        opacity: 0;
+        transition-property: transform, opacity;
+        transition-timing-function: var(--base-easing);
+        transition-duration: var(--base-animation-duration);
 
         &[hidden] {
             display: none;
@@ -166,11 +167,7 @@
             border-radius: 5px;
             box-shadow: var(--shadow-fat);
             margin-inline-end: 0;
-            transition-property: transform, opacity;
-            transition-timing-function: var(--base-easing);
-            transition-duration: var(--base-animation-duration);
             transform: translateZ(1em);
-            opacity: 0;
             background-color: #fff;
 
             @supports not (inset-block: 0) {
