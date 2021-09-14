@@ -6,9 +6,6 @@ const closeMenuButton = document.querySelector('[data-close-site-menu]');
 const toggleSubmenuButton = document.querySelectorAll('[data-show-submenu]')
 const menu = document.querySelector('[data-site-menu]');
 
-// adding a Paint Worklett allowing corner smoothing with CSS border-radius
-(CSS.paintWorklet || paintWorklet).addModule('/assets/js/vendor/smooth-corners.js')
-
 // showing & hiding the submenus for main navigaton items
 toggleSubmenuButton.forEach(button => {
     button.addEventListener('click', (e) => {
