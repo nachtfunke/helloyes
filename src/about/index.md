@@ -16,9 +16,9 @@ I really, _really_ like making websites. I love designing them, writing code for
 
 Though maybe that is also a bit too reductive, I didn’t want to be a web designer, I just wanted to turn design into code.
 
-At some point while accidentaly discovering and playing around with HTML and CSS, something clicked. And then I was just hooked on this feeling of being able to turn what I carefully crafted to be nice to look at intso something that also feels nice to interact with. And that’s what I’ve been primarily doing since then. For a short while I was also teaching people at SAE Vienna the basics of HTML and CSS.
+At some point while accidentaly discovering and playing around with HTML and CSS, something clicked. And then I was just hooked on this feeling of being able to turn what I carefully crafted to be nice to look at into something that also feels nice to interact with. And that’s what I’ve been primarily doing since then. For a short while I was also teaching people at SAE Vienna the basics of HTML and CSS.
 
-If you wanna know more about my work experience, you can checkout my [timeline](/work) here.
+If you wanna know more about my work experience, you can check out my [timeline](/work) here.
 
 ## Today
 
