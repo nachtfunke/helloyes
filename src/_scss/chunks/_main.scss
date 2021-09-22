@@ -426,28 +426,26 @@
             }
         }
 
-        h3 {
-            margin: 0;
-            font-size: 1em;
+        :where(h3) {
+            font-size: 1.35em;
+            color: var(--color-highlight);
             font-weight: 575;
-            margin-block-start: .75em;
 
-            @include media.widerThan(syrup) {
-                font-size: 1.25em;
-                line-height: 1;
+            & + a {
+                font-size: 1.5em;
             }
         }
 
         h4 {
             margin: 0;
-            font-size: 1em;
+            font-size: 1.2em;
             font-weight: 550;
             margin-block-start: .5em;
         }
 
         h5 {
             margin: 0;
-            font-size: .9em;
+            font-size: 1em;
             font-weight: 550;
             margin-block-start: .25em;
             font-feature-settings: "smcp", "c2cp";
@@ -456,7 +454,7 @@
         h6 {
             margin: 0;
             margin-block-start: .25em;
-            font-size: 1em;
+            font-size: .9em;
             font-weight: 525;
         }
 
