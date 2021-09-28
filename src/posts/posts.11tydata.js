@@ -30,6 +30,7 @@ module.exports = function() {
 			},
             tags: ['post'],
             layout: 'post',
+			socialImages: true,
 			bodyClass: 'vers--single-post'
 		}
 	}
