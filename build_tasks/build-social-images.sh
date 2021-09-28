@@ -1,0 +1,1 @@
+eleventy-social-images --outputDir "dist" --templatePath src/social-images/template.html --dataFile "posts.json" --stylesPath "./dist/css/social-image.css"
