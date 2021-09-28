@@ -11,6 +11,7 @@
             {%- set pageSocialImg %}{{ meta.url }}/previews/{{ title | slug }}.png{% endset-%}
             <meta property="og:image" content="{{pageSocialImg}}" />
             <meta name="twitter:image" content="{{pageSocialImg}}" />
+            <meta name="twitter:image:alt" content="preview showing a blog post titled '{{ title }}' from helloyes.dev" />
         {%- endif -%}
         <link rel="alternate" type="application/atom+xml" href="{{ meta.site.feeds.blog.xml.url }}" title="{{ meta.site.feeds.blog.title }} (JSON)">
         <link rel="alternate" type="application/json" href="{{ meta.site.feeds.blog.json.url }}" title="{{ meta.site.feeds.blog.title }} (atom)">
