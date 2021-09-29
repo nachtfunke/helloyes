@@ -51,9 +51,9 @@ I believe that for this task, Eleventy is the right tool especially if you are e
 
 ### Good at... static site generation.
 
-It feels odd to say this, but Eleventy is really good at static site generation. This deserves a specific mention because competing projects are not focused too much on. Projects like gatsby do much more than that and are much loser to a framework or a "developer experience". This comes at an expense that is either specifically monetary or in most cases it is opinionated abstraction. Meaning, that in order to provide a certain experience, it will take control over certain aspects of the development process without giving you much control over it, limiting your choice, for effectivity. This is obviously fine, but it requires you to be congruent with its opinions, or understand them in the first place. As someone who enters the craft of website making, this is probably not the case.
+It feels odd to say this, but Eleventy is really good at static site generation. This deserves a specific mention because competing projects are not focused too much on. Projects like gatsby do much more than that and are much closer to a framework or a "developer experience". This comes at an expense that is either specifically monetary or in most cases it is opinionated abstraction. Meaning, that in order to provide a certain experience, it will take control over certain aspects of the development process without giving you much control over it, limiting your choice, for effectivity. This is obviously fine, but it requires you to be congruent with its opinions, or understand them in the first place. For someone entering the craft of website making, this is probably not the case.
 
-Eleventy's opinion seems to be that it should have opinions on your DX. Instead it focuses primarily on the _generation_ part. And it leaves you with much freedom!
+Eleventy's opinion seems to be that it _shouldn't_ have opinions on your DX. Instead it focuses primarily on the _generation_ part. And it leaves you with much freedom!
 
 ### Opt in to a HTML Templating language - or don't!
 
@@ -121,3 +121,7 @@ Also, join the [Eleventy Discord](https://discord.gg/VN2r3f6p)! The people there
     text: 'Join the Eleventy Discord',
     caption: 'we are really super nice!'
 }) }}
+
+***
+
+<small>Edited on the 30th Sept. to fix some typos</small>
