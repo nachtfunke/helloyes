@@ -117,7 +117,7 @@ I believe that Eleventy specifically closes this gap that lies between just tink
 Also, join the [Eleventy Discord](https://discord.gg/VN2r3f6p)! The people there come to learn and help each other with eleventy. I promise, it is _not_ stack overflow-esque! People join everyday and it has quickly turned into the focal point of the eleventy community.
 
 {{ pullLink({
-    href: 'https://discord.gg/VN2r3f6p',
+    href: 'https://discord.gg/VjgX29bV8v',
     text: 'Join the Eleventy Discord',
     caption: 'we are really super nice!'
 }) }}
