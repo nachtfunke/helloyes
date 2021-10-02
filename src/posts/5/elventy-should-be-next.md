@@ -28,7 +28,7 @@ But a webserver needs to support this! And we need (mostly) a programming langua
 {{ pullLink({
     href: 'https://css-tricks.com/static-or-not/',
     text: 'When to go static, and when not',
-    caption: 'from Chris Coyier at css-sticks.com'
+    caption: 'from Chris Coyier at css-tricks.com'
 }) }}
 
 ### Servers & Programming
