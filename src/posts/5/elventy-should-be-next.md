@@ -26,6 +26,7 @@ When a HTML document gets built on the server, dynamically, based on certain req
 But a webserver needs to support this! And we need (mostly) a programming language, that runs on the webserver. There are more programming languages that support this type of website making, not just PHP. And the numbers game still will present this way of website making as the dominant way. And there is nothing wrong with it! But there are drawbacks.
 
 {{ pullLink({
+    external: true,
     href: 'https://css-tricks.com/static-or-not/',
     text: 'When to go static, and when not',
     caption: 'from Chris Coyier at css-tricks.com'
@@ -70,6 +71,7 @@ People starting to learn this craft nowadays are often redirected to learning no
 I am arguing that this focus on outcome allows people to rarely engage with the edges of the technology, in short, to make less breaking changes. Yet it is so important to engage these edges and to make mistakes, because it allows people to build a more meaningful and complete relationship with it. This is not about deliberately frustrating people. In fact I am arguing that this way will actually decrease moments of frustration. Because Eleventy in essence is concerned with one important outcome, to generate a static website, mistakes that lead to actual failure will be much easier to solve. This is a very different experience for errors in SSG's that are providing a more complete Developer Experience, because even simple errors might trigger something in several layers. Debugging this might require deep understanding of these layers.
 
 {{ pullLink({
+    external: true,
     href: 'https://www.zachleat.com/web/introducing-eleventy/#eleventy-is-not-a-javascript-framework',
     text: 'The creator of Eleventy on why Eleventy is not a JavaScript Framework',
     caption: 'from Zach Leatherman at zachleat.com'
@@ -88,6 +90,7 @@ Another Reason for why Eleventy is a great next step when coming from learning H
 Previously, one of the reasons for why it might not have been a viable idea to work with an SSG is because it might be difficult to bring it from the local machine to the server in an automated way. Nowadays web-hosting services often will build your site _for you_ on their infrastructure. In some cases like netlify, it will even do that for free up to a certain degree. In a sector where traditional web-hosting companies argument their pricing with services like php, mysql, etc., having very fast free web-hosting is a game changer for many.
 
 {{ pullLink({
+    external: true,
     href: 'https://www.mikestreety.co.uk/blog/get-eleventy-up-and-running-on-netlify-or-cloudflare-pages/',
     text: 'Comparing several hosting options for eleventy projects',
     caption: 'from Mike Street at mikestreety.co.uk'
@@ -96,6 +99,7 @@ Previously, one of the reasons for why it might not have been a viable idea to w
 This is a relevant argument for Eleventy, because it is really _fast_. And whether or not you may require a paid tier of a web-hosting service like Netlify often will depend on how _long_ your build is running, meaning how long it takes the generator to generate your site. Eleventy is really fast and is very likely to cost you less _build minutes_ than another SSG.
 
 {{ pullLink({
+    external: true,
     href: 'https://docs.netlify.com/configure-builds/common-configurations/eleventy/',
     text: 'Eleventy Sites on Netlify',
     caption: 'from the netlify docs, docs.netlify.com'
@@ -105,7 +109,16 @@ This is a relevant argument for Eleventy, because it is really _fast_. And wheth
 
 If Eleventy had existed when I was starting out, things would have been very different in terms of my professional career. I was dependent on someone being good at writing PHP - there was just no way around it. I learned it a bit, but it soon would have required me to go into databases, etc. This is a very different world, when all I wanted to do was make websites.
 
-I believe that Eleventy specifically closes this gap that lies between just tinkering around with HTML, CSS & JS and launching full on projects. This is the right tool for you, if you are at this stage. Now, to get started - luckily, I am not the only person who is in love with this. So here is a list of Ressources that should help you getting started:
+I believe that Eleventy specifically closes this gap that lies between just tinkering around with HTML, CSS & JS and launching full on projects. This is the right tool for you, if you are at this stage. Now, to get started - luckily, I am not the only person who is in love with this. So here is the perfect tutorial for getting started:
+
+{{ pullLink({
+    external: true,
+    href: 'https://www.cassey.dev/posts/2021-10-23-converting-an-html-file-to-eleventy/',
+    text: 'Converting a simple HTML site to use Eleventy',
+    caption: 'by Cassey Lottman at cassey.dev'
+}) }}
+
+But it doesn't end here. The community is vivid and there are tons of great entry points to Eleventy:
 
 + Stephanie Eckles shares in this wonderful tiny video, [how to get started with eleventy in just 3 Minutes](https://www.youtube.com/watch?v=BKdQEXqfFA0&ab_channel=11tyRocks%21)!
 + She also made a [course on egghead.io](https://egghead.io/courses/build-an-eleventy-11ty-site-from-scratch-bfd3) that is entirely free!
@@ -117,6 +130,7 @@ I believe that Eleventy specifically closes this gap that lies between just tink
 Also, join the [Eleventy Discord](https://discord.gg/VN2r3f6p)! The people there come to learn and help each other with eleventy. I promise, it is _not_ stack overflow-esque! People join everyday and it has quickly turned into the focal point of the eleventy community.
 
 {{ pullLink({
+    external: true,
     href: 'https://discord.gg/VjgX29bV8v',
     text: 'Join the Eleventy Discord',
     caption: 'we are really super nice!'

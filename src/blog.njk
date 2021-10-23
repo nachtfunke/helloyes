@@ -18,7 +18,7 @@ pagination:
             <li class="posts-list__item">
                 <article class="listed-post">
                     <h2 class="listed-post__title">{{ post.data.title | safe }}</h2>
-                    <time class="listed-post__date">posted on {{ post.date | dateReadable }}</time>
+                    <time class="listed-post__date">{{ ('<span class="draft">draft</span>' if post.data.draft) | safe }}posted on {{ post.date | dateReadable }}</time>
                     <p class="listed-post__excerpt">{{ post.data.excerpt | safe }}</p>
                     <a class="c2a vers--bold  listed-post__action" href="{{ post.url | url }}">read more</a>
                 </article>
