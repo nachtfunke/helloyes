@@ -10,7 +10,7 @@ templateEngineOverride: md,njk
 
 ## What I am looking for
 
-+ A company with strong person-centered ehtical values.
++ A company with strong person-centered ethical values.
 + A team with diverse members.
 + part-time, remote & international (english-speaking preferred)
 + I am open to leadership or management positions in UI/UX-Design, Design Engineering or Frontend Design.
@@ -29,7 +29,7 @@ templateEngineOverride: md,njk
 + A CSS Developer, Accessibility Advocate & UI Designer.
 + Self-Sufficiency, Reliability, Ambition, Honesty.
 + A holistic approach to translating values into design, design into code, code into experiences.
-+ Passion goverend by high standards, driven by inclusive design principles and web standards.
++ Passion governed by high standards, driven by inclusive design principles and web standards.
 + A highly opinionated plus-size loud queer 🏳️‍🌈 person, dabbling in counter-culture.
 + A musician, meditation- and mindfulness 🧘‍♀️ teacher, photographer and (systemic) counsellor Ψ in training under supervision.
 
