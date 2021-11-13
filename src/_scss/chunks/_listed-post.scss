@@ -43,6 +43,18 @@
         margin-block-start: 0;
         font-weight: 500;
         font-size: .8em;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        .draft {
+            display: inline-block;
+            border-radius: 3px;
+            padding: .3em .5em;
+            background-color: var(--color-accent-700);
+            color: var(--color-accent-100);
+            line-height: 1;
+        }
     }
 
     &__action {

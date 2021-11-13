@@ -5,6 +5,8 @@
     position: relative;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 1em;
     z-index: 2;
     
     @at-root .site-layout:where(.vers--page, .vers--single-post) #{&} {
@@ -29,6 +31,7 @@
 
     @include media.widerThan(caramel) {
         justify-content: space-between;
+        flex-direction: row;
     }
 
     &::before {

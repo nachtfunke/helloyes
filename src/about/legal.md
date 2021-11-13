@@ -14,7 +14,9 @@ templateEngineOverride: njk,md
     contact@thomassemmler.com
 </address>
 
-This website will not track you. Changing the accent color the website will save it to the session storage which will be cleared once you close the browser.
+Changing the accent color the website will save it to the session storage which will be cleared once you close the browser.
+
+I am using fathom for some privacy first analytics. It doesn't use cookies and it fully complies with GDPR. I have no interest in tracking you, but this is an eleventy site on netlify's free plan and I have literally know idea whatsoever if and how people are using my website. That's why I decided to use fathom. You can read more about fathoms compliance [here](https://usefathom.com/compliance/gdpr-compliant-website-analytics).
 
 ***
 
