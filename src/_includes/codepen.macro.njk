@@ -1,10 +1,10 @@
 {%- macro codepen(params) -%}
-    <div class="wrap-as--full-column">
-        <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="{{ params.defaultTab if params.defaultTab else 'html' }}" data-user="thomassemmler" data-slug-hash="{{ params.id }}" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="{{ params.id }}">
+    <figure class="embed">
+        <p class="codepen" data-height="350" data-theme-id="dark" data-default-tab="{{ params.defaultTab if params.defaultTab else 'html' }}" data-user="thomassemmler" data-slug-hash="{{ params.id }}" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="{{ params.id }}">
         <span>See the Pen <a href="https://codepen.io/thomassemmler/pen/{{ params.id }}">
         {{ params.id }}</a> by Thomas Michael Semmler (<a href="https://codepen.io/thomassemmler">@thomassemmler</a>)
         on <a href="https://codepen.io">CodePen</a>.</span>
         </p>
         <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-    </div>
+    </figure>
 {%- endmacro -%}

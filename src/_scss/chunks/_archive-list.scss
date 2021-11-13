@@ -25,6 +25,7 @@
             display: flex;
             gap: .5em;
             justify-content: space-between;
+            align-items: center;
         }
 
         &-title {
@@ -39,6 +40,18 @@
             line-height: 1;
             transform: translateY(.15em);
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .draft {
+                display: inline-block;
+                border-radius: 3px;
+                padding: .3em .5em;
+                background-color: var(--color-accent-700);
+                color: var(--color-accent-100);
+                line-height: 1;
+            }
         }
     }
 }

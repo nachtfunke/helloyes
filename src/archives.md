@@ -13,7 +13,13 @@ templateEngineOverride: md,njk
         <li class="archive-list__item">
             <article class="archive-list__item-article" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                 <h2 class="archive-list__item-title" itemprop="name headline"><a href="{{ post.url | url }}">{{ post.data.title | safe }}</a></h2>
-                <time class="archive-list__item-date">posted on {{ post.date | dateReadable }}</time>
+                <time class="archive-list__item-date">
+                    {%- if post.data.draft -%}
+                        <span class="draft">draft</span> scheduled for {{ post.date | dateReadable }}
+                    {%- else -%}
+                        posted on {{ post.date | dateReadable }}
+                    {%- endif -%}
+                </time>
             </article>
         </li>
     {%- endfor -%}
