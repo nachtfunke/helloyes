@@ -4,7 +4,7 @@ title: "Welcome"
 ---
 
 <div class="welcome">
-    <div class="welcome__illustration" aria-hidden="true">{{ '/src/assets/svg/illustrations/welcome-lined.svg' | svgContents | safe }}</div>
+    <div class="welcome__illustration" aria-hidden="true">{{ '/src/assets/svg/illustrations/welcome-lined.svg' | svgContents }}</div>
     <h1 class="welcome__title">Design Engineering, Accessibility, Frontend Design & CSS</h1>
     <p class="welcome__desc">I’m a <a href="{{ '/work' | url }}">Designer & Developer</a> with <a href="{{ '/blog' | url }}">strong opinions</a> and a lot of passion for the web plattform.<sup><a href="#footnote">1</a></sup></p>
     <div class="welcome__actions">

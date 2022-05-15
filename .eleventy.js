@@ -5,7 +5,6 @@ const toc = require('eleventy-plugin-nesting-toc'); // https://github.com/Jordan
 const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 const rss = require('@11ty/eleventy-plugin-rss');
 const assetsForPermalink = require('eleventy-plugin-page-assets');
-const socialImages = require('@11tyrocks/eleventy-plugin-social-images');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -102,7 +101,6 @@ module.exports = function (eleventyConfig) {
     hashAssets: false,
     postsMatching: 'src/posts/*/*.md'
   });
-  eleventyConfig.addPlugin(socialImages);
 
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
