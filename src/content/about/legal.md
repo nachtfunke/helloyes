@@ -5,6 +5,7 @@ metaDescription: "Legally required imprint, in accordance with Austrian law (as 
 excerpt: false
 illustration: "welcome-lined"
 templateEngineOverride: njk,md
+permalink: /about/legal/
 ---
 
 <address>

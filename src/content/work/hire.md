@@ -5,6 +5,7 @@ metaDescription: "All about hiring me as a Designer or Developer: What I look fo
 excerpt: "I'm looking for a new position! And you should hire me:"
 illustration: "hiring-lined"
 templateEngineOverride: md,njk
+permalink: /work/hire/
 ---
 {% from 'pull-link.macro.njk' import pullLink %}
 

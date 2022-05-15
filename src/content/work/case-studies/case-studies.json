@@ -1,6 +1,6 @@
 {
     "tags": "case-study",
-    "permalink": "work/case-studies/{{ id }}/",
+    "permalink": "/work/case-studies/{{ id }}/",
     "illustration": "design-engineering-lined",
     "layout": "post",
     "caseStudy": true,

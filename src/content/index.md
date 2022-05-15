@@ -1,6 +1,7 @@
 ---
 layout: index
 title: "Welcome"
+permalink: /
 ---
 
 <div class="welcome">
