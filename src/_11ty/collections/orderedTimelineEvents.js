@@ -1,0 +1,1 @@
+module.exports = collection => collection.getFilteredByTag('timeline-event').sort( (a,b) => a.data.order - b.data.order);
