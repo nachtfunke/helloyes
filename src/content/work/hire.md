@@ -14,11 +14,10 @@ permalink: /work/hire/
 + A company with strong person-centered ethical values.
 + A team with diverse members.
 + part-time, remote & international (english-speaking preferred)
-+ I am open to leadership or management positions in UI/UX-Design, Design Engineering or Frontend Design.
 + I am also open to time-limited positions!
 
 {{ pullLink({
-    href: '/assets/resumee.pdf',
+    href: '/assets/resumee-2022.pdf',
     download: true,
     text: 'Download my current resumee',
     caption: 'But I\'d rather you just write me instead'
@@ -26,8 +25,11 @@ permalink: /work/hire/
 
 ## What you are getting
 
-+ 10+ years Experience in making, maintaining and evolving websites.
-+ A CSS Developer, Accessibility Advocate & UI Designer.
++ 11+ years Experience in making, maintaining and evolving websites.
++ A CSS Developer, Accessibility Advocate & UI Engineer.
++ A Designer that plays well with Developers.
++ A Developer that plays well with Designers.
++ A Teacher, constantly focused on empowerment.
 + Self-Sufficiency, Reliability, Ambition, Honesty.
 + A holistic approach to translating values into design, design into code, code into experiences.
 + Passion governed by high standards, driven by inclusive design principles and web standards.

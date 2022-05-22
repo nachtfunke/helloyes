@@ -6,7 +6,11 @@
 
 [[redirects]]
   from = "/hire"
-  to = "/work/hire"
+  to = "/work/with-me"
+
+[[redirects]]
+  from = "/work/hire"
+  to = "/work/with-me"
 
 [[redirects]]
   from = "/legal"
