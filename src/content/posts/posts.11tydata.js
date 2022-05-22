@@ -22,7 +22,7 @@ module.exports = function() {
 			},
 			permalink: function(data) {
 				if(showDraft(data)) {
-					return 'blog/{{ date | dateGetYear }}/{{ title | slug }}/'
+					return '/blog/{{ date | dateGetYear }}/{{ title | slug }}/'
 				}
 				else {
 					return false;

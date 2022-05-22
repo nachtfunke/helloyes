@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: 'blog/archives/'
+permalink: '/blog/archives/'
 title: "Blog Archives"
 metaDescription: "All blog posts published on helloyes.dev, chronologically listed."
 excerpt: "All the blog post, listed chronogically - the most recent one is first."

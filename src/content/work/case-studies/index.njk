@@ -1,0 +1,42 @@
+---
+layout: default
+title: "Case Studies"
+metaDescription: "Lists selected Projects as Case Studies to demonstrate work experience."
+excerpt: "This is a selction of the (visual) work that I did over the years, though all of them also include work without a visible outcome."
+illustration: false
+mainclass: "vers--listing-page"
+permalink: /work/case-studies/
+except: true
+---
+{% from 'tag.macro.njk' import tag %}
+
+<ul class="case-studies-list" role="list">
+    {% for caseStudy in collections.orderedCaseStudies %}
+        {%- if not caseStudy.data.except -%}
+            <li class="case-studies-list__item">
+                <article class="case-study--listed" style="--cover-color: {{ caseStudy.data.color }}">
+                    <div class="case-study__text">
+                        <h2 class="case-study__title">{{ caseStudy.data.title }}</h2>
+                        <p class="case-study__excerpt">{{ caseStudy.data.excerpt }}</p>
+                        {% if caseStudy.data.caseStudyTags %}
+                            <ul class="list--horizontal  case-study__tags">
+                                {% for caseStudyTag in caseStudy.data.caseStudyTags %}
+                                    <li class="list__item">{{ tag({ text: caseStudyTag, large: true}) }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {%- if caseStudy.data.link -%}
+                            <a class="c2a vers--bold  case-study__action" href="{{ caseStudy.data.link | url }}" target="_blank" rel="noopener noreferrer">visit website</a>
+                        {%- else -%}
+                            <a class="c2a vers--bold  case-study__action" href="{{ caseStudy.url | url }}">see details</a>
+                        {%- endif -%}
+                    </div>
+                    <div class="case-study__cover" aria-hidden="true">
+                        {% set coverImgPath = ('/assets/img/case-studies/' + caseStudy.data.id + '/blob-' + caseStudy.data.id)  %}
+                        <img srcset="{{ (coverImgPath + '.png 240w') | url }}, {{ (coverImgPath + '@2x.png 480w') | url }}" sizes="(max-width: 1200px) 240px, (min-width: 1200px) 480px" alt="">
+                    </div>
+                </article>
+            </li>
+        {%- endif -%}
+    {% endfor %}
+</ul>

@@ -1,31 +1,27 @@
 {
-  "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "del": "^2.2.2",
-    "dotenv": "^10.0.0",
-    "eleventy-plugin-nesting-toc": "^1.3.0",
-    "eleventy-plugin-page-assets": "github:maxboeck/eleventy-plugin-page-assets",
-    "eleventy-plugin-svg-contents": "^0.7.0",
-    "markdown-it-anchor": "^7.1.0",
-    "sass": "^1.34.0"
-  },
   "scripts": {
     "eleventy:serve": "eleventy --serve",
     "eleventy:build": "eleventy",
     "eleventy:test": "eleventy --dryrun",
     "sass:watch": "sass src/_scss:dist/css --watch --update --color",
     "sass:build": "sass src/_scss:dist/css --no-source-map --style=compressed",
-    "social-images:build": "./build_tasks/build-social-images.sh",
     "clean": "del dist",
     "start": "run-p -l clean sass:build sass:watch eleventy:serve",
-    "build": "run-s -l clean eleventy:build sass:build social-images:build",
+    "build": "run-s -l clean eleventy:build sass:build",
     "test": "npm run eleventy:test"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-plugin-rss": "^1.1.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
-    "@11tyrocks/eleventy-plugin-social-images": "^0.2.0",
+    "del": "^2.2.2",
     "del-cli": "^3.0.1",
-    "npm-run-all": "^4.1.5"
+    "dotenv": "^10.0.0",
+    "eleventy-plugin-nesting-toc": "^1.3.0",
+    "eleventy-plugin-page-assets": "github:maxboeck/eleventy-plugin-page-assets",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "markdown-it-anchor": "^7.1.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.34.0"
   }
 }

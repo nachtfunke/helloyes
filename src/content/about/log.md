@@ -5,6 +5,7 @@ metaDescription: "All changes and updates made to this site, chronologically lis
 excerpt: "Updates & Changes made to this website are collected here."
 illustration: "contracting-lined"
 templateEngineOverride: md,njk
+permalink: /about/log/
 ---
 
 {% for entry in collections['log-entry'] | reverse %}

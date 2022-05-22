@@ -16,9 +16,9 @@
                 "name": "case studies",
                 "url": "work/case-studies"
             },
-            "hiring": {
-                "name": "hire me",
-                "url": "work/hire"
+            "work-with-me": {
+                "name": "Work with me",
+                "url": "work/with-me"
             }
         }
     },

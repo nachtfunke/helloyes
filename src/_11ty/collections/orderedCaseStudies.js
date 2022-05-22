@@ -1,0 +1,1 @@
+module.exports = collection => collection.getFilteredByTag('case-study').sort( (a,b) => a.data.order - b.data.order);
