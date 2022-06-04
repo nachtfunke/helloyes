@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(assetsForPermalink, {
     mode: 'directory',
     hashAssets: false,
-    postsMatching: 'src/posts/*/*.md'
+    postsMatching: 'src/content/posts/*/*.md'
   });
 
   // Collections
