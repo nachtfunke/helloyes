@@ -1,6 +1,6 @@
 ---
 date: 2022-06-04
-title: 'I'm not pursuing design any longer'
+title: "I'm not pursuing design any longer"
 metaDescription: "I'm not pursuing design any longer."
 excerpt: 'Design has changed and so have I.'
 templateEngineOverride: 'md,njk'
