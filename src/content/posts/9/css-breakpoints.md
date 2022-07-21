@@ -93,7 +93,6 @@ The media features `prefers-contrast`, `forced-colors` and `inverted-colors` all
 
 + Ben Myers - https://benmyers.dev/blog/fix-low-contrast-text/
 + Eric Bailey for smashingmagazine.com - https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
-+ 
 
 ### Reading Direction Variety
 
