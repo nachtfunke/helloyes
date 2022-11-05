@@ -26,6 +26,7 @@ module.exports = {
         dribbble: "https://dribbble.com/thomassemmler",
         twitter: "https://twitter.com/nachtfunke",
         linkedin: "https://www.linkedin.com/in/thomas-michael-semmler-8a8018207/",
-        polywork: "https://www.polywork.com/pfeffer"
+        polywork: "https://www.polywork.com/pfeffer",
+        mastodon: "https://indieweb.social/@nachtfunke"
     }
 }
