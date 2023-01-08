@@ -13,6 +13,7 @@ const { markdownConfigured } = require('./src/_11ty/plugins/markdown-it.js');
 // collections
 const orderedTimelineEvents = require('./src/_11ty/collections/orderedTimelineEvents.js');
 const orderedCaseStudies = require('./src/_11ty/collections/orderedCaseStudies.js');
+const blogPosts = require('./src/_11ty/collections/blogPosts.js');
 
 module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
@@ -40,6 +41,7 @@ module.exports = function (eleventyConfig) {
   // Collections
   eleventyConfig.addCollection('orderedTimelineEvents', orderedTimelineEvents);
   eleventyConfig.addCollection('orderedCaseStudies', orderedCaseStudies);
+  eleventyConfig.addCollection('blogPosts', blogPosts);
 
   // copy these static assets
   eleventyConfig.addPassthroughCopy('src/assets');

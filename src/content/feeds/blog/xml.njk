@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
 		<name>{{ meta.personal.name }}</name>
 		<email>{{ meta.personal.email }}</email>
 	</author>
-	{%- for post in collections.post | reverse %}
+	{%- for post in collections.blogPosts | reverse %}
 	{% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.site.domain) }}{% endset %}
 	<entry>
 		<title>{{ post.data.title }}</title>

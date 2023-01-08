@@ -9,7 +9,7 @@ templateEngineOverride: md,njk
 ---
 
 <ol class="archive-list" role="list" reversed>
-    {%- for post in collections.post | reverse -%}
+    {%- for post in collections.blogPosts | reverse -%}
         <li class="archive-list__item">
             <article class="archive-list__item-article" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                 <h2 class="archive-list__item-title" itemprop="name headline"><a href="{{ post.url | url }}">{{ post.data.title | safe }}</a></h2>

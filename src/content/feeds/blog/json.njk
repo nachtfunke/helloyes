@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
         "url": "{{ meta.personal.about }}"
     },
     "items": [
-        {%- for post in collections.post %}
+        {%- for post in collections.blogPosts %}
         {%- set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.site.domain) }}{% endset -%}
         {
             "id": "{{ absolutePostUrl }}",

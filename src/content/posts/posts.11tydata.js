@@ -28,8 +28,8 @@ module.exports = function() {
 					return false;
 				}
 			},
-            tags: ['post'],
-            layout: 'post',
+			tags: ['blog-post'],
+			layout: 'post',
 			socialImages: true,
 			bodyClass: 'vers--single-post'
 		}
