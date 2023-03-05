@@ -1,7 +1,7 @@
 ---
 date: 2023-03-05
 title: "Separation of Concerns: Craft and Industry in Websitemaking"
-metaDescription: "We have long referred to our niche of the web as the "web industry" but never has the term been more congruent than it is right now. I believe this throws us into some conflicts, that we are left deal with alone."
+metaDescription: "We have long referred to our niche of the web as the web industry but never has the term been more congruent than it is right now. I believe this throws us into some conflicts, that we are left deal with alone."
 excerpt: "Reconciling the differences between the craft of making websites and the industry that has grown around it."
 ---
 
