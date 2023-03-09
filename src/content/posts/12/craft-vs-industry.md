@@ -120,7 +120,7 @@ So the next time you are approaching a website, ask yourself, "What would the cr
 
 ## Post Credits
 
-Thank you to [Hidde de Vries](https://hidde.blog/), who in a conversation we've had, helped me to see the potential value, that a post about this topic could potentially have.
+Thank you to [Hidde de Vries](https://hidde.blog/), who in a conversation we've had, helped me to see the potential value, that a post about this topic could have.
 
 ### Proof Readers & Feeback-Givers
 
