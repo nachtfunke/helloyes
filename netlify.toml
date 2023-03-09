@@ -19,3 +19,55 @@
 [[redirects]]
   from = "/log"
   to = "/about/log"
+
+[[redirects]]
+  from = "/blog/2023/craft-vs-industry:-how-to-be-a-better-craftsperson/"
+  to = "/blog/2023/how-to-be-a-better-craftsperson"
+
+[[redirects]]
+  from = "/blog/2023/craft-vs-industry:-separating-concerns/"
+  to = "/blog/2023/craft-vs-industry"
+
+[[redirects]]
+  from = "/blog/2023/hello-2023!/"
+  to = "/blog/2023/hello-2023"
+
+[[redirects]]
+  from = "/blog/2022/mourning-my-obsolete-skillset/"
+  to = "/blog/2022/mourning-my-obsolete-skillset"
+
+[[redirects]]
+  from = "/blog/2022/things-i-wish-i'd-known-earlier-in-my-career/"
+  to = "/blog/2022/career-wish-id-known-earlier"
+
+[[redirects]]
+  from = "/blog/2022/re:-css-breakpoints-every-developer-needs-to-know/"
+  to = "/blog/2022/css-breakpoints"
+
+[[redirects]]
+  from = "/blog/2022/i'm-not-pursuing-design-any-longer/"
+  to = "/blog/2022/leaving-design"
+
+[[redirects]]
+  from = "/blog/2021/recapping-the-last-6-months/"
+  to = "/blog/2021/6-months-recap"
+
+[[redirects]]
+  from = "/blog/2021/make-eleventy-the-next-thing-you-learn/"
+  to = "/blog/2021/elventy-should-be-next"
+
+[[redirects]]
+  from = "/blog/2021/using-parameters-in-your-eleventy-includes-with-nunjucks-macros/"
+  to = "/blog/2021/parameters-in-includes-with-nunjucks-macros"
+
+[[redirects]]
+  from = "/blog/2021/minimal-sass-and-eleventy-setup/"
+  to = "/blog/2021/minimal-sass-and-eleventy-setup"
+
+[[redirects]]
+  from = "/blog/2021/very-simple-patterns-with-svg/"
+  to = "/blog/2021/2-simple-svg-patterns"
+
+[[redirects]]
+  from = "/blog/2021/is-it-too-late-to-start-blogging/"
+  to = "/blog/2021/1-too-late-to-start-blogging"
