@@ -22,7 +22,12 @@ module.exports = function() {
 			},
 			permalink: function(data) {
 				if(showDraft(data)) {
-					return '/blog/{{ date | dateGetYear }}/{{ title | slug }}/'
+					// if a custom override is set, use that
+					if (data.permalink) {
+						return `/blog/{{ date | dateGetYear }}/${data.permalink}/`;
+					} else {
+						return `/blog/{{ date | dateGetYear }}/${data.page.fileSlug}/`
+					}
 				}
 				else {
 					return false;

@@ -63,6 +63,10 @@
                 content: '"';
             }
         }
+
+        & + * {
+            margin-block-start: 1em;
+        }
     }
 
     figure:not([class]) {
