@@ -5,7 +5,7 @@ module.exports = {
         feeds: {
             blog: {
                 title: "Thomas Michael Semmler - helloyes.dev",
-                description: "Articles about design, accessibility, design engineering, design ops, eleventy and CSS from Thomas Michael Semmler",
+                description: "Personal Blog of Thomas Michael Semmler: Web Development, Design, and Website Making.",
                 xml: {
                     path: "/feeds/blog/feed.xml",
                     url: "https://helloyes.dev/feeds/blog/feed.xml"
@@ -25,7 +25,6 @@ module.exports = {
     social: {
         dribbble: "https://dribbble.com/thomassemmler",
         twitter: "https://twitter.com/nachtfunke",
-        linkedin: "https://www.linkedin.com/in/thomas-michael-semmler-8a8018207/",
         polywork: "https://www.polywork.com/pfeffer",
         mastodon: "https://indieweb.social/@nachtfunke"
     }
