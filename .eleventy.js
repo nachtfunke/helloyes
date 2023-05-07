@@ -47,8 +47,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/sw.js');
 
-  eleventyConfig.setBrowserSyncConfig({
-    files: './dist/css/**/*.css'
+  eleventyConfig.setServerOptions({
+      watch: ['dist/css/**/*.css']
   });
 
   return {
