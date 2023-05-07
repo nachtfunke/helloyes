@@ -1,6 +1,11 @@
+// get me the current year
+
+const today = new Date();
+const currentYear = today.getFullYear();
+
 module.exports = {
     site: { 
-        copyright: "2021 Thomas Michael Semmler",
+        copyright: `${currentYear} Thomas Michael Semmler`,
         domain: process.env.URL || "http://localhost:8888",
         feeds: {
             blog: {

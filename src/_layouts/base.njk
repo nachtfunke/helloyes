@@ -138,7 +138,7 @@
                     {% include 'accent-color-settings.njk' %}
                 </div>
             </div>
-            <p class="site-footer__copy" id="site-copy">&copy; 2021 Thomas Michael Semmler / {%- for name, link in meta.social -%}<a href="{{ link }}" rel="me" target="_blank">{{ name }}</a>{%- if not loop.last -%}&nbsp;-&nbsp;{%- endif -%}{%- endfor -%}</p>
+            <p class="site-footer__copy" id="site-copy">&copy; {{ meta.site.copyright }} / {%- for name, link in meta.social -%}<a href="{{ link }}" rel="me" target="_blank">{{ name }}</a>{%- if not loop.last -%}&nbsp;-&nbsp;{%- endif -%}{%- endfor -%}</p>
             {% include 'report-a11y-issue.njk' %}
         </footer>
         <script src="{{ '/assets/js/main.js' | url }}" type="module"></script>
