@@ -5,20 +5,12 @@
   command = "AWS_LAMBDA_FUNCTION_NAME=trickpuppeteer npm run build"
 
 [[redirects]]
-  from = "/hire"
-  to = "/work/with-me"
+  from = "/work/case-studies"
+  to = "/work"
 
 [[redirects]]
-  from = "/work/hire"
-  to = "/work/with-me"
-
-[[redirects]]
-  from = "/legal"
-  to = "/about/legal"
-
-[[redirects]]
-  from = "/log"
-  to = "/about/log"
+  from = "/work/with-me"
+  to = "/work"
 
 [[redirects]]
   from = "/blog/2023/craft-vs-industry:-how-to-be-a-better-craftsperson/"
